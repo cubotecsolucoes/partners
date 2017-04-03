@@ -61,7 +61,7 @@
       <div class="heading wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="100ms">
         <div class="row">
           <div class="text-center col-sm-8 col-sm-offset-2">
-            <h2>Quem Somoss</h2>
+            <h2>Quem Somos</h2>
             <p>A Partners Centro de Dança foi fundada em 2001, pelo casal de bailarinos, professores e coreógrafos Joilma Valeriano e Phernão Ollavo, com objetivo de dar novas asas à arte da dança em nosso estado.</p><p> A Partners Centro de Dança conquistou seu espaço no cenário artístico sergipano e nacional através de um trabalho jovem, sério e comprometido com o desenvolvimento global de seus bailarinos.</p>
             <p>Por entendermos que a arte (neste caso a dança) seja um importante coadjuvante nos processos educacionais, é que buscamos em nossos trabalhos dar ênfase aos domínios motores, afetivos e cognitivos expressos por nossos alunos no cotidiano da sala de aula, a fim de procurar formar assim não só bailarinos, mas também indivíduos mais ativos e conscientes das suas potencialidades e limitações corporais, seres mais sensíveis para com os outros e consigo próprio e acima de tudo cidadãos conscientes e comprometidos com a realidade a sua volta.</p>
           </div>
