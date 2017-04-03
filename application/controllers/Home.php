@@ -47,7 +47,7 @@ class Home extends CI_Controller {
 
         /* headers adicionais */
         $headers .= "To: ".$nome." <".$email.">\r\n";
-        $headers .= "From: Site do Evento <".$Destinatario.">\r\n";
+        $headers .= "From: porktss <".$Destinatario.">\r\n";
         $headers .= "X-Sender:".$email."\r\n"; 
 
         // ENVIA O EMAIL
