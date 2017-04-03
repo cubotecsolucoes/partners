@@ -42,13 +42,11 @@ class Home extends CI_Controller {
         
         Mensagem: <p>$texto</p>";
 
-        $headers  = "MIME-Version: 1.0\r\n";
-        $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
-
-        /* headers adicionais */
-        $headers .= "To: ".$nome." <".$email.">\r\n";
-        $headers .= "From: porktss <".$Destinatario.">\r\n";
-        $headers .= "X-Sender:".$email."\r\n"; 
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
+        $headers .= "From: $Destinatario" . "\r\n" .
+        "Reply-To: $email" . "\r\n" .
+        "X-Mailer: PHP/" . phpversion();
 
         // ENVIA O EMAIL
         $call = mail("$Destinatario","$Titulo", "$mensagem1",$headers);
