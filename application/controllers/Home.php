@@ -40,7 +40,10 @@ class Home extends CI_Controller {
         <h3>Nome: <b>$nome</b></h3>
         <h3>Email: $email</h3>
         
-        Mensagem: <p>$texto</p>";
+        Mensagem: <p>$texto</p>
+
+        <a href=\"mailto:$email\"><button style=\"background-color: green; width: 70px; height: 40px; border: 1px solid grey;\">Responder</button></a>
+        ";
 
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
