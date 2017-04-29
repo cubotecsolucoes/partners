@@ -6,13 +6,13 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Academia Teste</title>
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/css/animate.min.css" rel="stylesheet"> 
-  <link href="assets/css/font-awesome.min.css" rel="stylesheet">
-  <link href="assets/css/lightbox.css" rel="stylesheet">
-  <link href="assets/css/main.css" rel="stylesheet">
-  <link id="css-preset" href="assets/css/presets/preset1.css" rel="stylesheet">
-  <link href="assets/css/responsive.css" rel="stylesheet">
+  <link href="<?php echo(base_url()); ?>assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo(base_url()); ?>assets/css/animate.min.css" rel="stylesheet"> 
+  <link href="<?php echo(base_url()); ?>assets/css/font-awesome.min.css" rel="stylesheet">
+  <link href="<?php echo(base_url()); ?>assets/css/lightbox.css" rel="stylesheet">
+  <link href="<?php echo(base_url()); ?>assets/css/main.css" rel="stylesheet">
+  <link id="css-preset" href="<?php echo(base_url()); ?>assets/css/presets/preset1.css" rel="stylesheet">
+  <link href="<?php echo(base_url()); ?>assets/css/responsive.css" rel="stylesheet">
 
   <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>

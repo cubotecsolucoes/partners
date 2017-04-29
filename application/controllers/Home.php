@@ -61,5 +61,5 @@ class Home extends CI_Controller {
 
         echo(json_encode($data));
     }
-    //put your code here
+
 }

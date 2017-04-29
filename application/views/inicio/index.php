@@ -1,21 +1,21 @@
 <header id="home">
     <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
-        <div class="item active" style="background-image: url(assets/images/slider/1.jpg)">
+        <div class="item active" style="background-image: url(<?php echo(base_url()); ?>assets/images/slider/1.jpg)">
           <div class="caption">
             <h1 class="animated fadeInLeftBig">Partners <span>Centro De Dança</span></h1>
             <p class="animated fadeInRightBig">Escola de Dança - Estúdio - Apresentações</p>
             <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Saiba Mais</a>
           </div>
         </div>
-        <div class="item" style="background-image: url(assets/images/slider/2.jpg)">
+        <div class="item" style="background-image: url(<?php echo(base_url()); ?>assets/images/slider/2.jpg)">
           <div class="caption">
             <h1 class="animated fadeInLeftBig">Partners <span>Centro De Dança</span></h1>
             <p class="animated fadeInRightBig">A dança é nossa segunda pele</p>
             <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Saiba Mais</a>
           </div>
         </div>
-        <div class="item" style="background-image: url(assets/images/slider/3.jpg)">
+        <div class="item" style="background-image: url(<?php echo(base_url()); ?>assets/images/slider/3.jpg)">
           <div class="caption">
             <h1 class="animated fadeInLeftBig">Partners <span>Centro De Dança</span></h1>
             <p class="animated fadeInRightBig">16 anos mudando conceitos sobre dança</p>
@@ -39,7 +39,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="index.html">
-            <h1><img class="img-responsive" src="assets/images/logo.svg" alt="logo"></h1>
+            <h1><img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/logo.svg" alt="logo"></h1>
           </a>                    
         </div>
         <div class="collapse navbar-collapse">
@@ -50,7 +50,7 @@
             <li class="scroll"><a href="#pricing">Comprar</a></li>
             <li class="scroll"><a href="#apoio">Apoio</a></li>
             <li class="scroll"><a href="#contact">Contato</a></li>     
-            <li class="scroll"><a href="#twitter">Entrar</a></li>
+            <li class="scroll"><a href="#entrar">Entrar</a></li>
           </ul>
         </div>
       </div>
@@ -155,7 +155,7 @@
         <div class="col-sm-3">
           <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="120ms">
             <div class="folio-image">
-              <img class="img-responsive" src="assets/images/portfolio/fotos/1.jpg" alt="">
+              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/1.jpg" alt="">
             </div>
             <div class="overlay">
               <div class="overlay-content">
@@ -166,7 +166,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="assets/images/portfolio/fotosgrandes/1.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/1.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -176,7 +176,7 @@
         <div class="col-sm-3">
           <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="180ms">
             <div class="folio-image">
-              <img class="img-responsive" src="assets/images/portfolio/fotos/2.jpg" alt="">
+              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/2.jpg" alt="">
             </div>
             <div class="overlay">
               <div class="overlay-content">
@@ -187,7 +187,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="assets/images/portfolio/fotosgrandes/2.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/2.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -197,7 +197,7 @@
         <div class="col-sm-3">
           <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="180ms">
             <div class="folio-image">
-              <img class="img-responsive" src="assets/images/portfolio/fotos/3.jpg" alt="">
+              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/3.jpg" alt="">
             </div>
             <div class="overlay">
               <div class="overlay-content">
@@ -208,7 +208,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="assets/images/portfolio/fotosgrandes/3.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/3.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -218,7 +218,7 @@
         <div class="col-sm-3">
           <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="240ms">
             <div class="folio-image">
-              <img class="img-responsive" src="assets/images/portfolio/fotos/4.jpg" alt="">
+              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/4.jpg" alt="">
             </div>
             <div class="overlay">
               <div class="overlay-content">
@@ -229,7 +229,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="assets/images/portfolio/fotosgrandes/4.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/4.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -239,7 +239,7 @@
         <div class="col-sm-3">
           <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="240ms">
             <div class="folio-image">
-              <img class="img-responsive" src="assets/images/portfolio/fotos/5.jpg" alt="">
+              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/5.jpg" alt="">
             </div>
             <div class="overlay">
               <div class="overlay-content">
@@ -250,7 +250,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="assets/images/portfolio/fotosgrandes/5.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/5.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -260,7 +260,7 @@
         <div class="col-sm-3">
           <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="300ms">
             <div class="folio-image">
-              <img class="img-responsive" src="assets/images/portfolio/fotos/6.jpg" alt="">
+              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/6.jpg" alt="">
             </div>
             <div class="overlay">
               <div class="overlay-content">
@@ -271,7 +271,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="assets/images/portfolio/fotosgrandes/6.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/6.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -281,7 +281,7 @@
         <div class="col-sm-3">
           <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="300ms">
             <div class="folio-image">
-              <img class="img-responsive" src="assets/images/portfolio/fotos/7.jpg" alt="">
+              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/7.jpg" alt="">
             </div>
             <div class="overlay">
               <div class="overlay-content">
@@ -292,7 +292,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="assets/images/portfolio/fotosgrandes/7.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/7.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -302,7 +302,7 @@
         <div class="col-sm-3">
           <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="360ms">
             <div class="folio-image">
-              <img class="img-responsive" src="assets/images/portfolio/fotos/8.jpg" alt="">
+              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/8.jpg" alt="">
             </div>
             <div class="overlay">
               <div class="overlay-content">
@@ -313,7 +313,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="assets/images/portfolio/fotosgrandes/8.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/8.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -341,7 +341,7 @@
           <div class="col-sm-3">
             <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="200ms">
               <div class="member-image">
-                <img class="img-responsive" src="assets/images/team/1.jpg" alt="">
+                <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/team/1.jpg" alt="">
               </div>
               <div class="member-info">
                 <h3>Maria José</h3>
@@ -360,7 +360,7 @@
           <div class="col-sm-3">
             <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="400ms">
               <div class="member-image">
-                <img class="img-responsive" src="assets/images/team/2.jpg" alt="">
+                <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/team/2.jpg" alt="">
               </div>
               <div class="member-info">
                 <h3>José Tavares</h3>
@@ -379,7 +379,7 @@
           <div class="col-sm-3">
             <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="600ms">
               <div class="member-image">
-                <img class="img-responsive" src="assets/images/team/3.jpg" alt="">
+                <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/team/3.jpg" alt="">
               </div>
               <div class="member-info">
                 <h3>Antônio Fernando</h3>
@@ -398,7 +398,7 @@
           <div class="col-sm-3">
             <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="800ms">
               <div class="member-image">
-                <img class="img-responsive" src="assets/images/team/4.jpg" alt="">
+                <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/team/4.jpg" alt="">
               </div>
               <div class="member-info">
                 <h3>Vanessa da Mata</h3>
@@ -472,27 +472,16 @@
           <div class="col-sm-4"></div>
         </div>
       </div>
+      <section id="entrar"></section>
     </div>
   </section><!--/#pricing-->
 
   <section id="twitter" class="parallax">
     
     <div class="panel panel-login">
-      <div class="panel-heading">Login</div>
+      <div class="panel-heading">Sistema de Reserva</div>
       <div class="panel-body">
-      <form action="" method="POST" role="form">
-        <div class="form-group">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">@</span>
-            <input type="text" class="form-control" placeholder="Usuário" aria-describedby="basic-addon1">
-          </div>
-          <div style="margin-top: 20px" class="input-group">
-            <span class="input-group-addon" id="basic-addon1">*</span>
-            <input type="text" class="form-control" placeholder="Senha" aria-describedby="basic-addon1">
-          </div>
-        </div>
-        <button type="submit" style="width: 30%;height: 45px;font-size: 20px; border-radius: 10px" class="btn btn-primary">Entrar</button>
-      </form>
+        <a href="<?php echo(base_url('index.php/login/index/')); ?>"><button type="button" style="border-radius: 5px;" class="btn btn-lg btn-primary">Entrar no sistema</button></a>
       </div>
   </div>
 
@@ -510,7 +499,7 @@
         <div class="row">
           <div class="col-sm-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="200ms">
             <div class="post-thumb">
-              <a href="#"><img class="img-responsive" src="assets/images/blog/1.jpg" alt=""></a> 
+              <a href="#"><img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/blog/1.jpg" alt=""></a> 
               <div class="post-meta">
                 <span><i class="fa fa-comments-o"></i>Apoiador 1</span>
               </div>
@@ -518,12 +507,12 @@
           </div>
           <div class="col-sm-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">
             <div class="post-thumb">
-              <a href="#"><img class="img-responsive" src="assets/images/blog/2.png" alt=""></a>
+              <a href="#"><img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/blog/2.png" alt=""></a>
             </div>
           </div>
           <div class="col-sm-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
             <div class="post-thumb">
-              <a href="#"><img class="img-responsive" src="assets/images/blog/3.png" alt=""></a>
+              <a href="#"><img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/blog/3.png" alt=""></a>
             </div>
           </div>
         </div>            
@@ -588,7 +577,7 @@
     <div class="footer-top wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
       <div class="container text-center">
         <div class="footer-logo">
-          <a href="index.html"><img class="img-responsive" src="assets/images/logo.svg" alt=""></a>
+          <a href="index.html"><img class="img-responsive" src="<?php echo(base_url()); ?><?php echo(base_url()); ?>assets/images/logo.svg" alt=""></a>
         </div>
         <div class="social-icons">
           <ul>
@@ -609,20 +598,20 @@
             <p>Todos os Direitos Reservados  &copy; 2017</p>
           </div>
           <div class="col-sm-6">
-            <p class="pull-right">Feito por <a href="http://facebook.com.br/everton.cleisiane">Everton Carlos</a></p>
+            <p class="pull-right">Feito por <a href="http://facebook.com.br/everton.cleisiane" target="new">Everton Carlos</a></p>
           </div>
         </div>
       </div>
     </div>
   </footer>
 
-  <script type="text/javascript" src="assets/js/jquery.js"></script>
-  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="<?php echo(base_url()); ?>assets/js/jquery.js"></script>
+  <script type="text/javascript" src="<?php echo(base_url()); ?>assets/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyAGAmP1p53eze5YVPq14vrcayz76attY34"></script>
-  <script type="text/javascript" src="assets/js/jquery.inview.min.js"></script>
-  <script type="text/javascript" src="assets/js/wow.min.js"></script>
-  <script type="text/javascript" src="assets/js/mousescroll.js"></script>
-  <script type="text/javascript" src="assets/js/smoothscroll.js"></script>
-  <script type="text/javascript" src="assets/js/jquery.countTo.js"></script>
-  <script type="text/javascript" src="assets/js/lightbox.min.js"></script>
-  <script type="text/javascript" src="assets/js/main.js"></script>
+  <script type="text/javascript" src="<?php echo(base_url()); ?>assets/js/jquery.inview.min.js"></script>
+  <script type="text/javascript" src="<?php echo(base_url()); ?>assets/js/wow.min.js"></script>
+  <script type="text/javascript" src="<?php echo(base_url()); ?>assets/js/mousescroll.js"></script>
+  <script type="text/javascript" src="<?php echo(base_url()); ?>assets/js/smoothscroll.js"></script>
+  <script type="text/javascript" src="<?php echo(base_url()); ?>assets/js/jquery.countTo.js"></script>
+  <script type="text/javascript" src="<?php echo(base_url()); ?>assets/js/lightbox.min.js"></script>
+  <script type="text/javascript" src="<?php echo(base_url()); ?>assets/js/main.js"></script>
