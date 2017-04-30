@@ -14,9 +14,8 @@ class Reserva extends CI_Controller {
 
 	public function index()
 	{
-		//$data = [];
-		echo("oi");
-		//$this->load->view('reservas/painel', $data);
+		$data = [];
+		$this->load->view('reservas/painel', $data);
 	}
 
 }
