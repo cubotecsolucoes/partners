@@ -40,6 +40,11 @@ class Login extends CI_Controller {
 		redirect('login/index','refresh');;
 	}
 
+	public function checkSession()
+	{
+		print_r($_SESSION);
+	}
+
 	
 }
 

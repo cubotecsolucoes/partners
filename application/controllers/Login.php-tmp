@@ -38,6 +38,10 @@ class Login extends CI_Controller {
 
 	}
 
+	public function checkSession() {
+		print_r($_SESSION);
+	}
+
 }
 
 /* End of file Login.php */

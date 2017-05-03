@@ -6,6 +6,7 @@ class Usuarios_model extends CI_Model {
 	private $id;
 	private $usuario;
 	private $senha;
+    private $usuario_token;
 	
 	public function __construct()
 	{
@@ -80,6 +81,30 @@ class Usuarios_model extends CI_Model {
     public function _setSenha($senha)
     {
         $this->senha = md5($senha);
+
+        return $this;
+    }
+
+    /**
+     * Gets the value of senha.
+     *
+     * @return mixed
+     */
+    public function getToken()
+    {
+        return $this->usuario_token;
+    }
+
+    /**
+     * Sets the value of senha.
+     *
+     * @param mixed $senha the senha
+     *
+     * @return self
+     */
+    public function _setToken($token)
+    {
+        $this->usuario_token = $token;
 
         return $this;
     }
