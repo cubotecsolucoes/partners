@@ -12,7 +12,7 @@ class Eventos_model extends CI_Model {
 	{
 		$this->db->select('*');
 		$this->db->from('eventos');
-		return $this->db->get()->result_array();
+		return $this->db->get_compiled_select(); //->result_array();
 	}
 
 	public function getEventoAtivo()
