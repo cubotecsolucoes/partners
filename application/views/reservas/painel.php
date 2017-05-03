@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
     <script type="text/javascript">
       var base_url = "<?php echo(base_url()); ?>";
-      var user_token = "<?php echo("qweasdzxc"); //echo($this->session->userdata('user_token');) ?>";
     </script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
