@@ -55,11 +55,11 @@ class Lugares_model extends CI_Model {
     	return $this->db->get('lugares')->result_array();
 	}
 
-	public function getLugeresOcupados()
+	public function getLugeresOcupados($dia)
 	{
-		$this->db->select('reservas.id_reserva AS id_reserva,lugares.id AS id,reservas.dia AS dia,lugares.coluna as coluna,lugares.numero as numero,lugares.localizacao as localizacao,lugares.nivel as nivel');
-		$this->db->from('reservas, lugares');
-		$this->db->where('reservas.id_lugar = lugares.id');
+		$this->db->select('id_lugar');
+		$this->db->from('reservas');
+		$this->db->where('dia', $dia);
 		return $this->db->get()->result_array();
 	}
 

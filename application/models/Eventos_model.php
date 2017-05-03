@@ -20,7 +20,36 @@ class Eventos_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('eventos');
 		$this->db->where('ativo', 1);
-		return $this->db->get();
+		return $this->db->get()->result();
+	}
+
+	public function getDiasEvento()
+	{
+		$this->db->select('data_inicial,data_final');
+		$this->db->from('eventos');
+		$this->db->where('ativo', 1);
+		$dados = $this->db->get()->row();
+
+		$data_inicial = $dados->data_inicial;
+		$data_final = $dados->data_final;
+
+		$data_inicial = new DateTime($data_inicial);
+		$data_final = new DateTime($data_final);
+
+		$dias = [];
+		while ($data_inicial <= $data_final) {
+			$dias[] = $data_inicial->format('d-m-Y');
+			$data_inicial = $data_inicial->modify('+1day');
+		}
+
+		return $dias;
+	}
+
+	public function getQntDias()
+	{
+		$query =  $this->db->query("SELECT DATEDIFF((SELECT data_final FROM eventos WHERE ativo = 1), (SELECT data_inicial FROM eventos WHERE ativo = 1))+1 as tempo")->row();
+
+		return $query->tempo;
 	}
 
 	public function ativarEvento($id)
@@ -40,7 +69,7 @@ class Eventos_model extends CI_Model {
 		$this->db->insert('eventos', $dados);
 	}
 
-	public public function edit($id,$dados)
+	public function edit($id,$dados)
 	{
 		$this->db->where('id', $id);
 		$this->db->update('eventos', $dados);

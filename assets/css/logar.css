@@ -16,6 +16,11 @@ body,html {
 	padding: 30px;
 }
 
+.data {
+  display: inline-block;
+  margin: 5px;
+}
+
 .descricao{
 	position: relative;
     font-size: 8.5px;

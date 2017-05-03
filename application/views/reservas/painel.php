@@ -51,7 +51,7 @@
     </div>
       <h1>Lugares Reservados</h1>
       <hr>
-      <button type="button" class="btn btn-info btn-lg" style="margin-bottom: 15px;" data-toggle="modal" data-target="#modal-cadastro"><i class="fa fa-plus"></i> Fazer Reserva</button>
+      <button type="button" id="reserva" class="btn btn-info btn-lg" style="margin-bottom: 15px;" data-toggle="modal" data-target="#modal-cadastro"><i class="fa fa-plus"></i> Fazer Reserva</button>
       <hr>
       <table id="tabelaReservas" class="table table-striped table-responsive table-hover">
         <thead>
@@ -80,8 +80,9 @@
           <div class="modal-body" style="padding: ">
             <form action="" id="reserva" method="POST" role="form">
               <div class="form-group">
-                <div class="alert alerta" style="display: none;"></div>
-                <div class="row" id="local" style="margin-top: 15px;">
+                <div class="alert alerta" id="alertas" style="display: none;"></div>
+                <div class="datas"></div>
+                <div class="row" id="local" style="margin-top: 15px; display: none;">
                   <div class="col-lg-6">
                     <button type="button" tabindex="2" data-valor="mezanino" class="btn btn-danger btn-block btn-lg">Mezanino</button>
                   </div>
@@ -137,21 +138,43 @@
     var nome = $('#nome');
     var local = $('#local');
     var alinhamento = $('#alinhamento');
+    var btnReserva = $('#reserva');
     var btnLoc = local.children().children();
     var btnAli = alinhamento.children().children();
     var lug = $('#lug');
     var lugares = $('#lugares');
     var locVal;
     var aliVal;
+    var data;
     var check
     var classe;
+    var lugares_ocupados = [];
 
-    nome.keyup(function(event) {
-      /* Act on the event */
-      if ($(this).val().length >= 5) {
-        local.show('slow');
-      }
+    btnReserva.click(function(event) {
+      $.ajax({
+        url: base_url + '/index.php/controle/getDiasEvento',
+        type: 'POST',
+        dataType: 'json',
+      })
+      .done(function(data) {
+        var string = "";
+        $('.datas').html("");
+        $.each(data, function(index, val) {
+           string += "<div class=\"data\"><button type=\"button\" tabindex=\""+ index +"\" data-valor=\""+ val +"\" class=\"btn btn-danger btn-lg\">"+ val +"</button></div>";
+        });
+        string += "<hr>";
+        $('.datas').append(string);
+      })
+      .fail(function() {
+        console.log("Error ao tentar recuperar as datas do evento!");
+      })
       
+    });
+
+    $(document).on('click', '.data', function(event) {
+      event.preventDefault();
+      data = $(this).text();
+      local.show('slow');
     });
 
     btnLoc.click(function(event) {
@@ -164,56 +187,76 @@
     btnAli.click(function(event) {
     /* Act on the event */
     aliVal = $(this).attr('data-valor');
-    $(this).css('backgroundColor', '#b11f0e');
-    lug.show('slow');
-
+    var dataCorreta = data.split('-')
     $.ajax({
-      url: base_url + 'index.php/controle/lugareslist/',
-      type: 'POST',
-      dataType: 'json',
-      data: {localizacao: aliVal,piso: locVal},
-    })
-    .done(function() {
-      console.log("success");
-    })
-    .fail(function() {
-      console.log("error");
-    })
-    .always(function(data) {
-      lugares.html("<div class='recado'><h3>Selecione três lugares</h3></div>");
-      console.log("complete");
-      var adiciona = '<div class="fila">';
-      var colum = data[0];
-      $.each(data, function(index, el) {
-        if (el.ocupacao == 1) {
-          classe = 'notok';
-        } else {
-          classe = 'ok';
-        }
-        if (el.coluna != colum.coluna) {
-          adiciona += '</div><div class="fila">';
-          colum.coluna = el.coluna;
-        }
-        adiciona +='<div class="cadeira '+ classe +'" data-id="'+ el.id +'"><img class="img-responsive" src="<?php echo(base_url("assets/images/icones/cadeira.svg")); ?>"><div class="descricao">'+ el.coluna +' - '+ el.numero +'</div></div>';
+        url: base_url + 'index.php/controle/lugaresOcupados/'+ dataCorreta[2]+'-'+dataCorreta[1]+'-'+dataCorreta[0],
+        type: 'POST',
+        dataType: 'json',
+      })
+      .done(function(lugares_ocupados) {
+        $(this).css('backgroundColor', '#b11f0e');
+        lug.show('slow');
+        $.ajax({
+          url: base_url + 'index.php/controle/lugareslist/',
+          type: 'POST',
+          dataType: 'json',
+          data: {localizacao: aliVal,piso: locVal},
+        })
+        .done(function(data) {
+          lugares.html("<div class='recado'><h3>Selecione três lugares</h3></div>");
+          var adiciona = '<div class="fila">';
+          var colum = data[0];
+          $.each(data, function(index, el) {
+            if (lugares_ocupados.includes(el.id)) {
+              classe = 'notok';
+            } else {
+              classe = 'ok';
+            }
+            if (el.coluna != colum.coluna) {
+              adiciona += '</div><div class="fila">';
+              colum.coluna = el.coluna;
+            }
+            adiciona +='<div class="cadeira '+ classe +'" data-id="'+ el.id +'"><img class="img-responsive" src="<?php echo(base_url("assets/images/icones/cadeira.svg")); ?>"><div class="descricao">'+ el.coluna +' - '+ el.numero +'</div></div>';
 
-      });
-      adiciona += '</div>';
-      
-      lugares.append(adiciona);
-      lugares.append('<hr>')
-      lugares.append('<h6><b style="color: red">*</b> Cadeira Indisponivel</h6>');
-      lugares.append('<h6><b style="color: green">*</b> Cadeira Disponivel</h6>');
-      lugares.append('<h6><b style="color: grey">*</b> Cadeira Selecionada</h6>');
+          });
+          adiciona += '</div>';
+          
+          lugares.append(adiciona);
+          lugares.append('<hr>')
+          lugares.append('<h6><b style="color: red">*</b> Cadeira Indisponivel</h6>');
+          lugares.append('<h6><b style="color: green">*</b> Cadeira Disponivel</h6>');
+          lugares.append('<h6><b style="color: grey">*</b> Cadeira Selecionada</h6>');
 
-      $('.ok').click(function(event) {
-          /* Act on the event */
-          $(this).toggleClass('selecionado');
-          if ($('.selecionado').length == 3) {
-            $('#cadastrar').removeClass('disabled');
-          }
+          $('.ok').click(function(event) {
+              /* Act on the event */
+              if ($(this).hasClass('selecionado')) {
+                $(this).removeClass('selecionado');
+                if ($('.selecionado').length < 3) {
+                    $('#cadastrar').addClass('disabled');
+                }
+              } else {
+                if ($('.selecionado').length <= 2) {
+                  $(this).addClass('selecionado');
+                }
+
+                if ($('.selecionado').length == 3) {
+                    $('#cadastrar').removeClass('disabled');
+                }
+              }
+            });
+        })
+        .fail(function() {
+          console.log("error");
+        })
+        .always(function(data) {
+          
+
         });
-
-    });
+      })
+      .fail(function() {
+        console.log("Error ao tentar obter os lugares ocupados!");
+      });
+    
     
   });
 
@@ -225,18 +268,19 @@
     
     DrawTable();
 
-    $('#reserva').submit(function(event) {
+    $('#cadastrar').click(function(event) {
       event.preventDefault();
       var ids = [];
       var dados = $('.selecionado');
       $.each(dados, function(index, el) {
         ids.push(el.getAttribute("data-id"));
       });
+
       $.ajax({
         url: base_url + 'index.php/controle/addReserva',
         type: 'POST',
         dataType: 'json',
-        data: {lugares: ids, user_token: user_token},
+        data: {lugares: ids, data: data,user_token: user_token},
       })
       .done(function(data) {
         if (data.error == 0) {
@@ -246,12 +290,16 @@
         }    
       })
       .fail(function() {
-        console.log("error");
-      })
-      .always(function() {
-        console.log("complete");
+        console.log("Error em adicionar os lugares no banco de dados!");
       });
-      
+    });
+
+    $('#modal-cadastro').on('hidden.bs.modal', function () {
+        $('.datas').html("");
+        local.hide('fast');
+        alinhamento.hide('fast');
+        $('#lugares').html("");
+        $('#cadastrar').addClass('disabled');
     });
 
     function DrawTable() {
@@ -285,22 +333,17 @@
                  DrawTable();
                 })
                 .fail(function() {
-                  console.log("error");
-                })
-                .always(function() {
-                  console.log("complete");
-                });
-                
+                  console.log("Erro ao tentar deletar esse item!");
+                });                
               });
           })
           .fail(function() {
-            $('.alerta').addClass('alert-danger');
-              $('.alerta').html("<strong>Error!</strong> Algum erro desconhecido ocorreu, contate o administrador da página.");
-              $('.alerta').toggle("slow");
-          })
-          .always(function(data) {
-                    
+            console.log('Error ao tentar carregar a lista de reserva!')
           });
+    }
+
+    function LugaresOcupados() {
+      
     }
   });
 </script>
