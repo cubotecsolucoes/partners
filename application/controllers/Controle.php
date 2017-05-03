@@ -15,8 +15,9 @@ class Controle extends CI_Controller {
 
 	public function getEvento()
 	{
-		$this->load->model('eventos_model', 'eventos');
-		echo(json_encode($this->eventos->getEventoAtivo()));
+		echo "oi";
+		//$this->load->model('eventos_model', 'eventos');
+		//echo(json_encode($this->eventos->getEventoAtivo()));
 	}
 
 	public function getDiasEvento()
