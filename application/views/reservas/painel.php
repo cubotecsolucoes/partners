@@ -152,7 +152,7 @@
 
     btnReserva.click(function(event) {
       $.ajax({
-        url: base_url + '/index.php/controle/getDiasEvento',
+        url: base_url + 'index.php/controle/getDiasEvento',
         type: 'POST',
         dataType: 'json',
       })
