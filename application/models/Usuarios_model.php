@@ -104,7 +104,8 @@ class Usuarios_model extends CI_Model {
      */
     public function _setToken($token)
     {
-        $this->usuario_token = $token;
+        $data = date ("Y-m-d");
+        $this->usuario_token = md5($token.$data);
 
         return $this;
     }

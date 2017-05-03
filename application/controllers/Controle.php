@@ -13,6 +13,16 @@ class Controle extends CI_Controller {
 
 // EVENTOS
 
+	public function criausuario($value)
+	{
+		$this->load->model('usuarios_model', 'user');
+		$this->user->_setUsuario('teste2');
+		$this->user->_setSenha('123');
+		$this->user->_setToken('321');
+
+		$this->user->add();
+	}
+
 	public function getEvento()
 	{
 		$this->load->model('eventos_model', 'eventos');
