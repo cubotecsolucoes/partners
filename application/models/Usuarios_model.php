@@ -104,7 +104,7 @@ class Usuarios_model extends CI_Model {
      */
     public function _setToken($token)
     {
-        $data = date ("Y-m-d");
+        $data = date("h:i:s");
         $this->usuario_token = md5($token.$data);
 
         return $this;
@@ -137,7 +137,8 @@ class Usuarios_model extends CI_Model {
     public function add() {
     	$object = [
     		'usuario' => $this->getUsuario(),
-    		'senha' => $this->getSenha()
+    		'senha' => $this->getSenha(),
+            'usuario_token' => $this->getToken()
     	];
     	$this->db->insert('usuarios', $object);
     }
