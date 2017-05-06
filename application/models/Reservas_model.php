@@ -55,6 +55,15 @@ class Reservas_model extends CI_Model {
 		return $this->db->get('reservas')->result();
 	}
 
+    public function getQntUserReservou($token,$dia)
+    {
+        $this->db->from('reservas');
+        $this->db->where('usuario_token', $token);
+        $this->db->where('dia', $dia);
+        
+        return $this->db->count_all_results();
+    }
+
 }
 
 /* End of file Reservas_model.php */

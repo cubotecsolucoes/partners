@@ -41,6 +41,12 @@ class Controle extends CI_Controller {
 		echo(json_encode($this->eventos->getQntDias()));
 	}
 
+	public function getQntReservas()
+	{
+		$this->load->model('eventos_model', 'eventos');
+		echo(json_encode($this->eventos->getQntReservas()));
+	}
+
 	public function addEvento()
 	{
 		$this->load->model('eventos_model', 'eventos');
@@ -110,6 +116,15 @@ class Controle extends CI_Controller {
 		} else {
 			echo(json_encode(['error' => 1]));
 		}
+	}
+
+
+	public function getQntUsuarioReservou()
+	{
+		$dia = $_POST['dia'];
+		$token = $_POST['token'];
+		$this->load->model('reservas_model','reservas');
+		echo(json_encode($this->reservas->getQntUserReservou($token,$dia)));
 	}
 
 	public function editReserva($id)

@@ -149,6 +149,23 @@
     var check
     var classe;
     var lugares_ocupados = [];
+    var qntReservas;
+    var qntReservados;
+
+    $.ajax({
+      url: base_url + 'index.php/controle/getQntReservas',
+      type: 'POST',
+      dataType: 'json'
+    })
+    .done(function(data) {
+      qntReservas = data;
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
 
     btnReserva.click(function(event) {
       $.ajax({
@@ -175,6 +192,22 @@
       event.preventDefault();
       data = $(this).text();
       local.show('slow');
+      qntReservados = data.split('-');
+      qntReservados = qntReservados[2]+'-'+qntReservados[1]+'-'+qntReservados[0];
+
+      $.ajax({
+        url: base_url + 'index.php/controle/getQntUsuarioReservou',
+        type: 'POST',
+        dataType: 'json',
+        data: {dia: qntReservados,token: user_token},
+      })
+      .done(function(data) {
+        qntReservados = data;
+      })
+      .fail(function() {
+        console.log("Error ao tentar obter quantos lugares o usuario reservou!");
+      });
+      
     });
 
     btnLoc.click(function(event) {
@@ -231,15 +264,16 @@
               /* Act on the event */
               if ($(this).hasClass('selecionado')) {
                 $(this).removeClass('selecionado');
-                if ($('.selecionado').length < 3) {
+                if ($('.selecionado').length < (qntReservas - qntReservados)) {
                     $('#cadastrar').addClass('disabled');
                 }
               } else {
-                if ($('.selecionado').length <= 2) {
+                if ($('.selecionado').length <= (qntReservas - qntReservados)-1) {
                   $(this).addClass('selecionado');
                 }
 
-                if ($('.selecionado').length == 3) {
+                if ($('.selecionado').length == (qntReservas - qntReservados)) {
+                  // CONTINUAR
                     $('#cadastrar').removeClass('disabled');
                 }
               }
