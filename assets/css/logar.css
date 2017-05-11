@@ -3,7 +3,11 @@ body,html {
 	position: relative;
 	background-color: grey;
 }
+/* ADMIN */
 
+
+
+/* PAINEL */
 .box-login{
 	position: relative;
 	top: 100px;

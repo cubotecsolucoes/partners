@@ -1,0 +1,33 @@
+body, html{
+  background-color:#87afbf !important;
+  height:100%;
+}
+
+ul.list-unstyled{
+  text-align:center;
+  font-size:larger;
+  vertical-align:middle;
+}
+
+div.rodape{
+  position: inherit;
+  background-color:#02283a;
+  height:150px;
+  color:white;
+  width:100%;
+  bottom:0px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:-1px -1px 2px rgb(72,72,72);
+}
+
+nav.navbar.navbar-inverse{
+  box-shadow:1px 1px 3px rgb(61,61,61);
+}
+
+.socialmedia {
+  text-decoration:none;
+  color:white;
+}
+

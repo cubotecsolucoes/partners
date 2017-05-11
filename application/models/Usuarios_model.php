@@ -7,6 +7,7 @@ class Usuarios_model extends CI_Model {
 	private $usuario;
 	private $senha;
     private $usuario_token;
+    private $acesso;
 	
 	public function __construct()
 	{
@@ -110,6 +111,30 @@ class Usuarios_model extends CI_Model {
         return $this;
     }
 
+    /**
+     * Gets the value of acesso.
+     *
+     * @return mixed
+     */
+    public function getAcesso()
+    {
+        return $this->acesso;
+    }
+
+    /**
+     * Sets the value of acesso.
+     *
+     * @param mixed $acesso the acesso
+     *
+     * @return self
+     */
+    public function _setAcesso($access)
+    {
+        $this->acesso = $access;
+
+        return $this;
+    }
+
     public function isUser() {
     	$this->db->select('id');
     	$this->db->where('usuario', $this->getUsuario());
@@ -138,7 +163,8 @@ class Usuarios_model extends CI_Model {
     	$object = [
     		'usuario' => $this->getUsuario(),
     		'senha' => $this->getSenha(),
-            'usuario_token' => $this->getToken()
+            'usuario_token' => $this->getToken(),
+            'acesso' => '1'
     	];
     	$this->db->insert('usuarios', $object);
     }

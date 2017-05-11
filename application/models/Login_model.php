@@ -19,6 +19,15 @@ class Login_model extends CI_Model {
 		}
 	}
 
+	public function hasAdmin()
+	{
+		if ($this->session->userdata('user')['acesso'] == 2) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	public function login($user, $pass)
 	{
 		$this->user->_setUsuario($user);

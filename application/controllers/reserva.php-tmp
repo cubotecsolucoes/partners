@@ -12,8 +12,21 @@ class Reserva extends CI_Controller {
 	}
 
 	public function index() {
-		$data = [];
-		$this->load->view('reservas/painel', $data);
+		if ($this->login->hasAdmin()) {
+			redirect('reserva/admin', 'refresh');
+		} else {
+			$data = [];
+			$this->template->load('reservas/template', 'reservas/painel', $data);
+		}
+	}
+
+	public function admin() {
+		if (!$this->login->hasAdmin()) {
+			redirect('reserva/index', 'refresh');
+		} else {
+			$data = [];
+			$this->template->load('reservas/template', 'reservas/admin', $data);
+		}
 	}
 
 }

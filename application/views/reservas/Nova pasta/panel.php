@@ -4,7 +4,7 @@
             <div class="panel-heading">
                 <h3 class="panel-title">Lugares Reservados</h3></div>
             <div class="panel-body">
-                <button id="reserva" class="btn btn-primary btn-block" type="button" data-toggle="modal" data-target="#modal-cadastro"><i class="glyphicon glyphicon-plus"></i> Fazer Reserva</button>
+                <button id="reserva" class="btn btn-primary btn-block" type="button"><i class="glyphicon glyphicon-plus"></i> Fazer Reserva</button>
                 <hr>
                 <div class="table-responsive">
                     <table id="tabelaReservas" class="table table-striped table-responsive table-hover">
@@ -63,7 +63,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-lg-12" id="lugares">
-
+                      
                     </div>
                   </div>
                 </div>
@@ -131,7 +131,7 @@
       .fail(function() {
         console.log("Error ao tentar recuperar as datas do evento!");
       })
-
+      
     });
 
     $(document).on('click', '.data', function(event) {
@@ -153,7 +153,7 @@
       .fail(function() {
         console.log("Error ao tentar obter quantos lugares o usuario reservou!");
       });
-
+      
     });
 
     btnLoc.click(function(event) {
@@ -195,11 +195,11 @@
               adiciona += '</div><div class="fila">';
               colum.coluna = el.coluna;
             }
-            adiciona +='<div class="cadeira '+ classe +'" data-id="'+ el.id +'"><img class="img-responsive" src="<?php echo (base_url("assets/images/icones/cadeira.svg"));?>"><div class="descricao">'+ el.coluna +' - '+ el.numero +'</div></div>';
+            adiciona +='<div class="cadeira '+ classe +'" data-id="'+ el.id +'"><img class="img-responsive" src="<?php echo(base_url("assets/images/icones/cadeira.svg")); ?>"><div class="descricao">'+ el.coluna +' - '+ el.numero +'</div></div>';
 
           });
           adiciona += '</div>';
-
+          
           lugares.append(adiciona);
           lugares.append('<hr>')
           lugares.append('<h6><b style="color: red">*</b> Cadeira Indisponivel</h6>');
@@ -229,25 +229,23 @@
           console.log("error");
         })
         .always(function(data) {
-
+          
 
         });
       })
       .fail(function() {
         console.log("Error ao tentar obter os lugares ocupados!");
       });
-
-
+    
+    
   });
 
     var tabela = $('#tabelaReservas').DataTable({
       "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
-        },
-        "pageLength": 5,
-        "lengthChange": false
+        }
     });
-
+    
     DrawTable();
 
     $('#cadastrar').click(function(event) {
@@ -269,7 +267,7 @@
           $('#modal-cadastro').modal('hide');
           $('.alert').show('slow');
           DrawTable();
-        }
+        }    
       })
       .fail(function() {
         console.log("Error em adicionar os lugares no banco de dados!");
@@ -316,7 +314,7 @@
                 })
                 .fail(function() {
                   console.log("Erro ao tentar deletar esse item!");
-                });
+                });                
               });
           })
           .fail(function() {
@@ -325,7 +323,7 @@
     }
 
     function LugaresOcupados() {
-
+      
     }
   });
 </script>

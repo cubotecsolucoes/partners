@@ -16,7 +16,7 @@ class Controle extends CI_Controller {
 	public function criausuario($value)
 	{
 		$this->load->model('usuarios_model', 'user');
-		$this->user->_setUsuario('teste2');
+		$this->user->_setUsuario($value);
 		$this->user->_setSenha('123');
 		$this->user->_setToken('321');
 

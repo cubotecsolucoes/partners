@@ -1,74 +1,32 @@
-<!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Partners - Sistema de reservas</title>
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="<?php echo(base_url()); ?>/assets/css/logar.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-    <script type="text/javascript">
-      var base_url = "<?php echo(base_url()); ?>";
-      var user_token = "<?php echo($_SESSION['user']['usuario_token']); ?>";
-    </script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="<?php echo(base_url()); ?>">Partners</a>
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1 col-md-12 panel-graficos">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Lugares Reservados</h3></div>
+            <div class="panel-body">
+                <button id="reserva" class="btn btn-primary btn-block" type="button" data-toggle="modal" data-target="#modal-cadastro"><i class="glyphicon glyphicon-plus"></i> Fazer Reserva</button>
+                <hr>
+                <div class="table-responsive">
+                    <table id="tabelaReservas" class="table table-striped table-responsive table-hover">
+                        <thead>
+                            <tr>
+                            <th>Data</th>
+                            <th>Fila</th>
+                            <th>Número</th>
+                            <th>Nível</th>
+                            <th>Lugar</th>
+                            <th width="60px">Excluir</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo(base_url('index.php/login/logout')) ?>">Sair</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-
-    <div class="conteudo">
-    <div class="alerta">
-      <div class="alert alert-success" style="display: none;"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong>Sucesso!</strong> Os lugares foram reservados com sucesso.</div>
     </div>
-      <h1>Lugares Reservados</h1>
-      <hr>
-      <button type="button" id="reserva" class="btn btn-info btn-lg" style="margin-bottom: 15px;" data-toggle="modal" data-target="#modal-cadastro"><i class="fa fa-plus"></i> Fazer Reserva</button>
-      <hr>
-      <table id="tabelaReservas" class="table table-striped table-responsive table-hover">
-        <thead>
-          <tr>
-            <th>Data</th>
-            <th>Fila</th>
-            <th>Número</th>
-            <th>Nível</th>
-            <th>Lugar</th>
-            <th width="60px">Excluir</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-    </div>
-    <!-- Modal de cadastro -->
+</div>
+<!-- Modal de cadastro -->
 <div class="modal" id="modal-cadastro">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -121,18 +79,6 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-  <!-- JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <!-- Latest compiled and minified JS -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
-
-  <!-- DataTable -->
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-
-  <!-- Custom -->
-    <script type="text/javascript" src="<?php echo(base_url()); ?>/assets/js/painel.js"></script>
-  </body>
-</html>
 <script type="text/javascript">
   $(document).ready(function(){
     var nome = $('#nome');
@@ -297,7 +243,9 @@
     var tabela = $('#tabelaReservas').DataTable({
       "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
-        }
+        },
+        "pageLength": 5,
+        "lengthChange": false
     });
     
     DrawTable();
