@@ -150,6 +150,12 @@ class Usuarios_model extends CI_Model {
     	}
     }
 
+    public function getUserList()
+    {
+        $this->db->select('*');
+        return $this->db->get('usuarios')->result_array();
+    }
+
     public function getUser($usuario, $senha)
     {
         $this->db->select('*');
@@ -167,6 +173,12 @@ class Usuarios_model extends CI_Model {
             'acesso' => '1'
     	];
     	$this->db->insert('usuarios', $object);
+    }
+
+    public function delete($id)
+    {
+        $this->db->where('id_reserva', $id);
+        $this->db->delete('usuarios');
     }
 }
 

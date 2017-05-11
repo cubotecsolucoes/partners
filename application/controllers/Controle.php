@@ -12,21 +12,16 @@ class Controle extends CI_Controller {
 
 
 // EVENTOS
-
-	public function criausuario($value)
-	{
-		$this->load->model('usuarios_model', 'user');
-		$this->user->_setUsuario($value);
-		$this->user->_setSenha('123');
-		$this->user->_setToken('321');
-
-		$this->user->add();
-	}
-
 	public function getEvento()
 	{
 		$this->load->model('eventos_model', 'eventos');
 		echo(json_encode($this->eventos->getEventoAtivo()));
+	}
+
+	public function getEventosList()
+	{
+		$this->load->model('eventos_model', 'eventos');
+		echo(json_encode($this->eventos->getEventosList()));
 	}
 
 	public function getDiasEvento()
@@ -149,13 +144,34 @@ class Controle extends CI_Controller {
 	public function getReservaList()
 	{
 		$this->load->model('reservas_model','reservas');
-		$this->reservas->getListaReservas();
+		echo(json_encode($this->reservas->getListaReservas()));
 	}
 
 	public function getReservaUser($token)
 	{
 		$this->load->model('reservas_model','reservas');
 		echo(json_encode($this->reservas->getListaReservasUsuario($token)));
+	}
+
+
+
+
+	// USUARIOS
+	public function getUsuariosList()
+	{
+		$this->load->model('usuarios_model','user');
+		echo(json_encode($this->user->getUserList()));
+	}
+
+	public function deleteUsuario($id)
+	{
+		$this->load->model('usuarios_model','user');
+		$this->user->delete($id);
+	}
+
+	public function addUsuario()
+	{
+		# code...
 	}
 
 

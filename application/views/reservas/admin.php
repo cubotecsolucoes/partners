@@ -9,28 +9,17 @@
                 <button class="btn btn-warning btn-modal" type="button">Cadastrar Evento</button>
                 <hr>
                 <div class="table-responsive">
-                    <table class="table">
+                    <table id="tabelaeventos" class="table">
                         <thead>
                             <tr>
-                                <th>Nome do Evento</th>
-                                <th>Data de Inicio</th>
-                                <th>Data de Termino</th>
-                                <th width="60px">Ações</th>
+                                <th>Nome</th>
+                                <th>Data Inicial</th>
+                                <th>Data Final</th>
+                                <th>Qnt de Reservas</th>
+                                <th width="150px">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Cell 1</td>
-                                <td>Cell 2</td>
-                                <td>Cell 2</td>
-                                <td><button type="button" class="btn btn-danger">deletar</button></td>
-                            </tr>
-                            <tr>
-                                <td>Cell 3</td>
-                                <td>Cell 3</td>
-                                <td>Cell 3</td>
-                                <td><button type="button" class="btn btn-danger">deletar</button></td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -64,7 +53,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table id="tabelalugares" class="table">
                                 <thead>
                                     <tr>
                                         <th>Coluna</th>
@@ -74,18 +63,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Cell 1</td>
-                                        <td>Cell 1</td>
-                                        <td>Cell 1</td>
-                                        <td><button type="button" class="btn btn-danger">deletar</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cell 3</td>
-                                        <td>Cell 4</td>
-                                        <td>Cell 4</td>
-                                        <td><button type="button" class="btn btn-danger">deletar</button></td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -108,28 +85,18 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table id="tabelausuarios" class="table">
                                 <thead>
                                     <tr>
                                         <th>Nome</th>
+                                        <th>Usuário</th>
+                                        <th>CPF</th>
                                         <th>Email</th>
                                         <th>Telefone</th>
                                         <th width="60px">Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Cell 1</td>
-                                        <td>Cell 2</td>
-                                        <td>Cell 2</td>
-                                        <td><button type="button" class="btn btn-danger">deletar</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cell 3</td>
-                                        <td>Cell 3</td>
-                                        <td>Cell 3</td>
-                                        <td><button type="button" class="btn btn-danger">deletar</button></td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -142,13 +109,34 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-	$('.table').DataTable({
+
+	var tabelaLugares = $('#tabelalugares').DataTable({
       "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
         },
         "pageLength": 5,
         "lengthChange": false
     });
+
+    var tabelaEventos = $('#tabelaeventos').DataTable({
+      "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
+        },
+        "pageLength": 5,
+        "lengthChange": false
+    });
+
+    var tabelaUsuarios = $('#tabelausuarios').DataTable({
+      "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
+        },
+        "pageLength": 5,
+        "lengthChange": false
+    });
+
+    DrawTableEventos();
+    DrawTableLugares();
+    DrawTableUsuarios();
 
     var ctx = document.getElementById("myChart").getContext('2d');
 	var myChart = new Chart(ctx, {
@@ -183,5 +171,139 @@ $(document).ready(function(){
 	        }
 	    }
 	});
+
+	function DrawTableEventos() {
+		$.ajax({
+		    url: base_url + 'index.php/controle/getEventosList/',
+		    type: 'POST',
+		    dataType: 'json'
+		  })
+		  .done(function(data) {
+		      tabelaEventos.clear();
+		      if (data.length > 0) {
+		        $.each(data, function(i, item) {
+		        	var button;
+		        	if (item.ativo == 1) {
+		        		button = "<button type=\"button\" class=\"btn btn-warning text-center acao\" data-acao=\"desativa\" data-id=\""+ item.id +"\">Desativar</button>";
+		        	} else {
+		        		button = "<button type=\"button\" class=\"btn btn-info text-center acao\" data-acao=\"ativa\" data-id=\""+ item.id +"\">Ativar</button>";
+		        	}
+		          tabelaEventos.row.add([
+		              item.nome,
+		              item.data_inicial,
+		              item.data_final,
+		              item.reservas,
+		              button + "<button type=\"button\" class=\"btn btn-danger text-center pull-right acao\" data-acao=\"deleta\" data-id=\""+ item.id +"\">Deletar</button>"
+		            ]).draw();
+		        })
+		      } else {
+		        tabelaEventos.clear().draw();
+		      }
+		      $('.acao').click(function(event) {
+		      	var url;
+		      	if (this.getAttribute('data-acao') == 'desativa') {
+		      		url = base_url + 'index.php/controle/desativarEvento/' + this.getAttribute('data-id');
+		      	}
+		      	if (this.getAttribute('data-acao') == 'ativa') {
+		      		url = base_url + 'index.php/controle/ativarEvento/' + this.getAttribute('data-id');
+		      	}
+		      	if (this.getAttribute('data-acao') == 'deleta') {
+		      		url = base_url + 'index.php/controle/deleteEvento/' + this.getAttribute('data-id');
+		      	}
+		        $.ajax({
+		          url: url,
+		          type: 'POST',
+		        })
+		        .done(function() {
+		         DrawTableEventos();
+		        })
+		        .fail(function() {
+		          console.log("Erro ao tentar ativar, desativar ou excluir o evento!");
+		        });                
+		      });
+		  })
+		  .fail(function() {
+		    console.log('Error ao tentar carregar a lista de eventos!')
+		  });
+    }
+
+    function DrawTableLugares() {
+		$.ajax({
+		    url: base_url + 'index.php/controle/getReservaList/',
+		    type: 'POST',
+		    dataType: 'json'
+		  })
+		  .done(function(data) {
+		      tabelaLugares.clear();
+		      if (data.length > 0) {
+		        $.each(data, function(i, item) {
+		          tabelaLugares.row.add([
+		              item.id_reserva,
+		              item.id_lugar,
+		              item.usuario_token,
+		              item.dia,
+		              "<button type=\"button\" class=\"btn btn-danger text-center pull-right acaodois\" data-acao=\"deleta\" data-id=\""+ item.id_reserva +"\">Deletar</button>"
+		            ]).draw();
+		        })
+		      } else {
+		        tabelaLugares.clear().draw();
+		      }
+		      $('.acaodois').click(function(event) {
+		        $.ajax({
+		          url: base_url + 'index.php/controle/deleteReserva/' + this.getAttribute('data-id'),
+		          type: 'POST',
+		        })
+		        .done(function() {
+		         DrawTableLugares();
+		        })
+		        .fail(function() {
+		          console.log("Erro ao tentar excluir a reserva!");
+		        });                
+		      });
+		  })
+		  .fail(function() {
+		    console.log('Error ao tentar carregar a lista de reservas!')
+		  });
+    }
+
+    function DrawTableUsuarios() {
+		$.ajax({
+		    url: base_url + 'index.php/controle/getUsuariosList/',
+		    type: 'POST',
+		    dataType: 'json'
+		  })
+		  .done(function(data) {
+		      tabelaUsuarios.clear();
+		      if (data.length > 0) {
+		        $.each(data, function(i, item) {
+		          tabelaUsuarios.row.add([
+		              item.nome,
+		              item.usuario,
+		              item.cpf,
+		              item.email,
+		              item.telefone,
+		              "<button type=\"button\" class=\"btn btn-danger text-center pull-right acaotres\" data-acao=\"deleta\" data-id=\""+ item.id +"\">Deletar</button>"
+		            ]).draw();
+		        })
+		      } else {
+		        tabelaUsuarios.clear().draw();
+		      }
+		      $('.acaotres').click(function(event) {
+		        $.ajax({
+		          url: base_url + 'index.php/controle/deleteUsuario/' + this.getAttribute('data-id'),
+		          type: 'POST',
+		        })
+		        .done(function() {
+		         DrawTableUsuarios();
+		        })
+		        .fail(function() {
+		          console.log("Erro ao tentar excluir a reserva!");
+		        });                
+		      });
+		  })
+		  .fail(function() {
+		    console.log('Error ao tentar carregar a lista de reservas!')
+		  });
+    }
 });
 </script>

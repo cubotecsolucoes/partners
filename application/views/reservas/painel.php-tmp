@@ -197,6 +197,7 @@
             }
             adiciona +='<div class="cadeira '+ classe +'" data-id="'+ el.id +'"><img class="img-responsive" src="<?php echo (base_url("assets/images/icones/cadeira.svg"));?>"><div class="descricao">'+ el.coluna +' - '+ el.numero +'</div></div>';
 
+
           });
           adiciona += '</div>';
 
@@ -322,10 +323,6 @@
           .fail(function() {
             console.log('Error ao tentar carregar a lista de reserva!')
           });
-    }
-
-    function LugaresOcupados() {
-
     }
   });
 </script>

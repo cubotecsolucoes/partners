@@ -323,9 +323,5 @@
             console.log('Error ao tentar carregar a lista de reserva!')
           });
     }
-
-    function LugaresOcupados() {
-      
-    }
   });
 </script>
