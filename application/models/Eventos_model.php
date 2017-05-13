@@ -76,6 +76,7 @@ class Eventos_model extends CI_Model {
 	public function add($dados)
 	{
 		$this->db->insert('eventos', $dados);
+		return true;
 	}
 
 	public function edit($id,$dados)

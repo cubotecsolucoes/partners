@@ -55,6 +55,13 @@ class Reservas_model extends CI_Model {
 		return $this->db->get('reservas')->result();
 	}
 
+	public function getQntReservados()
+	{
+		$this->db->select('dia, COUNT(*) as count');
+		$this->db->group_by('dia');
+		return $this->db->get('reservas')->result_array();
+	}
+
     public function getQntUserReservou($token,$dia)
     {
         $this->db->from('reservas');

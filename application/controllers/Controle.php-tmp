@@ -37,14 +37,15 @@ class Controle extends CI_Controller {
 		$this->load->model('eventos_model', 'eventos');
 
 		$data = [
-			'nome'         => 'Evento Teste',
-			'data_inicial' => '2017-04-28',
-			'data_final'   => '2017-05-25',
+			'nome'         => $_POST['nome'],
+			'data_inicial' => $_POST['data_inicial'],
+			'data_final'   => $_POST['data_final'],
+			'reservas'     => $_POST['reservas_dia'],
 			'ativo'        => 1,
 			'editado_em'   => time(),
 		];
 
-		$this->eventos->add($data);
+		echo (json_encode($this->eventos->add($data)));
 	}
 
 	public function editEvento($id) {
@@ -135,13 +136,39 @@ class Controle extends CI_Controller {
 		echo (json_encode($this->user->getUserList()));
 	}
 
+	public function getUsuario($id) {
+		$this->load->model('usuarios_model', 'user');
+		echo (json_encode($this->user->getUserById($id)));
+	}
+
 	public function deleteUsuario($id) {
 		$this->load->model('usuarios_model', 'user');
 		$this->user->delete($id);
 	}
 
 	public function addUsuario() {
-		# code...
+		$this->load->model('usuarios_model', 'user');
+
+		$this->user->_setNome($_POST['nome']);
+		$this->user->_setUsuario($_POST['usuario']);
+		$this->user->_setSenha($_POST['senha']);
+		$this->user->_setNomeResponsavel($_POST['nome_responsavel']);
+		$this->user->_setCpf($_POST['cpf']);
+		$this->user->_setTelefone($_POST['telefone']);
+		$this->user->_setCelular($_POST['celular']);
+		$this->user->_setEmail($_POST['email']);
+		$this->user->_setRua($_POST['rua']);
+		$this->user->_setNumero($_POST['numero']);
+		$this->user->_setBairro($_POST['bairro']);
+		$this->user->_setComplemento($_POST['complemento']);
+		$this->user->_setCep($_POST['cep']);
+		$this->user->_setCidade($_POST['cidade']);
+		$this->user->_setEstado($_POST['estado']);
+		$this->user->_setDataNascimento($_POST['data_nascimento']);
+		$this->user->_setToken($_POST['senha']);
+		$this->user->_setAcesso($_POST['acesso']);
+
+		echo (json_encode($this->user->add()));
 	}
 
 	// LUGARES

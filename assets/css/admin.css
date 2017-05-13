@@ -9,4 +9,14 @@ div.row.linha-tabelas{
 div.panel-graficos{
   margin-top:20px;
 }
+input {
+	margin-bottom: 5px;
+}
 
+.modal-usuario {
+	font-weight: bold;
+}
+
+.modal-usuario > h5 {
+	color: grey;
+}
