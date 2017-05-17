@@ -543,7 +543,7 @@
             <p>Todos os Direitos Reservados  &copy; 2017</p>
           </div>
           <div class="col-sm-6">
-            <p class="pull-right">Feito por <a href="http://facebook.com.br/everton.cleisiane" target="new">Everton Carlos</a></p>
+            <p class="pull-right">Feito por <a href="https://www.facebook.com/cubotec.solucoes/" target="new">Cubotec Soluções</a></p>
           </div>
         </div>
       </div>
