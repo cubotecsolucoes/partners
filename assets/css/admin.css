@@ -20,3 +20,12 @@ input {
 .modal-usuario > h5 {
 	color: grey;
 }
+
+.qrcode {
+	position: relative;
+    text-align: right;
+}
+
+.data {
+	color: red;
+}

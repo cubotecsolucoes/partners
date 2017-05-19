@@ -17,6 +17,7 @@ class Reserva extends CI_Controller {
 		if ($this->login->hasAdmin()) {
 			redirect('reserva/admin','refresh');
 		} else {
+			$this->load->model('reservas_model','reservas');
 			$data = [];
 			$this->template->load('reservas/template','reservas/painel',$data);
 		}
@@ -27,7 +28,6 @@ class Reserva extends CI_Controller {
 		if (!$this->login->hasAdmin()) {
 			redirect('reserva/index','refresh');
 		} else {
-			$this->load->model('reservas_model','reservas');
 			$data = [
 				'dados' => $this->reservas->getQntReservados()
 			];

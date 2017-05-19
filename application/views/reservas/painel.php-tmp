@@ -1,4 +1,5 @@
-<div class="row">
+<script src="<?php echo (base_url());?>/assets/js/jquery-qrcode-0.14.0.min.js"></script>
+<div class="row" style="min-height: 740px;">
     <div class="col-lg-10 col-lg-offset-1 col-md-12 panel-graficos">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -22,6 +23,8 @@
                         </tbody>
                     </table>
                 </div>
+                <br>
+                <button type="button" id="encerrar" class="btn btn-danger btn-block btn-lg">Imprimir Reservas</button>
             </div>
         </div>
     </div>
@@ -71,7 +74,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-warning btn-lg pull-left" tabindex="5" data-dismiss="modal">Cancelar</button>
-                <button type="submit" id="cadastrar" tabindex="4" class="btn disabled btn-primary btn-lg pull-right">Reservar</button>
+                <button type="submit" id="cadastrar" tabindex="4" class="btn btn-primary btn-lg pull-right">Reservar</button>
             </form>
           </div>
       </div>
@@ -79,8 +82,29 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+<div id="ingresso" style="display: none;">
+
+</div>
 <script type="text/javascript">
   $(document).ready(function(){
+
+    DrawIngresso();
+    $(document).on('click', '#encerrar', function(event) {
+      alertify.set({ labels: {
+    ok     : "Imprimir",
+    cancel : "Cancelar"
+} });
+      alertify.confirm('<h2 style="color: red;"><b>Atenção</b></h2><p style="padding: 20px;">Para imprimir <b>efetue todas as reservas</b>, após a impressão, não será mais possível editar os lugares! Deja imprimir?<p>', function(e) {
+        if (e) {
+          $('#ingresso').show();
+          printJS({printable: 'ingresso', type: 'html'});
+          $('#ingresso').hide();
+        } else {
+          console.log('Erro ao imprimir');
+        }
+      });
+    });
+
     var nome = $('#nome');
     var local = $('#local');
     var alinhamento = $('#alinhamento');
@@ -208,30 +232,13 @@
           lugares.append('<h6><b style="color: grey">*</b> Cadeira Selecionada</h6>');
 
           $('.ok').click(function(event) {
-              /* Act on the event */
-              if ($(this).hasClass('selecionado')) {
-                $(this).removeClass('selecionado');
-                if ($('.selecionado').length < (qntReservas - qntReservados)) {
-                    $('#cadastrar').addClass('disabled');
-                }
-              } else {
-                if ($('.selecionado').length <= (qntReservas - qntReservados)-1) {
-                  $(this).addClass('selecionado');
-                }
-
-                if ($('.selecionado').length == (qntReservas - qntReservados)) {
-                  // CONTINUAR
-                    $('#cadastrar').removeClass('disabled');
-                }
+              if ($('.selecionado').length <= (qntReservas - qntReservados)-1) {
+                $(this).addClass('selecionado');
               }
             });
         })
         .fail(function() {
           console.log("error");
-        })
-        .always(function(data) {
-
-
         });
       })
       .fail(function() {
@@ -269,7 +276,9 @@
         if (data.error == 0) {
           $('#modal-cadastro').modal('hide');
           $('.alert').show('slow');
+          alertify.success("Reserva feita com sucesso!");
           DrawTable();
+          DrawIngresso();
         }
       })
       .fail(function() {
@@ -282,8 +291,76 @@
         local.hide('fast');
         alinhamento.hide('fast');
         $('#lugares').html("");
-        $('#cadastrar').addClass('disabled');
     });
+
+    function DrawIngresso() {
+      $('#ingresso').html('');
+      $.getJSON( base_url + 'index.php/controle/diasQueVai/'+ user_token, function(dias, Status) {
+
+              if (Status == 'success') {
+                $.each(dias, function(index, item) {
+                  var ingressounico = '';
+                  ingressounico += '<div class="row ingresso'+ index +'"><div class="col-md-12 col-md-offset-0 coluna-reserva"><div class="row"><div class="col-md-8 col-lg-8 col-sm-8 col-xs-8"><h4 class="text-center">Partners Centro de Dança</h4><h5 id="cabecalho" class="text-center">Evento Teste<br>Data: <b class="data">'+ item +'</b></h5></div><div class="col-md-4 col-lg-4 col-sm-4 col-xs-4"><div class="qrcode'+ index +'"></div></div></div><div class="row"><div class="col-lg-10 col-lg-offset-1 col-md-12"><div class="table-responsive"><table id="tabela'+ index +'" class="table"><thead><tr><th>CPF</th><th>Coluna</th><th>Número</th><th>Piso</th><th>Loc.</th></tr></thead><tbody></tbody></table></div></div></div><div class="row"><div class="col-md-12"></div></div></div><p>------------------------------------------------------------------------------------------------------------------------- Corte aqui</p></div>';
+                $('#ingresso').append(ingressounico);
+
+                  var tabelaIngresso = $('#tabela'+ index).DataTable({
+                    "language": {
+                          "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
+                      },
+                      "searching": false,
+                      "ordering": false,
+                      "info": false,
+                      "paging": false,
+                      "pageLength": 50,
+                      "lengthChange": false
+                  });
+
+
+                  $.getJSON(base_url + 'index.php/controle/lugaresDoDia/' + item + '/' + user_token, function(lugares, textStatus) {
+
+                      $.each(lugares, function(indice, val) {
+                        tabelaIngresso.row.add([
+                            val.cpf,
+                            val.coluna,
+                            val.numero,
+                            val.nivel,
+                            val.localizacao
+                          ]);
+                        tabelaIngresso.draw();
+                      });
+                  });
+                  var options = {
+                      render: 'image',
+                      minVersion: 1,
+                      maxVersion: 40,
+                      ecLevel: 'L',
+                      left: 0,
+                      top: 0,
+                      size: 100,
+                      fill: '#000',
+                      background: 'white',
+                      text: base_url + 'index.php/controle/valida/' + user_token + '/' + item,
+                      radius: 0,
+                      quiet: 0,
+                      mode: 0,
+                      mSize: 0.1,
+                      mPosX: 0.5,
+                      mPosY: 0.5,
+                      label: 'no label',
+                      fontname: 'sans',
+                      fontcolor: '#000',
+                      image: null
+                  }
+                  $('.qrcode'+index).qrcode(options);
+                });
+
+
+
+              } else {
+                console.log('Error ao obter os dias que o usuário irá!');
+              }
+          });
+    }
 
     function DrawTable() {
       $.ajax({
@@ -313,7 +390,9 @@
                   type: 'POST',
                 })
                 .done(function() {
+                 alertify.log("Reserva deletada com sucesso!");
                  DrawTable();
+                  DrawIngresso();
                 })
                 .fail(function() {
                   console.log("Erro ao tentar deletar esse item!");

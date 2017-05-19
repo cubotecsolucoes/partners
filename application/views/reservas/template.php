@@ -12,12 +12,20 @@
     <link rel="stylesheet" type="text/css" href="<?php echo(base_url()); ?>/assets/css/logar.css">
     <link rel="stylesheet" type="text/css" href="<?php echo(base_url()); ?>/assets/css/admin.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://printjs-4de6.kxcdn.com/print.min.css">
+    <link rel="stylesheet" href="<?php echo(base_url()); ?>/assets/css/alertify.core.css" />
+    <link rel="stylesheet" href="<?php echo(base_url()); ?>/assets/css/alertify.bootstrap.css"/>
+
+  
+
 
     <!-- JS -->
     <script src="<?php echo(base_url()); ?>/assets/js/jquery.js"></script>
     <script src="<?php echo(base_url()); ?>/assets/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo(base_url()); ?>/assets/js/painel.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+    <script src="<?php echo(base_url()); ?>/assets/js/alertify.min.js"></script>
 
     <script type="text/javascript">
         var base_url = "<?php echo(base_url()); ?>";

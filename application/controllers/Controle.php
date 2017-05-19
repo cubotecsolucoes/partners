@@ -9,7 +9,15 @@ class Controle extends CI_Controller {
 	}
 
 
+	public function valida($token,$dia)
+	{
+		$this->load->model('reservas_model','reservas');
+		$data = [
+			'liberado' => $this->reservas->liberado($dia,$token)
+		];
 
+		$this->load->view('valida/index', $data);
+	}
 
 // EVENTOS
 	public function getEvento()
@@ -154,6 +162,24 @@ class Controle extends CI_Controller {
 		echo(json_encode($this->reservas->getListaReservasUsuario($token)));
 	}
 
+	public function getInfoAllReservas()
+	{
+		$this->load->model('reservas_model','reservas');
+		echo(json_encode($this->reservas->getInfoAllReservas()));
+	}
+
+	public function diasQueVai($token)
+	{
+		$this->load->model('reservas_model','reservas');
+		echo(json_encode($this->reservas->diasQueEleVai($token)));
+		exit;
+	}
+	public function lugaresDoDia($dia,$token)
+	{
+		$this->load->model('reservas_model','reservas');
+		echo(json_encode($this->reservas->lugaresPorDia($dia,$token)));
+		exit;
+	}
 
 
 
@@ -213,6 +239,12 @@ class Controle extends CI_Controller {
 		$loc = $_POST['localizacao'];
 		$nivel = $_POST['piso'];
 		echo(json_encode($this->lugares->getLugaresLivres($loc,$nivel)));
+	}
+
+	public function alllugareslist()
+	{
+		$this->load->model('lugares_model','lugares');
+		echo(json_encode($this->lugares->getAllLugaresLivres()));
 	}
 
 	public function resetLugares($token)
@@ -338,6 +370,17 @@ class Controle extends CI_Controller {
 		$this->load->model('lugares_model','lugares');
 		$retorno = [];
 		$dados = $this->lugares->getLugeresOcupados($dia);
+		foreach ($dados as $key => $value) {
+			$retorno[] = $value['id_lugar'];
+		}
+		echo(json_encode($retorno));
+	}
+
+	public function alllugaresOcupados()
+	{
+		$this->load->model('lugares_model','lugares');
+		$retorno = [];
+		$dados = $this->lugares->getAllLugeresOcupados();
 		foreach ($dados as $key => $value) {
 			$retorno[] = $value['id_lugar'];
 		}

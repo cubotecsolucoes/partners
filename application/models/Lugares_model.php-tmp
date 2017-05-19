@@ -50,6 +50,13 @@ class Lugares_model extends CI_Model {
 		return $this->db->get('lugares')->result_array();
 	}
 
+	public function getAllLugaresLivres() {
+		$this->db->select('*');
+		$this->db->order_by('id', 'desc');
+
+		return $this->db->get('lugares')->result_array();
+	}
+
 	public function getLugeresOcupados($dia) {
 		$this->db->select('id_lugar');
 		$this->db->from('reservas');
@@ -57,8 +64,11 @@ class Lugares_model extends CI_Model {
 		return $this->db->get()->result_array();
 	}
 
-	// SELECT reservas.id_reserva AS id_reserva,reservas.dia AS dia,lugares.coluna as coluna,lugares.numero as numero,lugares.localizacao as localizacao,lugares.nivel as nivel, usuarios.usuario as usuario FROM reservas, lugares, usuarios WHERE reservas.id_lugar = lugares.id AND reservas.usuario_token = usuarios.usuario_token
-
+	public function getAllLugeresOcupados() {
+		$this->db->select('id_lugar');
+		$this->db->from('reservas');
+		return $this->db->get()->result_array();
+	}
 }
 
 /* End of file Lugares_model.php */
