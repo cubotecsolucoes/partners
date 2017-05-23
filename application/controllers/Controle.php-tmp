@@ -7,19 +7,46 @@ class Controle extends CI_Controller {
 		parent::__construct();
 	}
 
+	// VALIDAÇÃO
+
 	public function valida($token, $dia) {
 		$this->load->model('reservas_model', 'reservas');
 		$data = [
-			'liberado' => $this->reservas->liberado($dia, $token)
+			'liberado' => $this->reservas->liberado($dia, $token),
+			'dia'      => $dia,
+			'token'    => $token
 		];
 
 		$this->load->view('valida/index', $data);
+	}
+
+	public function imprimir($token) {
+		$this->load->model('reservas_model', 'reservas');
+		foreach ($this->reservas->diasQueEleVai($token) as $key => $value) {
+			$objeto = [
+				'usuario_token' => $token,
+				'dia'           => $value
+			];
+			$this->db->insert('reservados', $objeto);
+		}
+	}
+
+	public function bloquear($token, $dia) {
+		$this->db->where('usuario_token', $token);
+		$this->db->where('dia', $dia);
+
+		$this->db->delete('reservados');
 	}
 
 	// EVENTOS
 	public function getEvento() {
 		$this->load->model('eventos_model', 'eventos');
 		echo (json_encode($this->eventos->getEventoAtivo()));
+	}
+
+	public function getEventoDesativados() {
+		$this->load->model('eventos_model', 'eventos');
+		echo (json_encode($this->eventos->getEventosDesativados()));
 	}
 
 	public function getEventosList() {
@@ -73,7 +100,7 @@ class Controle extends CI_Controller {
 
 	public function deleteEvento($id) {
 		$this->load->model('eventos_model', 'eventos');
-		$this->eventos->delete($id);
+		echo (json_encode($this->eventos->delete($id)));
 	}
 
 	public function ativarEvento($id) {
@@ -142,6 +169,11 @@ class Controle extends CI_Controller {
 	public function getInfoAllReservas() {
 		$this->load->model('reservas_model', 'reservas');
 		echo (json_encode($this->reservas->getInfoAllReservas()));
+	}
+
+	public function getInfoReservas($dia) {
+		$this->load->model('reservas_model', 'reservas');
+		echo (json_encode($this->reservas->getInfoReservaDia($dia)));
 	}
 
 	public function diasQueVai($token) {

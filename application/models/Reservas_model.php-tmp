@@ -67,6 +67,14 @@ class Reservas_model extends CI_Model {
 		return $query;
 	}
 
+	public function getInfoReservaDia($dia) {
+		$this->db->select('*');
+		$this->db->from('view_reservas');
+		$this->db->where('dia', $dia);
+
+		return $this->db->get()->result_array();
+	}
+
 	public function diasQueEleVai($token) {
 		$retorno = [];
 		$this->db->select('DISTINCT(dia)');
@@ -85,16 +93,35 @@ class Reservas_model extends CI_Model {
 	}
 
 	public function liberado($dia, $token) {
-		$this->db->select('id_reserva');
-		$this->db->where('dia', $dia);
-		$this->db->where('usuario_token', $token);
-		$this->db->from('reservas');
-		$qnt = $this->db->count_all_results();
-		if ($qnt > 0) {
-			return $qnt;
+		if ($this->hasImprimiuDia($token, $dia)) {
+			$this->db->select('id_reserva');
+			$this->db->where('dia', $dia);
+			$this->db->where('usuario_token', $token);
+			$this->db->from('reservas');
+			$qnt = $this->db->count_all_results();
+			if ($qnt > 0) {
+				return $qnt;
+			} else {
+				return '';
+			}
 		} else {
-			return '';
+			return 'block';
 		}
+
+	}
+
+	public function hasImprimiu($token) {
+		$resultado = $this->db->query("SELECT COUNT(id) AS count FROM reservados WHERE usuario_token = '".$token."'");
+		$row       = $resultado->row();
+
+		return ($row->count > 0)?true:false;
+	}
+
+	public function hasImprimiuDia($token, $dia) {
+		$resultado = $this->db->query("SELECT COUNT(id) AS count FROM reservados WHERE usuario_token = '".$token."' AND dia = '".$dia."'");
+		$row       = $resultado->row();
+
+		return ($row->count > 0)?true:false;
 	}
 
 }

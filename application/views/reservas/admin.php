@@ -11,7 +11,25 @@
                 <button class="btn btn-warning btn-modal" type="button" data-toggle="modal" data-target="#modal-eventos">Cadastrar Evento</button>
                 <hr>
                 <div class="table-responsive">
+                    <table id="tabelaeventoativo" class="table">
+                        <legend>Evento Ativo</legend>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Data Inicial</th>
+                                <th>Data Final</th>
+                                <th>Qnt de Reservas</th>
+                                <th width="200px">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <hr>
+                <div class="table-responsive">
                     <table id="tabelaeventos" class="table">
+                        <legend>Eventos Anteriores</legend>
                         <thead>
                             <tr>
                                 <th>Nome</th>
@@ -454,6 +472,25 @@
         </div>
     </div>
 </div>
+
+<!-- MODAL IMPRIMIR LOG -->
+<div class="modal fade" id="modal-log-evento">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Escolha o dia</h4></div>
+            <div class="modal-body">
+                <div class="row" id="opcoesDias">
+                    
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" type="button" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
 $(document).ready(function(){
 
@@ -759,6 +796,17 @@ $(document).ready(function(){
         "lengthChange": false
     });
 
+    var tabelaEventoAtivo = $('#tabelaeventoativo').DataTable({
+      "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
+        },
+        "pageLength": 10,
+        "lengthChange": false,
+        "paging": false,
+        "info": false,
+        "searching": false
+    });
+
     var tabelaUsuarios = $('#tabelausuarios').DataTable({
       "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
@@ -782,6 +830,7 @@ $(document).ready(function(){
         });                
     });
 
+    DrawTableEventoAtivo();
     DrawTableEventos();
     DrawTableUsuarios();
 
@@ -847,9 +896,26 @@ $(document).ready(function(){
 
 	// FUNÇÕES DE "DESENHO" DAS TABELAS
 
+    function DrawTableEventoAtivo() {
+        $.getJSON(base_url + 'index.php/controle/getEvento/', function(json, textStatus) {
+            if (textStatus == 'success') {
+                var button = "<button type=\"button\" class=\"btn btn-info text-center pull-left evento\" data-acao=\"imprimelog\" data-id=\""+ json[0].nome +"\" data-inicial=\""+ json[0].data_inicial +"\" data-final=\""+ json[0].data_final +"\">Log</button><button type=\"button\" class=\"btn btn-warning text-center evento\" style=\"margin-left: 5px;\" data-acao=\"desativar\" data-id=\""+ json[0].id +"\">Desativar</button><button type=\"button\" class=\"btn btn-danger text-center pull-right ativo\" data-acao=\"excluir\" data-id=\""+ json[0].id +"\">Excluir</button>";
+                tabelaEventoAtivo.row.add([
+                        json[0].nome,
+                        json[0].data_inicial,
+                        json[0].data_final,
+                        json[0].reservas,
+                        button
+                    ]).draw();
+            } else {
+                console.log('Erro ao obter o evento ativo!');
+            }
+        });
+    }
+
 	function DrawTableEventos() {
 		$.ajax({
-		    url: base_url + 'index.php/controle/getEvento/',
+		    url: base_url + 'index.php/controle/getEventoDesativados/',
 		    type: 'POST',
 		    dataType: 'json'
 		  })
@@ -857,10 +923,7 @@ $(document).ready(function(){
 		      tabelaEventos.clear();
 		      if (data.length > 0) {
 		        $.each(data, function(i, item) {
-		        	var button;
-		        	if (item.ativo == 1) {
-		        		button = "<button type=\"button\" class=\"btn btn-warning text-center pull-left acao\" data-acao=\"desativa\" data-nome=\""+ item.nome +"\" data-ini=\""+ item.data_inicial +"\" data-fin=\""+ item.data_final +"\" data-id=\""+ item.id +"\">Encerrar</button><button type=\"button\" class=\"btn btn-danger text-center pull-right acao\" data-acao=\"excluir\" data-id=\""+ item.id +"\">Excluir</button>";
-		        	}
+		        	var button = "<button type=\"button\" class=\"btn btn-danger text-center pull-right evento\" data-acao=\"excluir\" data-id=\""+ item.id +"\">Excluir</button>";
 		          tabelaEventos.row.add([
 		              item.nome,
 		              item.data_inicial,
@@ -872,89 +935,111 @@ $(document).ready(function(){
 		      } else {
 		        tabelaEventos.clear().draw();
 		      }
-		      $('.acao').click(function(event) {
-                var nome = this.getAttribute('data-nome');
-                var data_ini = this.getAttribute('data-ini').split('-');
-                data_ini = data_ini[2] + '/' + data_ini[1] + '/' + data_ini[0];
-
-                var data_fin = this.getAttribute('data-fin').split('-');
-                data_fin = data_fin[2] + '/' + data_fin[1] + '/' + data_fin[0];
-                var tabela = '';
-                $.ajax({
-                    url: base_url + 'index.php/controle/alllugaresOcupados/',
-                    type: 'POST',
-                    dataType: 'json',
-                  })
-                  .done(function(lugares_ocupados) {
-                    $.ajax({
-                      url: base_url + 'index.php/controle/alllugareslist/',
-                      type: 'POST',
-                      dataType: 'json'
-                    })
-                    .done(function(data) {
-                    tabela += '<h3>Lugares Livres</h3><table class="table table-striped table-bordered"><thead><tr><th>Coluna</th><th>Número</th><th>Localização</th><th>Nível</th></tr></thead><tbody>';
-                      $.each(data, function(index, el) {
-                        if (!lugares_ocupados.includes(el.id)) {
-                            tabela += "<tr><td>"+ el.coluna +"</td><td>"+ el.numero +"</td><td>"+ el.localizacao +"</td><td>"+ el.nivel +"</td></tr>";
-                        }
-
-                      });
-                      tabela += '</tbody></table>';
-                    })
-                    .fail(function() {
-                      console.log("error ao obter a lista de todos os lugares");
-                    });
-                  })
-                  .fail(function() {
-                    console.log("Error ao tentar obter os lugares ocupados!");
-                  });
-
-                tabela += '<br><h3>Lugares Reservados</h3><table class="table table-striped table-bordered"><thead><tr><th>Usuário</th><th>CPF</th><th>E-mail</th><th>Dia</th><th>Coluna</th><th>Número</th></tr></thead><tbody>';
-                $.getJSON(base_url + 'index.php/controle/getInfoAllReservas/', function(json, textStatus) {
-                        $.each(json, function(index, item) {
-                            var dia = item.dia.split('-');
-                            dia = dia[2] + '/' + dia[1] + '/' + dia[0];
-                            tabela += "<tr><td>"+ item.nome +"</td><td>"+ item.cpf +"</td><td>"+ item.email +"</td><td>"+ dia +"</td><td>"+ item.coluna +"</td><td>"+ item.numero +"</td></tr>";
-                        });
-                    tabela += '</tbody></table>';
-                });
-
-                if (this.getAttribute('data-acao') == 'desativa') {
-                    var url = base_url + 'index.php/controle/desativarEvento/' + this.getAttribute('data-id')
-                    alertify.confirm("Deseja imprimir o log do evento?", function (e) {
-                        if (e) {
-                            $('body').append("<div id=\"imprimir\"><h1>Evento: "+ nome +"</h1><h2>Data inicial: "+ data_ini +", Data final: "+ data_fin +"</h2>"+ tabela +"</div>");
-                            printJS('imprimir', 'html');
-                            $('#imprimir').remove();
-                        } else {
-                            alertify.confirm("TEM CERTEZA QUE NÃO DESEJA IMPRIMIR O LOG DO EVENTO?", function (e) {
-                                if (e) {
-                                    $('body').append("<div id=\"imprimir\"><h1>Evento: "+ nome +"</h1><h2>Data inicial: "+ data_ini +", Data final: "+ data_fin +"</h2>"+ tabela +"</div>");
-                                    printJS('imprimir', 'html');
-                                    $('#imprimir').remove();
-                                }
-                            });
-                        }
-                    });
-                } else {
-                    var url = base_url + 'index.php/controle/deleteEvento/' + this.getAttribute('data-id')
-                }
-		        // $.ajax({
-		        //   url: url,
-		        //   type: 'POST',
-		        // })
-		        // .done(function() {
-		        //  DrawTableEventos();
-		        // })
-		        // .fail(function() {
-		        //   console.log("Erro ao tentar desativar ou excluir o evento!");
-		        // });                
-		      });
 		  })
 		  .fail(function() {
 		    console.log('Error ao tentar carregar a lista de eventos!')
 		  });
     }
+
+    $(document).on('click', '.evento', function(event)
+    {
+        event.preventDefault();
+        var acao = this.getAttribute('data-acao');
+        var id = this.getAttribute('data-id');
+
+        if (acao == 'excluir')
+        {
+            $.post(base_url + 'index.php/controle/deleteEvento/' + id, function(data, textStatus, xhr) {
+                alertify.log('Reserva deletada com sucesso!');
+                return true;
+            });
+        }
+        else if (acao == 'desativar')
+        {
+            $.post(base_url + 'index.php/controle/desativarEvento/' + id, function(data, textStatus, xhr) {
+                alertify.log('Reserva desativada com sucesso!');
+                return true;
+            });
+        }
+        else if (acao == 'imprimelog')
+        {
+            var data_ini = this.getAttribute('data-inicial').split('-');
+            data_ini = data_ini[2] + '/' + data_ini[1] + '/' + data_ini[0];
+
+            var data_fin = this.getAttribute('data-final').split('-');
+            data_fin = data_fin[2] + '/' + data_fin[1] + '/' + data_fin[0];
+
+            var tabela = '';
+
+            $.getJSON(base_url + 'index.php/controle/getDiasEvento', function(json, textStatus) {
+                if (textStatus == 'success') {
+                    var size = json.length;
+                    size = 12/size;
+                    $.each(json, function(index, item) {
+                        var dia = item.split('-');
+                        dia = dia[0] + '/' + dia[1] + '/' + dia[2];
+                        $('#opcoesDias').append("<div class=\"col-lg-"+ size +" col-md-"+ size +" col-xs-"+ size +"\"><button type=\"button\" class=\"btn btn-lg btn-block btn-danger text-center imprimir\" data-dia=\""+ item +"\">"+ dia +"</button></div>");
+                    });
+                } else {
+                    console.log('Error ao obter os dias do evento!');
+                }
+            });
+
+            $('#modal-log-evento').modal();
+            
+        }
+    });
+
+    $(document).on('click', '.imprimir', function(event) {
+        event.preventDefault();
+        var dia_selecionado = this.getAttribute('data-dia').split('-');
+        dia_selecionado = dia_selecionado[2] + '-' + dia_selecionado[1] + '-' + dia_selecionado[0];
+        var tabela = '';
+        $.ajax({
+                url: base_url + 'index.php/controle/lugaresOcupados/' + dia_selecionado,
+                type: 'POST',
+                dataType: 'json',
+        })
+        .done(function(lugares_ocupados) {
+            $.ajax({
+                url: base_url + 'index.php/controle/alllugareslist/',
+                type: 'POST',
+                dataType: 'json'
+            })
+            .done(function(data) {
+                tabela += '<h3>Lugares Livres</h3><table class="table table-striped table-bordered"><thead><tr><th>Coluna</th><th>Número</th><th>Localização</th><th>Nível</th></tr></thead><tbody>';
+                $.each(data, function(index, el) {
+                    if (!lugares_ocupados.includes(el.id)) {
+                        tabela += "<tr><td>"+ el.coluna +"</td><td>"+ el.numero +"</td><td>"+ el.localizacao +"</td><td>"+ el.nivel +"</td></tr>";
+                    }
+                });
+
+                tabela += '</tbody></table>';
+                tabela += '<br><h3>Lugares Reservados</h3><table class="table table-striped table-bordered"><thead><tr><th>Usuário</th><th>CPF</th><th>E-mail</th><th>Dia</th><th>Coluna</th><th>Número</th></tr></thead><tbody>';
+        
+                $.getJSON(base_url + 'index.php/controle/getInfoReservas/'+ dia_selecionado, function(json, textStatus) {
+                    $.each(json, function(index, item) {
+                        tabela += "<tr><td>"+ item.nome +"</td><td>"+ item.cpf +"</td><td>"+ item.email +"</td><td>"+ dia +"</td><td>"+ item.coluna +"</td><td>"+ item.numero +"</td></tr>";
+                    });
+                    tabela += '</tbody></table>';
+                    $('body').append("<div id=\"imprimir\"><h1>Evento: "+ nome +"</h1><h2>Dia: "+ dia_selecionado +"</h2>"+ tabela +"</div>");
+                    printJS('imprimir', 'html');
+                    $('#imprimir').remove();
+
+                });
+            })
+            .fail(function() {
+                console.log("error ao obter a lista de todos os lugares");
+            });
+        })
+        .fail(function() {
+            console.log("Error ao tentar obter os lugares ocupados!");
+        });
+    });
+
+    $('#modal-log-evento').on('hidden.bs.modal', function () {
+        $('.opcoesDias').html("");
+    });
 
     function DrawTableUsuarios() {
 		$.ajax({
