@@ -104,7 +104,7 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <button class="btn btn-success btn-modal" type="button" data-toggle="modal" data-target="#modal-usuarios">Cadastrar Usuário</button>
+                        <button class="btn btn-success btn-modal" id="cadastrarUsuarios" type="button" data-toggle="modal" data-target="#modal-usuarios">Cadastrar Usuário</button>
                         <hr>
                     </div>
                 </div>
@@ -393,6 +393,14 @@
                     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 modal-usuario">
                         <div class="row">
                             <div class="col-md-4">
+                                <h5>MATRICULA </h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h4 id="matricula"></h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
                                 <h5>NOME </h5>
                             </div>
                             <div class="col-md-6">
@@ -468,6 +476,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-default" type="button" data-dismiss="modal">Fechar</button>
+                <button id="editarUsuario" class="btn btn-warning pull-left" type="button" data-dismiss="modal"><span class="glyphicon glyphicon-pencil"></span> Editar</button>
             </div>
         </div>
     </div>
@@ -553,8 +562,7 @@ $(document).ready(function(){
 		})
 		.done(function() {
             DrawTableUsuarios();
-			$(this).trigger("reset");
-            $('#modal-usuarios').modal('hide');
+            $('#formUsuario').trigger("reset")
             alertify.success("Usuário adicionado com sucesso!");
 		})
 		.fail(function() {
@@ -573,12 +581,16 @@ $(document).ready(function(){
             dataType: 'json'
         })
         .done(function(data) {
+            $('h4#matricula').text("000"+data[0].id);
             $('h4#nome').text(data[0].nome);
             $('h4#usuario').text(data[0].usuario);
             var acesso;
-            if (data[0].acesso == 2) {
+            if (data[0].acesso == 2) 
+            {
                 acesso = 'Administrador';
-            } else {
+            } 
+            else 
+            {
                 acesso = 'Usuário';
             }
             $('h4#acesso').text(acesso);
@@ -594,6 +606,46 @@ $(document).ready(function(){
           console.log("Erro ao tentar pegar as informações do usuário!");
         });                
     });
+
+    $(document).on('click', '#editarUsuario', function(event) {
+
+        var id = parseInt($('h4#matricula').text());
+        $.getJSON(base_url + 'index.php/controle/getUsuario/' + id, function(json, textStatus) {
+            if (textStatus == 'success') 
+            {
+                $('input[type=text][name=nome]').val(json[0].nome);
+                if (json[0].nome_responsavel != "") {
+                    $('#responsavel').trigger('click');
+                }
+                $('input[type=text][name=cpf]').val(json[0].cpf);
+                $('input[type=text][name=usuario]').val(json[0].usuario);
+
+                if (json[0].acesso == 1) 
+                {
+                    $("input[name=acesso][value='1']").prop("checked",true);
+                }
+                else
+                {
+                    $("input[name=acesso][value='2']").prop("checked",true);
+                }
+
+                $('input[type=text][name=celular]').val(json[0].celular);
+                $('input[type=text][name=telefone]').val(json[0].telefone);
+                $('input[type=email][name=email]').val(json[0].email);
+                $('input[type=text][name=cep]').val(json[0].cep);
+                $('input[type=text][name=cidade]').val(json[0].cidade);
+                $('input[type=text][name=bairro]').val(json[0].bairro);
+                $('input[type=text][name=estado]').val(json[0].estado);
+                $('input[type=text][name=rua]').val(json[0].rua);
+                $('input[type=number][name=numero]').val(json[0].numero);
+                $('textarea[name=complemento]').val(json[0].complemento);
+                $('input[type=date][name=data_nascimento]').val(json[0].data_nascimento);
+
+                $('#cadastrarUsuarios').trigger('click');
+            }
+        });
+    });
+
 	// CADASTRO DE EVENTOS
     $('#data_inicial').blur(function(event) {
         $('#data_final').attr('min', $(this).val());
@@ -608,7 +660,7 @@ $(document).ready(function(){
 			data: $(this).serialize(),
 		})
 		.done(function() {
-			DrawTableEventos();
+			DrawTableEventoAtivo();
 			$('#modal-eventos').modal("hide");
 			$(this).trigger("reset");
             alertify.success("Evento adicionado com sucesso!");
@@ -762,6 +814,10 @@ $(document).ready(function(){
         $('#lugares').html("");
     });
 
+    $('#modal-log-evento').on('hidden.bs.modal', function () {
+        $('#opcoesDias').html("");
+    });
+
 	// INSTANCIANDO AS TABELAS
 
 	var tabelaLugares = $('#tabelalugares').DataTable({
@@ -782,7 +838,7 @@ $(document).ready(function(){
      {
        "aTargets": [ 7 ], // o numero 6 é o nº da coluna
        "mRender": function ( data, type, full ) { //aqui é uma funçãozinha para pegar os ids
-         return '<button id="deletarReserva" data-id=' + full[0] + ' type="button" class="btn btn-danger">Deletar</button>';
+         return '<button id="deletarReserva" title="Deletar" data-id=' + full[0] + ' type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>';
        }
      }
    ]
@@ -899,15 +955,23 @@ $(document).ready(function(){
     function DrawTableEventoAtivo() {
         $.getJSON(base_url + 'index.php/controle/getEvento/', function(json, textStatus) {
             if (textStatus == 'success') {
-                var button = "<button type=\"button\" class=\"btn btn-info text-center pull-left evento\" data-acao=\"imprimelog\" data-id=\""+ json[0].nome +"\" data-inicial=\""+ json[0].data_inicial +"\" data-final=\""+ json[0].data_final +"\">Log</button><button type=\"button\" class=\"btn btn-warning text-center evento\" style=\"margin-left: 5px;\" data-acao=\"desativar\" data-id=\""+ json[0].id +"\">Desativar</button><button type=\"button\" class=\"btn btn-danger text-center pull-right ativo\" data-acao=\"excluir\" data-id=\""+ json[0].id +"\">Excluir</button>";
-                tabelaEventoAtivo.row.add([
-                        json[0].nome,
-                        json[0].data_inicial,
-                        json[0].data_final,
-                        json[0].reservas,
-                        button
+                if (json.length > 0) {
+                    var button = "<button type=\"button\" class=\"btn btn-info text-center pull-left evento\" data-acao=\"imprimelog\" data-id=\""+ json[0].nome +"\" data-inicial=\""+ json[0].data_inicial +"\" data-final=\""+ json[0].data_final +"\">Log</button><button type=\"button\" class=\"btn btn-warning text-center evento\" style=\"margin-left: 5px;\" data-acao=\"desativar\" data-id=\""+ json[0].id +"\">Desativar</button><button type=\"button\" class=\"btn btn-danger text-center pull-right ativo\" data-acao=\"excluir\" data-id=\""+ json[0].id +"\">Excluir</button>";
+                    tabelaEventoAtivo.row.add([
+                            json[0].nome,
+                            json[0].data_inicial,
+                            json[0].data_final,
+                            json[0].reservas,
+                            button
                     ]).draw();
-            } else {
+                }
+                else
+                {
+                    tabelaEventoAtivo.clear().draw();
+                }
+            } 
+            else 
+            {
                 console.log('Erro ao obter o evento ativo!');
             }
         });
@@ -950,14 +1014,18 @@ $(document).ready(function(){
         if (acao == 'excluir')
         {
             $.post(base_url + 'index.php/controle/deleteEvento/' + id, function(data, textStatus, xhr) {
-                alertify.log('Reserva deletada com sucesso!');
+                alertify.log('Evento deletado com sucesso!');
+                DrawTableEventoAtivo();
+                DrawTableEventos();
                 return true;
             });
         }
         else if (acao == 'desativar')
         {
             $.post(base_url + 'index.php/controle/desativarEvento/' + id, function(data, textStatus, xhr) {
-                alertify.log('Reserva desativada com sucesso!');
+                alertify.log('Evento desativado com sucesso!');
+                DrawTableEventoAtivo();
+                DrawTableEventos();
                 return true;
             });
         }
@@ -1051,11 +1119,18 @@ $(document).ready(function(){
 		      tabelaUsuarios.clear();
 		      if (data.length > 0) {
 		        $.each(data, function(i, item) {
+                    if (item.usuario_token == user_token) {
+                        var button = "<button type=\"button\" title=\"Visualizar\" class=\"btn btn-info text-center pull-left acaoquatro\" data-acao=\"visualizar\" data-id=\""+ item.id +"\"><span class=\"glyphicon glyphicon-zoom-in\"></span></button";
+                    }
+                    else 
+                    {
+                        var button = "<button type=\"button\" title=\"Visualizar\" class=\"btn btn-info text-center pull-left acaoquatro\" data-acao=\"visualizar\" data-id=\""+ item.id +"\"><span class=\"glyphicon glyphicon-zoom-in\"></span></button><button type=\"button\" title=\"Deletar\" class=\"btn btn-danger text-center pull-right acaotres\" data-acao=\"deleta\" data-id=\""+ item.id +"\"><span class=\"glyphicon glyphicon-remove\"></span></button>";
+                    }
 		          tabelaUsuarios.row.add([
 		              item.nome,
 		              item.email,
 		              item.telefone,
-		              "<button type=\"button\" class=\"btn btn-info text-center pull-left acaoquatro\" data-acao=\"visualizar\" data-id=\""+ item.id +"\">Ver</button><button type=\"button\" class=\"btn btn-danger text-center pull-right acaotres\" data-acao=\"deleta\" data-id=\""+ item.id +"\">Deletar</button>"
+		              button
 		            ]).draw();
 		        })
 		      } else {
