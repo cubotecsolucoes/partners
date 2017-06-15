@@ -1,0 +1,11 @@
+[X] 1 - Cadastro de usuário: usuario logado pode se auto-excluir
+[z] 2 - Usuário poder alterar seus dados
+[ ] 3 - Alterar a senha do usuário
+[ ] 4 - Inclusão da foto
+[X] 5 - Limpar o formulário de cadastro
+[X] 6 - Não permitir dois usuários com mesmo nome
+[X] 7 - Não fechar a janela de cadastro de usuário
+[X] 8 - Relatório de alunos com tamanho máximo
+[X] 9 - Limpar datas do log de evento
+[X] 10 - Atualizar lista de eventos quando é criado um evento
+[ ] 11 - Realizar ações ao desativar o evento

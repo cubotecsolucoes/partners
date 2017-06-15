@@ -189,9 +189,9 @@
                     	<div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-12">
-                                	<div class="input-group">
+                                	<div id="ContemNome" class="input-group">
                                 		<span class="input-group-addon">Nome</span>
-	                                    <input type="text" name="nome" placeholder="Nome do usuário" autofocus required minlength="3" maxlength="50" class="form-control" />
+	                                    <input type="text" name="nome" id="nome" placeholder="Nome do usuário" autofocus required minlength="3" maxlength="50" class="form-control" />
 	                                </div>
 	                                <div class="checkbox">
     	                                <label for="nome">
@@ -554,21 +554,23 @@ $(document).ready(function(){
 
 	$('#formUsuario').submit(function(event) {
 		event.preventDefault();
-		$.ajax({
-			url: base_url + 'index.php/controle/addUsuario/',
-			type: 'POST',
-			dataType: 'json',
-			data: $(this).serialize(),
-		})
-		.done(function() {
-            DrawTableUsuarios();
-            $('#formUsuario').trigger("reset")
-            alertify.success("Usuário adicionado com sucesso!");
-		})
-		.fail(function() {
-			console.log("error ao salvar usuario!");
-		})
-		
+        if ($('#alertaErro').length < 1)
+        {
+            $.ajax({
+                url: base_url + 'index.php/controle/addUsuario/',
+                type: 'POST',
+                dataType: 'json',
+                data: $(this).serialize(),
+            })
+            .done(function() {
+                DrawTableUsuarios();
+                $('#formUsuario').trigger("reset")
+                alertify.success("Usuário adicionado com sucesso!");
+            })
+            .fail(function() {
+                console.log("error ao salvar usuario!");
+            })
+        }		
 	});
 
 
@@ -704,6 +706,43 @@ $(document).ready(function(){
       .fail(function() {
         console.log("Error ao tentar recuperar as datas do evento!");
       })
+    });
+
+    $(document).on('keyup', '#nome', function(event) {
+        event.preventDefault();
+        if ($(this).val().length > 0)
+        {
+            $.post(base_url + 'index.php/controle/getUserbyname/' + $(this).val(), function(data, textStatus, xhr) {
+                if (textStatus == 'success')
+                {
+                    if (data.length > 2)
+                    {
+                        if ($('#alertaErro').length < 1)
+                        {
+                            $('#ContemNome').after('<div class="alert alert-danger" id="alertaErro" role="alert">Este usuário já existe</div>');
+                            $('#ContemNome').addClass('has-error');
+                        }
+                    }
+                    else
+                    {
+                        if ($('#alertaErro').length >  0)
+                        {
+                            $('#alertaErro').remove();
+                            $('#ContemNome').removeClass('has-error');
+                        }
+                    }
+                }
+                else
+                {
+                    if ($('#alertaErro').length >  0)
+                        {
+                            $('#alertaErro').remove();
+                            $('#ContemNome').removeClass('has-error');
+                        }
+                    console.log('Error ao obter usuário com esse nome!');
+                }
+            });
+        }
     });
 
     $(document).on('click', '.data', function(event) {

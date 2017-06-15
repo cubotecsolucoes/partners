@@ -514,6 +514,14 @@ class Usuarios_model extends CI_Model {
 		$this->db->where('id', $id);
 		$this->db->delete('usuarios');
 	}
+
+	public function getUserbynome($value) {
+		$this->db->select('id');
+		$this->db->from('usuarios');
+		$this->db->like('nome', $value, 'BOTH');
+
+		return $this->db->get()->result_array();
+	}
 }
 
 /* End of file Usuarios_model.php */

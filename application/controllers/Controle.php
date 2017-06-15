@@ -23,6 +23,13 @@ class Controle extends CI_Controller {
 		$this->load->view('valida/index', $data);
 	}
 
+	public function getUserbyname($nome)
+	{
+		$this->load->model('usuarios_model','user');
+
+		echo(json_encode($this->user->getUserbynome($nome)));
+	}
+
 	public function imprimir($token)
 	{
 		$this->load->model('reservas_model','reservas');
