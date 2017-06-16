@@ -347,7 +347,7 @@
               <div class="member-info">
                 <h3>Joilma Valeriano e Phernão Ollavo</h3>
                 <h4>Fundadores</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Casados há 15 anos atuam como bailarinos, professores, coreógrafos e diretores da Partners Centro de Dança, que nasceu com o objetivo de dar novas asas a arte da dança em nosso estado. Realizando através de seus espetáculos (que desde o princípio são eminentemente filantrópicos) um trabalho de muita criatividade e competência, que norteiam toda  atrajetória de sucesso da Partners dentro e fora de nosso estado.</p>
               </div>
               <div class="social-icons">
                 <ul>

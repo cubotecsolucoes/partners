@@ -53,3 +53,5 @@ application/config/database.php-tmp
 *.php-tmp
 application/config/config.php
 application/config/database.php
+application/config/config.php
+application/config/database.php
