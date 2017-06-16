@@ -182,16 +182,16 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">Cadastro de Usuários</h4></div>
+                <h4 class="modal-title">Cadastro de Clientes</h4></div>
             <form id="formUsuario">
             	<div class="modal-body">
                 	<div class="row">
                     	<div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-12">
-                                	<div id="ContemNome" class="input-group">
+                                	<div class="input-group">
                                 		<span class="input-group-addon">Nome</span>
-	                                    <input type="text" name="nome" id="nome" placeholder="Nome do usuário" autofocus required minlength="3" maxlength="50" class="form-control" />
+	                                    <input type="text" name="nome" placeholder="Nome do usuário" autofocus required minlength="3" maxlength="50" class="form-control" />
 	                                </div>
 	                                <div class="checkbox">
     	                                <label for="nome">
@@ -214,9 +214,9 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="input-group">
+                                    <div id="ContemNome" class="input-group">
                                         <span class="input-group-addon">Usuário</span>
-                                        <input type="text" name="usuario" placeholder="Usuário" required minlength="3" maxlength="50" class="form-control" />
+                                        <input type="text" name="usuario" id="nome" placeholder="Usuário" required minlength="3" maxlength="50" class="form-control" />
                                     </div>
                                     <div class="input-group">
                                         <span class="input-group-addon">Senha</span>
