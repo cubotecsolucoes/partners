@@ -563,7 +563,7 @@ class Usuarios_model extends CI_Model {
     {
         $this->db->select('id');
         $this->db->from('usuarios');
-        $this->db->like('nome', $value, 'BOTH');
+        $this->db->like('usuario', $value, 'BOTH');
 
         return $this->db->get()->result_array();
     }
