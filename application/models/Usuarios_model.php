@@ -567,6 +567,16 @@ class Usuarios_model extends CI_Model {
 
         return $this->db->get()->result_array();
     }
+
+    public function updatePass($token, $old_pass, $new_pass)
+    {
+        $this->_setSenha($new_pass);
+        $this->db->set('senha',$this->getSenha());
+        $this->db->where('usuario_token', $token);
+        $this->db->where('senha', $old_pass);
+
+        return $this->db->update('usuarios');
+    }
 }
 
 /* End of file Usuarios_model.php */

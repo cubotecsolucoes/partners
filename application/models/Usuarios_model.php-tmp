@@ -518,9 +518,18 @@ class Usuarios_model extends CI_Model {
 	public function getUserbynome($value) {
 		$this->db->select('id');
 		$this->db->from('usuarios');
-		$this->db->like('nome', $value, 'BOTH');
+		$this->db->like('usuario', $value, 'BOTH');
 
 		return $this->db->get()->result_array();
+	}
+
+	public function updatePass($token, $old_pass, $new_pass) {
+		$this->_setSenha($new_pass);
+		$this->db->set('senha', $this->getSenha());
+		$this->db->where('usuario_token', $token);
+		$this->db->where('senha', $old_pass);
+
+		return $this->db->update('usuarios');
 	}
 }
 

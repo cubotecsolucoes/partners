@@ -30,6 +30,7 @@
     <script type="text/javascript">
         var base_url = "<?php echo(base_url()); ?>";
         var user_token = "<?php echo($_SESSION['user']['usuario_token']); ?>";
+        var evento_id = <?php echo($eventoid); ?>;
     </script>
 </head>
 
@@ -41,6 +42,9 @@
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="active" role="presentation" style="margin-right: 5px;">
+                        <a href="" type="button" data-toggle="modal" data-target="#modalSenha">Mudar Senha</a>
+                    </li>
                     <li class="active" role="presentation">
                         <a href="<?php echo(base_url('index.php/login/logout')) ?>"> <i class="glyphicon glyphicon-log-out"></i> Sair </a>
                     </li>

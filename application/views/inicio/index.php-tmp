@@ -4,7 +4,7 @@
         <div class="item active" style="background-image: url(<?php echo (base_url());?>assets/images/slider/1.jpg)">
           <div class="caption">
             <h1 class="animated fadeInLeftBig">Partners <span>Centro De Dança</span></h1>
-            <p class="animated fadeInRightBig">Escola de Dança - Estúdio - Apresentações</p>
+            <p class="animated fadeInRightBig">Escola de Dança</p>
             <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Saiba Mais</a>
           </div>
         </div>
@@ -16,6 +16,34 @@
           </div>
         </div>
         <div class="item" style="background-image: url(<?php echo (base_url());?>assets/images/slider/3.jpg)">
+          <div class="caption">
+            <h1 class="animated fadeInLeftBig">Partners <span>Centro De Dança</span></h1>
+            <p class="animated fadeInRightBig">16 anos mudando conceitos sobre dança</p>
+            <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Saiba Mais</a>
+          </div>
+        </div>
+        <div class="item" style="background-image: url(<?php echo (base_url());?>assets/images/slider/4.jpg)">
+          <div class="caption">
+            <h1 class="animated fadeInLeftBig">Partners <span>Centro De Dança</span></h1>
+            <p class="animated fadeInRightBig">Todos Junto Somos Partners</p>
+            <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Saiba Mais</a>
+          </div>
+        </div>
+        <div class="item" style="background-image: url(<?php echo (base_url());?>assets/images/slider/5.jpg)">
+          <div class="caption">
+            <h1 class="animated fadeInLeftBig">Partners <span>Centro De Dança</span></h1>
+            <p class="animated fadeInRightBig">Aqui Tem Dança, Aqui Tem Arte</p>
+            <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Saiba Mais</a>
+          </div>
+        </div>
+        <div class="item" style="background-image: url(<?php echo (base_url());?>assets/images/slider/6.jpg)">
+          <div class="caption">
+            <h1 class="animated fadeInLeftBig">Partners <span>Centro De Dança</span></h1>
+            <p class="animated fadeInRightBig">Onde a Dança Acontece</p>
+            <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Saiba Mais</a>
+          </div>
+        </div>
+        <div class="item" style="background-image: url(<?php echo (base_url());?>assets/images/slider/7.jpg)">
           <div class="caption">
             <h1 class="animated fadeInLeftBig">Partners <span>Centro De Dança</span></h1>
             <p class="animated fadeInRightBig">16 anos mudando conceitos sobre dança</p>
@@ -50,7 +78,7 @@
             <li class="scroll"><a href="#pricing">Comprar</a></li>
             <li class="scroll"><a href="#apoio">Apoio</a></li>
             <li class="scroll"><a href="#contact">Contato</a></li>
-            <li class="scroll"><a href="#entrar">Entrar</a></li>
+            <li class="scroll"><a href="#entrar">Ingresso</a></li>
           </ul>
         </div>
       </div>
@@ -83,8 +111,10 @@
               <i class="fa fa-star-o"></i>
             </div>
             <div class="service-info">
-              <h3>Talento</h3>
-              <p>Vários talentos que acabam por se consolidar nos palcos através das nossas apresentações em nosso Estado e fora dele</p>
+              <h3>Cursos</h3>
+              <p>Baby Class, Dança do Ventre</p>
+              <p>Ballet Clássico, Ballet Adulto, Jazz Infantil</p>
+              <p>Jazz Dance, Jazz Adulto</p>
             </div>
           </div>
           <div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="250ms">
@@ -110,32 +140,7 @@
           </div>
         </div>
         <div class="col-sm-6">
-          <div class="our-skills wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="100ms">
-            <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="100ms">
-              <p class="lead">Facilidade de Usuários</p>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="95">95%</div>
-              </div>
-            </div>
-            <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="100ms">
-              <p class="lead">Aprovaram nosso Design</p>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="75">75%</div>
-              </div>
-            </div>
-            <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="100ms">
-              <p class="lead">Satisfação</p>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="60">60%</div>
-              </div>
-            </div>
-            <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="100ms">
-              <p class="lead">Voltariam ao Evento</p>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="97">97%</div>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
@@ -145,8 +150,7 @@
     <div class="container">
       <div class="row">
         <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="100ms">
-          <h2>Edições Anteriores</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam</p>
+          <h2>Espetáculos da Partners</h2>
         </div>
       </div>
     </div>
@@ -320,6 +324,324 @@
             </div>
           </div>
         </div>
+        <div class="col-sm-12 novasessao wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="100ms">
+          <h2>Festival de Joinville</h2>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo (base_url());?>assets/images/portfolio/fotos/join1.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+                    <h3>The Circus</h3>
+                    <p>2014</p>
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo (base_url());?>assets/images/portfolio/fotos/join2.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+                    <h3>The Circus</h3>
+                    <p>2014</p>
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo (base_url());?>assets/images/portfolio/fotos/join3.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+                    <h3>The Circus</h3>
+                    <p>2014</p>
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo (base_url());?>assets/images/portfolio/fotos/join4.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+                    <h3>The Circus</h3>
+                    <p>2014</p>
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo (base_url());?>assets/images/portfolio/fotos/join5.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+                    <h3>The Circus</h3>
+                    <p>2014</p>
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo (base_url());?>assets/images/portfolio/fotos/join6.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+                    <h3>The Circus</h3>
+                    <p>2014</p>
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo (base_url());?>assets/images/portfolio/fotos/join7.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+                    <h3>The Circus</h3>
+                    <p>2014</p>
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo (base_url());?>assets/images/portfolio/fotos/join8.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+                    <h3>The Circus</h3>
+                    <p>2014</p>
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo (base_url());?>assets/images/portfolio/fotos/join9.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+                    <h3>The Circus</h3>
+                    <p>2014</p>
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo (base_url());?>assets/images/portfolio/fotos/join10.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+                    <h3>The Circus</h3>
+                    <p>2014</p>
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo (base_url());?>assets/images/portfolio/fotos/join11.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+                    <h3>The Circus</h3>
+                    <p>2014</p>
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo (base_url());?>assets/images/portfolio/fotos/join12.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+                    <h3>The Circus</h3>
+                    <p>2014</p>
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo (base_url());?>assets/images/portfolio/fotos/join13.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+                    <h3>The Circus</h3>
+                    <p>2014</p>
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo (base_url());?>assets/images/portfolio/fotos/join14.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+                    <h3>The Circus</h3>
+                    <p>2014</p>
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo (base_url());?>assets/images/portfolio/fotos/join15.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+                    <h3>The Circus</h3>
+                    <p>2014</p>
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div id="portfolio-single-wrap">
@@ -328,12 +650,12 @@
     </div><!-- /#portfolio-single-wrap -->
   </section><!--/#portfolio-->
 
+
   <section id="team">
     <div class="container">
       <div class="row">
         <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="100ms">
-          <h2>Organizadores</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore </p>
+          <h2>Diretores</h2>
         </div>
       </div>
       <div class="team-members">
@@ -363,64 +685,7 @@
       </div>
     </div>
   </section><!--/#team-->
-
-  <section id="features" class="parallax">
-    <div class="container">
-      <div class="row count">
-        <div class="col-sm-3 col-xs-6 wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="100ms">
-          <i class="fa fa-user"></i>
-          <h3 class="timer">3650</h3>
-          <p>Participantes</p>
-        </div>
-        <div class="col-sm-3 col-xs-6 wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="200ms">
-          <i class="fa fa-facebook"></i>
-          <h3 class="timer">200</h3>
-          <p>Seguidores</p>
-        </div>
-        <div class="col-sm-3 col-xs-6 wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="300ms">
-          <i class="fa fa-trophy"></i>
-          <h3 class="timer">10</h3>
-          <p>Prêmios Conquistados</p>
-        </div>
-        <div class="col-sm-3 col-xs-6 wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="400ms">
-          <i class="fa fa-ticket"></i>
-          <h3 class="timer">180</h3>
-          <p>Ingressos vendidos</p>
-        </div>
-      </div>
-    </div>
-  </section><!--/#features-->
-
-  <section id="pricing">
-    <div class="container">
-      <div class="row">
-        <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="800ms" data-wow-delay="100ms">
-          <h2>Tabela de Preços</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam</p>
-        </div>
-      </div>
-      <div class="pricing-table">
-        <div class="row">
-          <div class="col-sm-4"></div>
-          <div class="col-sm-4">
-            <div class="single-table wow flipInY" data-wow-duration="1000ms" data-wow-delay="100ms">
-              <h3>Ingresso Avulso</h3>
-              <div class="price">
-                $39
-              </div>
-              <ul>
-                <li></li>
-              </ul>
-              <a href="#" class="btn btn-lg btn-primary">Comprar</a>
-            </div>
-          </div>
-          <div class="col-sm-4"></div>
-        </div>
-      </div>
-      <section id="entrar"></section>
-    </div>
-  </section><!--/#pricing-->
-
+  <div id="entrar"></div>
   <section id="twitter" class="parallax">
 
     <div class="panel panel-login">
@@ -432,7 +697,7 @@
 
   </section><!--/#twitter-->
 
-  <section id="apoio">
+  <!-- <section id="apoio">
     <div class="container">
       <div class="row">
         <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
@@ -463,7 +728,8 @@
         </div>
       </div>
     </div>
-  </section><!--/#blog-->
+  </section>
+ -->
 
   <section id="contact">
     <div id="google-map" class="wow fadeIn" data-latitude="-10.928605" data-longitude="-37.055964" data-wow-duration="1000ms" data-wow-delay="400ms"></div>
@@ -472,7 +738,6 @@
         <div class="row">
           <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
             <h2>Entre em Contato</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam</p>
           </div>
         </div>
         <div class="contact-form wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">

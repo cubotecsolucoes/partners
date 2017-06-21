@@ -23,7 +23,7 @@ $table = 'view_reservas';
  
 // Table's primary key
 $primaryKey = 'id';
- 
+
 // Array of database columns which should be read and sent back to DataTables.
 // The `db` parameter represents the column name in the database, while the `dt`
 // parameter represents the DataTables column identifier. In this case simple
@@ -35,25 +35,25 @@ $columns = array(
     array( 'db' => 'cpf',     'dt' => 3 ),
     array( 'db' => 'email',     'dt' => 4 ),
     array( 'db' => 'coluna',     'dt' => 5 ),
-    array( 'db' => 'numero',     'dt' => 6 )
+    array( 'db' => 'numero',     'dt' => 6, )
 );
  
 // SQL server connection information
 // DEVELOPER
-// $sql_details = array(
-//     'user' => 'root',
-//     'pass' => '',
-//     'db'   => 'partners',
-//     'host' => '127.0.0.1'
-// );
+$sql_details = array(
+    'user' => 'root',
+    'pass' => '',
+    'db'   => 'partners',
+    'host' => '127.0.0.1'
+);
 
 // PRODUCTION
-$sql_details = array(
-    'user' => 'gerenciador',
-    'pass' => 'evfawe17',
-    'db'   => 'partners',
-    'host' => 'mysql796.umbler.com'
-);
+// $sql_details = array(
+//     'user' => 'gerenciador',
+//     'pass' => 'evfawe17',
+//     'db'   => 'partners',
+//     'host' => 'mysql796.umbler.com'
+// );
  
  
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -62,7 +62,16 @@ $sql_details = array(
  */
  
 require('ssp.class.php');
- 
-echo json_encode(
-    SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns )
-);
+
+
+// Id Evento to filter
+
+if (isset($_GET['idevento']))
+{
+    $idEvento = $_GET['idevento'];
+
+    echo json_encode(
+    SSP::simple( $_GET, $sql_details, $table, $idEvento, $primaryKey, $columns )
+    );
+
+}

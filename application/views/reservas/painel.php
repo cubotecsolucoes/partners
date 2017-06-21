@@ -75,7 +75,7 @@
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-warning btn-lg pull-left" tabindex="5" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-warning btn-lg pull-right" tabindex="5" data-dismiss="modal">Cancelar</button>
                 <button type="submit" id="cadastrar" tabindex="4" class="btn btn-primary btn-lg pull-right">Reservar</button>
             </form>
           </div>
@@ -84,12 +84,80 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+
+<div class="modal fade" id="modalSenha">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="formSenha" role="form">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Alterar senha</h4>
+        </div>
+        <div class="modal-body">
+            <div class="input-group" style="margin-bottom: 10px">
+              <span class="input-group-addon">Senha atual</span>
+              <input type="password" name="password" autofocus tabindex="1" placeholder="Senha Atual" class="form-control" />
+            </div>
+            <div class="input-group" style="margin-bottom: 10px">
+              <span class="input-group-addon">Nova senha</span>
+              <input type="password" name="new_password" autofocus tabindex="2" placeholder="Nova Senha" class="form-control" />
+            </div>
+            <div class="input-group" style="margin-bottom: 10px">
+              <span class="input-group-addon">Repita a nova senha</span>
+              <input type="password" name="new_password_confirm" autofocus tabindex="3" placeholder="Repita" class="form-control" />
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="reset" class="btn btn-default pull-right" tabindex="5" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-success pull-left" tabindex="4">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 <div id="ingresso" style="display: none;">
 
 </div>
 <script type="text/javascript">
   $(document).ready(function(){
+
+    if (localStorage.mudasenha != 'true')
+    {
+      alertify.confirm('<h2 style="color: red;"><b>Atenção</b></h2><p style="padding: 20px;">Percebemos que essa é sua primeira vez por aqui. Deseja alterar sua senha de login?<p>', function(e) {
+        if (e) {
+          $('#modalSenha').modal();
+        }
+        else
+        {
+          localStorage.setItem('mudasenha', 'true');
+        }
+      });
+    }
+
+    $(document).on('submit', '#formSenha', function(event) {
+      event.preventDefault();
+      $.post(base_url + 'index.php/controle/updatePass/' + user_token, $(this).serialize(), function(data, textStatus, xhr) {
+        if (textStatus == 'success')
+        {
+          if (data[1] == 1)
+          {
+            alertify.success('Senha alterada com sucesso!');
+            localStorage.setItem('mudasenha', 'true');
+            $('#modalSenha').modal('hide');
+          }
+          else
+          {
+            alertify.error('Erro ao alterar a senha!');
+            $('#modalSenha').modal('hide');
+          }
+        }
+      });
+    });
     
+    $(document).on('hide.bs.modal', '#modalSenha', function(event) {
+      $('#formSenha').trigger('reset');
+    });
+
     DrawIngresso();
     $(document).on('click', '#encerrar', function(event) {
       alertify.set({ labels: {
@@ -98,10 +166,11 @@
 } });
       alertify.confirm('<h2 style="color: red;"><b>Atenção</b></h2><p style="padding: 20px;">Para imprimir <b>efetue todas as reservas</b>, após a impressão, não será mais possível editar os lugares! Deja imprimir?<p>', function(e) {
         if (e) {
-          $.post(base_url + 'index.php/controle/imprimir/' + user_token);
+          $.post(base_url + 'index.php/controle/imprimir/'+ evento_id +'/'+ user_token);
           $('#ingresso').show();
           printJS({printable: 'ingresso', type: 'html'});
           $('#ingresso').hide();
+          location.reload();
         } else {
           console.log('Erro ao imprimir');
         }
@@ -126,7 +195,7 @@
     var qntReservados;
 
     $.ajax({
-      url: base_url + 'index.php/controle/getQntReservas',
+      url: base_url + 'index.php/controle/getQntReservas/'+ evento_id,
       type: 'POST',
       dataType: 'json'
     })
@@ -142,7 +211,7 @@
 
     btnReserva.click(function(event) {
       $.ajax({
-        url: base_url + 'index.php/controle/getDiasEvento',
+        url: base_url + 'index.php/controle/getDiasEvento/'+ evento_id,
         type: 'POST',
         dataType: 'json',
       })
@@ -169,10 +238,10 @@
       qntReservados = qntReservados[2]+'-'+qntReservados[1]+'-'+qntReservados[0];
 
       $.ajax({
-        url: base_url + 'index.php/controle/getQntUsuarioReservou',
+        url: base_url + 'index.php/controle/getQntUsuarioReservou/'+ evento_id,
         type: 'POST',
         dataType: 'json',
-        data: {dia: qntReservados,token: user_token},
+        data: {id_evento: evento_id,dia: qntReservados,token: user_token},
       })
       .done(function(data) {
         qntReservados = data;
@@ -195,7 +264,7 @@
     aliVal = $(this).attr('data-valor');
     var dataCorreta = data.split('-')
     $.ajax({
-        url: base_url + 'index.php/controle/lugaresOcupados/'+ dataCorreta[2]+'-'+dataCorreta[1]+'-'+dataCorreta[0],
+        url: base_url + 'index.php/controle/lugaresOcupados/'+ evento_id +'/'+ dataCorreta[2]+'-'+dataCorreta[1]+'-'+dataCorreta[0] +'/'+ user_token,
         type: 'POST',
         dataType: 'json',
       })
@@ -272,7 +341,7 @@
         url: base_url + 'index.php/controle/addReserva',
         type: 'POST',
         dataType: 'json',
-        data: {lugares: ids, data: data,user_token: user_token},
+        data: {id_evento: evento_id, lugares: ids, data: data,user_token: user_token},
       })
       .done(function(data) {
         if (data.error == 0) {
@@ -297,7 +366,7 @@
 
     function DrawIngresso() {
       $('#ingresso').html('');
-      $.getJSON( base_url + 'index.php/controle/diasQueVai/'+ user_token, function(dias, Status) {
+      $.getJSON( base_url + 'index.php/controle/diasQueVai/'+ evento_id +'/'+ user_token, function(dias, Status) {
             
               if (Status == 'success') {
                 $.each(dias, function(index, item) {
@@ -318,7 +387,7 @@
                   });
 
 
-                  $.getJSON(base_url + 'index.php/controle/lugaresDoDia/' + item + '/' + user_token, function(lugares, textStatus) {
+                  $.getJSON(base_url + 'index.php/controle/lugaresDoDia/'+ evento_id +'/'+ item + '/' + user_token, function(lugares, textStatus) {
                       
                       $.each(lugares, function(indice, val) {
                         tabelaIngresso.row.add([
@@ -341,7 +410,7 @@
                       size: 100,
                       fill: '#000',
                       background: 'white',
-                      text: base_url + 'index.php/controle/valida/' + user_token + '/' + item,
+                      text: base_url + 'index.php/controle/valida/'+ evento_id +'/'+ user_token + '/' + item,
                       radius: 0,
                       quiet: 0,
                       mode: 0,
@@ -366,7 +435,7 @@
 
     function DrawTable() {
       $.ajax({
-            url: base_url + 'index.php/controle/getReservaUser/'+ user_token +'/',
+            url: base_url + 'index.php/controle/getReservaUser/'+ evento_id +'/'+ user_token +'/',
             type: 'POST',
             dataType: 'json'
           })

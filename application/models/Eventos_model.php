@@ -31,11 +31,11 @@ class Eventos_model extends CI_Model {
 		return $this->db->get()->result_array();
 	}
 
-	public function getDiasEvento()
+	public function getDiasEvento($id_evento)
 	{
 		$this->db->select('data_inicial,data_final');
 		$this->db->from('eventos');
-		$this->db->where('ativo', 1);
+		$this->db->where('id', $id_evento);
 		$dados = $this->db->get()->row();
 
 		$data_inicial = $dados->data_inicial;
@@ -97,6 +97,7 @@ class Eventos_model extends CI_Model {
 	{
 		$this->db->where('id', $id);
 		$this->db->delete('eventos');
+		$this->db->query('DELETE FROM reservas WHERE id_evento = '.$id);
 	}
 
 }

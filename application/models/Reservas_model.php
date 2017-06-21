@@ -12,6 +12,7 @@ class Reservas_model extends CI_Model {
 		{
 			foreach ($value['id_lugar'] as $lugar) {
 				$objeto = [
+					'id_evento' => $value['id_evento'],
 					'id_lugar' => $lugar,
 					'usuario_token' => $value['usuario_token'],
 					'dia' => $value['dia']
@@ -33,17 +34,19 @@ class Reservas_model extends CI_Model {
 		$this->db->delete('reservas');
 	}
 
-	public function getListaReservas()
+	public function getListaReservas($id_evento)
 	{
 		$this->db->select('*');
+		$this->db->where('id_evento', $id_evento);
 		return $this->db->get('reservas')->result_array();
 	}
 
-	public function getListaReservasUsuario($token)
+	public function getListaReservasUsuario($id_evento, $token)
 	{
 		$this->db->select('*');
 		$this->db->from('reservas');
 		$this->db->where('usuario_token', $token);
+		$this->db->where('id_evento', $id_evento);
 		$this->db->join('lugares', 'lugares.id = reservas.id_lugar');
 		return $this->db->get()->result_array();
 	}
@@ -55,29 +58,31 @@ class Reservas_model extends CI_Model {
 		return $this->db->get('reservas')->result();
 	}
 
-	public function getQntReservados()
+	public function getQntReservados($id_evento)
 	{
 		$this->db->select('dia, COUNT(*) as count');
+		$this->db->where('id_evento', $id_evento);
 		$this->db->group_by('dia');
 		return $this->db->get('reservas')->result_array();
 	}
 
-    public function getQntUserReservou($token,$dia)
+    public function getQntUserReservou($id_evento,$token,$dia)
     {
         $this->db->from('reservas');
+        $this->db->where('id_evento', $id_evento);
         $this->db->where('usuario_token', $token);
         $this->db->where('dia', $dia);
         
         return $this->db->count_all_results();
     }
 
-    public function getInfoAllReservas()
+    public function getInfoAllReservas($id_evento)
     {
-    	$query = $this->db->query("SELECT  r.id_reserva AS id,r.dia, u.nome, u.cpf, u.email, l.coluna, l.numero FROM reservas AS r, usuarios AS u, lugares AS l WHERE r.id_lugar = l.id AND r.usuario_token = u.usuario_token ORDER BY r.dia")->result_array();
+    	$query = $this->db->query("SELECT  r.id_reserva AS id,r.dia, u.nome, u.cpf, u.email, l.coluna, l.numero FROM reservas AS r, usuarios AS u, lugares AS l WHERE r.id_evento = $id_evento AND r.id_lugar = l.id AND r.usuario_token = u.usuario_token ORDER BY r.dia")->result_array();
     	return $query;
     }
 
-    public function getInfoReservaDia($dia)
+    public function getInfoReservaDia($id_evento,$dia)
     {
     	$this->db->select('*');
     	$this->db->from('view_reservas');
@@ -87,29 +92,32 @@ class Reservas_model extends CI_Model {
     }
 
 
-    public function diasQueEleVai($token)
+    public function diasQueEleVai($id_evento,$token)
     {
     	$retorno = [];
     	$this->db->select('DISTINCT(dia)');
     	$this->db->where('usuario_token', $token);
+    	$this->db->where('id_evento', $id_evento);
     	foreach ($this->db->get('reservas')->result_array() as $key => $value) {
     	 	array_push($retorno, $value['dia']);
     	} 
     	return $retorno;
     }
 
-    public function lugaresPorDia($dia,$token)
+    public function lugaresPorDia($id_evento,$dia,$token)
     {
     	$this->db->select('cpf,coluna,numero,localizacao,nivel');
     	$this->db->where('dia', $dia);
+    	$this->db->where('id_evento', $id_evento);
     	$this->db->where('token', $token);
     	return $this->db->get('view_reservas')->result_array();
     }
 
-    public function liberado($dia,$token)
+    public function liberado($id_evento,$dia,$token)
     {
     	if ($this->hasImprimiuDia($token,$dia)) {
     		$this->db->select('id_reserva');
+	    	$this->db->where('id_evento', $id_evento);
 	    	$this->db->where('dia', $dia);
 	    	$this->db->where('usuario_token', $token);
 	    	$this->db->from('reservas');

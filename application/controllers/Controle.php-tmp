@@ -7,12 +7,23 @@ class Controle extends CI_Controller {
 		parent::__construct();
 	}
 
+	// CHANGE PASS
+	public function updatePass($token) {
+		$this->load->model('usuarios_model', 'users');
+
+		if ($this->users->updatePass($token, md5($_POST['password']), $_POST['new_password'])) {
+			echo (json_encode([1]));
+		} else {
+			echo (json_encode([0]));
+		}
+	}
+
 	// VALIDAÇÃO
 
-	public function valida($token, $dia) {
+	public function valida($evento_id, $token, $dia) {
 		$this->load->model('reservas_model', 'reservas');
 		$data = [
-			'liberado' => $this->reservas->liberado($dia, $token),
+			'liberado' => $this->reservas->liberado($evento_id, $dia, $token),
 			'dia'      => $dia,
 			'token'    => $token
 		];
@@ -26,9 +37,9 @@ class Controle extends CI_Controller {
 		echo (json_encode($this->user->getUserbynome($nome)));
 	}
 
-	public function imprimir($token) {
+	public function imprimir($evento_id, $token) {
 		$this->load->model('reservas_model', 'reservas');
-		foreach ($this->reservas->diasQueEleVai($token) as $key => $value) {
+		foreach ($this->reservas->diasQueEleVai($evento_id, $token) as $key => $value) {
 			$objeto = [
 				'usuario_token' => $token,
 				'dia'           => $value
@@ -60,9 +71,9 @@ class Controle extends CI_Controller {
 		echo (json_encode($this->eventos->getEventosList()));
 	}
 
-	public function getDiasEvento() {
+	public function getDiasEvento($id_evento) {
 		$this->load->model('eventos_model', 'eventos');
-		echo (json_encode($this->eventos->getDiasEvento()));
+		echo (json_encode($this->eventos->getDiasEvento($id_evento)));
 	}
 
 	public function getQntDias() {
@@ -126,6 +137,7 @@ class Controle extends CI_Controller {
 		$dia    = $_POST['data'];
 		$dia    = explode('-', $dia);
 		$objeto = [
+			'id_evento'     => $_POST['id_evento'],
 			'id_lugar'      => $_POST['lugares'],
 			'usuario_token' => $_POST['user_token'],
 			'dia'           => "$dia[2]-$dia[1]-$dia[0]"
@@ -139,19 +151,17 @@ class Controle extends CI_Controller {
 	}
 
 	public function getQntUsuarioReservou() {
-		$dia   = $_POST['dia'];
-		$token = $_POST['token'];
+		$id_evento = $_POST['id_evento'];
+		$dia       = $_POST['dia'];
+		$token     = $_POST['token'];
 		$this->load->model('reservas_model', 'reservas');
-		echo (json_encode($this->reservas->getQntUserReservou($token, $dia)));
+		echo (json_encode($this->reservas->getQntUserReservou($id_evento, $token, $dia)));
 	}
 
 	public function editReserva($id) {
 		$this->load->model('reservas_model', 'reservas');
 
 		$objeto = [
-			'id_lugar'      => [1, 3, 5],
-			'usuario_token' => 10,
-			'dia'           => '2017-08-12'
 		];
 
 		$this->reservas->edit($id, $objeto);
@@ -162,34 +172,34 @@ class Controle extends CI_Controller {
 		$this->reservas->delete($id);
 	}
 
-	public function getReservaList() {
+	public function getReservaList($id_evento) {
 		$this->load->model('reservas_model', 'reservas');
-		echo (json_encode($this->reservas->getListaReservas()));
+		echo (json_encode($this->reservas->getListaReservas($id_evento)));
 	}
 
-	public function getReservaUser($token) {
+	public function getReservaUser($id_evento, $token) {
 		$this->load->model('reservas_model', 'reservas');
-		echo (json_encode($this->reservas->getListaReservasUsuario($token)));
+		echo (json_encode($this->reservas->getListaReservasUsuario($id_evento, $token)));
 	}
 
-	public function getInfoAllReservas() {
+	public function getInfoAllReservas($id_evento) {
 		$this->load->model('reservas_model', 'reservas');
-		echo (json_encode($this->reservas->getInfoAllReservas()));
+		echo (json_encode($this->reservas->getInfoAllReservas($id_evento)));
 	}
 
-	public function getInfoReservas($dia) {
+	public function getInfoReservas($id_evento, $dia) {
 		$this->load->model('reservas_model', 'reservas');
-		echo (json_encode($this->reservas->getInfoReservaDia($dia)));
+		echo (json_encode($this->reservas->getInfoReservaDia($id_evento, $dia)));
 	}
 
-	public function diasQueVai($token) {
+	public function diasQueVai($id_evento, $token) {
 		$this->load->model('reservas_model', 'reservas');
-		echo (json_encode($this->reservas->diasQueEleVai($token)));
+		echo (json_encode($this->reservas->diasQueEleVai($id_evento, $token)));
 		exit;
 	}
-	public function lugaresDoDia($dia, $token) {
+	public function lugaresDoDia($id_evento, $dia, $token) {
 		$this->load->model('reservas_model', 'reservas');
-		echo (json_encode($this->reservas->lugaresPorDia($dia, $token)));
+		echo (json_encode($this->reservas->lugaresPorDia($id_evento, $dia, $token)));
 		exit;
 	}
 
@@ -365,10 +375,10 @@ class Controle extends CI_Controller {
 		$this->lugares->resetLugares($mapa);
 	}
 
-	public function lugaresOcupados($dia) {
+	public function lugaresOcupados($evento_id, $dia, $token) {
 		$this->load->model('lugares_model', 'lugares');
 		$retorno = [];
-		$dados   = $this->lugares->getLugeresOcupados($dia);
+		$dados   = $this->lugares->getLugeresOcupados($evento_id, $dia);
 		foreach ($dados as $key => $value) {
 			$retorno[] = $value['id_lugar'];
 		}

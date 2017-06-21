@@ -183,9 +183,9 @@ class SSP {
 	 *  @param  string $table SQL table to query
 	 *  @param  string $primaryKey Primary key of the table
 	 *  @param  array $columns Column information array
-	 *  @return array          Server-side processing response array
+	 *  @return array Server-side processing response array
 	 */
-	static function simple ( $request, $conn, $table, $primaryKey, $columns )
+	static function simple ( $request, $conn, $table, $idEvento, $primaryKey, $columns )
 	{
 		$bindings = array();
 		$db = self::db( $conn );
@@ -195,16 +195,18 @@ class SSP {
 		$where = self::filter( $request, $columns, $bindings );
 		// Main query to actually get the data
 		$data = self::sql_exec( $db, $bindings,
-			"SELECT `".implode("`, `", self::pluck($columns, 'db'))."`
-			 FROM `$table`
-			 $where
-			 $order
-			 $limit"
-		);
+		"SELECT `".implode("`, `", self::pluck($columns, 'db'))."`
+		 FROM `$table` WHERE id_evento = '$idEvento'
+		 $where
+		 $order
+		 $limit"
+		);	
+		
 		// Data set length after filtering
 		$resFilterLength = self::sql_exec( $db, $bindings,
 			"SELECT COUNT(`{$primaryKey}`)
 			 FROM   `$table`
+			 WHERE id_evento = '$idEvento'
 			 $where"
 		);
 		$recordsFiltered = $resFilterLength[0][0];

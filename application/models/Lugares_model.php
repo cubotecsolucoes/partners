@@ -63,10 +63,11 @@ class Lugares_model extends CI_Model {
     	return $this->db->get('lugares')->result_array();
 	}
 
-	public function getLugeresOcupados($dia)
+	public function getLugeresOcupados($evento_id,$dia)
 	{
 		$this->db->select('id_lugar');
 		$this->db->from('reservas');
+		$this->db->where('id_evento', $evento_id);
 		$this->db->where('dia', $dia);
 		return $this->db->get()->result_array();
 	}

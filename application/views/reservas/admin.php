@@ -191,19 +191,19 @@
                                 <div class="col-md-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Nome</span>
-	                                    <input type="text" name="nome" placeholder="Nome do usuário" autofocus required minlength="3" maxlength="50" class="form-control" />
+	                                    <input type="text" name="nome" id="nome" placeholder="Nome do usuário" autofocus required minlength="3" maxlength="50" class="form-control" />
 	                                </div>
 	                                <div class="checkbox">
     	                                <label for="nome">
-        	                            <input type="checkbox" id="responsavel" />Requer responsável</label>
+        	                            <input type="checkbox" tabindex="1" id="responsavel" />Requer responsável</label>
             	                    </div>
             	                    <div id="input_responsavel" class="input-group hidden">
 	                                    <span class="input-group-addon">Responsável</span>
-	                                    <input type="text" name="nome_responsavel" placeholder="Nome do Responsável" minlength="3" maxlength="50" class="form-control" />
+	                                    <input type="text" name="nome_responsavel" placeholder="Nome do Responsável" tabindex="2" minlength="3" maxlength="50" class="form-control" />
 	                                </div>
 	                                <div class="input-group">
                                     	<span class="input-group-addon">Cpf</span>
-                                    	<input type="text" name="cpf" id="cpf" placeholder="CPF do " required class="form-control" />
+                                    	<input type="text" name="cpf" id="cpf" tabindex="3" placeholder="CPF do " required class="form-control" />
                                 	</div>
                                 </div>
                             </div>
@@ -214,18 +214,18 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div id="ContemNome" class="input-group">
+                                    <div id="ContemUsuario" class="input-group">
                                         <span class="input-group-addon">Usuário</span>
-                                        <input type="text" name="usuario" id="nome" placeholder="Usuário" required minlength="3" maxlength="50" class="form-control" />
+                                        <input type="text" name="usuario" id="usuario" placeholder="Usuário" required minlength="3" maxlength="50" class="form-control" />
                                     </div>
                                     <div class="input-group">
                                         <span class="input-group-addon">Senha</span>
-                                        <input type="text" name="senha" placeholder="Senha" required minlength="3" maxlength="50" class="form-control" />
+                                        <input type="text" name="senha" placeholder="Senha" id="senha" required minlength="3" maxlength="50" class="form-control" />
                                     </div>
                                     <div class="input-group">
                                         <div class="radio">
                                             <label class="radio-inline">
-                                                <input type="radio" name="acesso" value="1">Usuário
+                                                <input type="radio" tabindex="4" name="acesso" value="1">Usuário
                                             </label>
                                             <label class="radio-inline">
                                                 <input type="radio" name="acesso" value="2">Admin
@@ -243,19 +243,19 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Celular</span>
-	                                    <input type="text" name="celular" id="celular" placeholder="Número do celular" class="form-control" />
+	                                    <input type="text" name="celular" tabindex="5" id="celular" placeholder="Número do celular" class="form-control" />
                                 	</div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Telefone</span>
-                                    	<input type="text" name="telefone" id="telefone" placeholder="Telefone de contato" class="form-control" />
+                                    	<input type="text" name="telefone" tabindex="6" id="telefone" placeholder="Telefone de contato" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Email</span>
-                                    	<input type="email" name="email" placeholder="Email do usuário" required class="form-control" />
+                                    	<input type="email" name="email" tabindex="7" placeholder="Email do usuário" required class="form-control" />
                                     </div>
                                 </div>
                             </div>
@@ -268,38 +268,38 @@
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Cep</span>
-                                    	<input type="text" name="cep" id="cep" placeholder="Cep do usuário" class="form-control" />
+                                    	<input type="text" name="cep" id="cep" tabindex="8" placeholder="Cep do usuário" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Cidade</span>
-                                    	<input type="text" name="cidade" id="cidade" placeholder="Cidade do usuário" class="form-control" />
+                                    	<input type="text" name="cidade" id="cidade" tabindex="9" placeholder="Cidade do usuário" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon">Bairro</span>
-                                        <input type="text" name="bairro" id="bairro" placeholder="Bairro do usuário" class="form-control" />
+                                        <input type="text" name="bairro" id="bairro" tabindex="10" placeholder="Bairro do usuário" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
-                                    <input type="text" name="estado" id="uf" placeholder="UF" class="form-control" />
+                                    <input type="text" name="estado" id="uf" tabindex="11" placeholder="UF" class="form-control" />
                                 </div>
                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Rua</span>
-                                    	<input type="text" name="rua" id="rua" placeholder="Rua do usuário" class="form-control" />
+                                    	<input type="text" name="rua" id="rua" tabindex="12" placeholder="Rua do usuário" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Número</span>
-                                    	<input type="number" name="numero" id="numero" placeholder="Número" class="form-control" />
+                                    	<input type="number" name="numero" id="numero" tabindex="13" placeholder="Número" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <textarea name="complemento" id="complemento" placeholder="Complemento" rows="2" class="form-control"></textarea>
+                                    <textarea name="complemento" id="complemento" tabindex="14" placeholder="Complemento" rows="2" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="row">
@@ -311,7 +311,7 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Data de Nasc.</span>
-                                    	<input type="date" class="form-control" name="data_nascimento" required />
+                                    	<input type="date" class="form-control" tabindex="15" name="data_nascimento" required />
                                     </div>
                                 </div>
                             </div>
@@ -666,6 +666,7 @@ $(document).ready(function(){
 			$('#modal-eventos').modal("hide");
 			$(this).trigger("reset");
             alertify.success("Evento adicionado com sucesso!");
+            location.reload();
 		})
 		.fail(function() {
 			console.log("Error ao tentar inserir os dados no banco de dados!");
@@ -687,10 +688,11 @@ $(document).ready(function(){
     var check
     var classe;
     var lugares_ocupados = [];
+    var tabelaLugares;
 
     btnReserva.click(function(event) {
       $.ajax({
-        url: base_url + 'index.php/controle/getDiasEvento',
+        url: base_url + 'index.php/controle/getDiasEvento/' + evento_id,
         type: 'POST',
         dataType: 'json',
       })
@@ -708,7 +710,7 @@ $(document).ready(function(){
       })
     });
 
-    $(document).on('keyup', '#nome', function(event) {
+    $(document).on('keyup', '#usuario', function(event) {
         event.preventDefault();
         if ($(this).val().length > 0)
         {
@@ -719,8 +721,8 @@ $(document).ready(function(){
                     {
                         if ($('#alertaErro').length < 1)
                         {
-                            $('#ContemNome').after('<div class="alert alert-danger" id="alertaErro" role="alert">Este usuário já existe</div>');
-                            $('#ContemNome').addClass('has-error');
+                            $('#ContemUsuario').after('<div class="alert alert-danger" id="alertaErro" role="alert">Este usuário já existe</div>');
+                            $('#ContemUsuario').addClass('has-error');
                         }
                     }
                     else
@@ -728,7 +730,7 @@ $(document).ready(function(){
                         if ($('#alertaErro').length >  0)
                         {
                             $('#alertaErro').remove();
-                            $('#ContemNome').removeClass('has-error');
+                            $('#ContemUsuario').removeClass('has-error');
                         }
                     }
                 }
@@ -737,11 +739,54 @@ $(document).ready(function(){
                     if ($('#alertaErro').length >  0)
                         {
                             $('#alertaErro').remove();
-                            $('#ContemNome').removeClass('has-error');
+                            $('#ContemUsuario').removeClass('has-error');
                         }
                     console.log('Error ao obter usuário com esse nome!');
                 }
             });
+        }
+        else
+        {
+            if ($('#alertaErro').length >  0)
+            {
+                $('#alertaErro').remove();
+                $('#ContemNome').removeClass('has-error');
+            }
+        }
+    });
+
+    $(document).on('keyup', '#nome', function(event) {
+        if ($(this).val().length > 0)
+        {
+            var palavras = $(this).val().split(" ");
+            if (palavras.length > 0)
+            {
+                $('#usuario').val(palavras[0].toLowerCase());
+                $('#usuario').trigger('keyup');
+            }
+        }
+        else
+        {
+            $('#usuario').val("");
+        }
+    });
+
+    $(document).blur('#nome', function(event) {
+        /* Act on the event */
+        
+    });
+
+    $(document).on('keyup', '#cpf', function(event) {
+
+        if ($(this).val().length > 0)
+        {
+            var caracteres = $(this).val().replace('-','');
+            caracteres = caracteres.replace('.','');
+            $('#senha').val(caracteres.toString().replace('.',''));
+        }
+        else
+        {
+            $('#senha').val("");
         }
     });
 
@@ -763,7 +808,7 @@ $(document).ready(function(){
     aliVal = $(this).attr('data-valor');
     var dataCorreta = dia.split('-')
     $.ajax({
-        url: base_url + 'index.php/controle/lugaresOcupados/'+ dataCorreta[2]+'-'+dataCorreta[1]+'-'+dataCorreta[0],
+        url: base_url + 'index.php/controle/lugaresOcupados/'+ evento_id +'/'+ dataCorreta[2]+'-'+dataCorreta[1]+'-'+dataCorreta[0] + '/' + user_token,
         type: 'POST',
         dataType: 'json',
       })
@@ -797,6 +842,7 @@ $(document).ready(function(){
           adiciona += '</div>';
           lugares.append(adiciona);
           lugares.append('<hr>')
+          lugares.append('<h1 class="palco" style="padding: 50px;border: 1px solid grey;text-align: center;">PALCO</h1>');
           lugares.append('<h6><b style="color: red">*</b> Cadeira Indisponivel</h6>');
           lugares.append('<h6><b style="color: green">*</b> Cadeira Disponivel</h6>');
           lugares.append('<h6><b style="color: grey">*</b> Cadeira Selecionada</h6>');
@@ -831,7 +877,7 @@ $(document).ready(function(){
         url: base_url + 'index.php/controle/addReserva',
         type: 'POST',
         dataType: 'json',
-        data: {lugares: ids, data: dia,user_token: user_token},
+        data: {id_evento: evento_id,lugares: ids, data: dia,user_token: user_token},
         })
         .done(function(data) {
         if (data.error == 0) {
@@ -858,29 +904,40 @@ $(document).ready(function(){
     });
 
 	// INSTANCIANDO AS TABELAS
-
-	var tabelaLugares = $('#tabelalugares').DataTable({
-      "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
-        },
-        "pageLength": 10,
-        "lengthChange": false,
-        "processing": true,
-        "serverSide": true,
-        "ajax": base_url + "assets/datatable.processing.php",
-        "aoColumnDefs": [    
+    $.getJSON(base_url + 'index.php/controle/getEvento/', function(json, textStatus) {
+        if (textStatus == 'success')
         {
-        "bSearchable": false,
-        "bVisible": true,
-        "aTargets": [0] // aqui é a coluna do id como é a primeira é 0
-        },  
-     {
-       "aTargets": [ 7 ], // o numero 6 é o nº da coluna
-       "mRender": function ( data, type, full ) { //aqui é uma funçãozinha para pegar os ids
-         return '<button id="deletarReserva" title="Deletar" data-id=' + full[0] + ' type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>';
-       }
-     }
-   ]
+            if (json.length == 0) {
+                json[0] = {id:'0'};
+            }
+            tabelaLugares = $('#tabelalugares').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
+                },
+                "pageLength": 10,
+                "lengthChange": false,
+                "processing": true,
+                "serverSide": true,
+                "ajax": base_url + "assets/datatable.processing.php?idevento="+ json[0].id,
+                "aoColumnDefs": [    
+                    {
+                       "bSearchable": false,
+                        "bVisible": true,
+                        "aTargets": [0] // aqui é a coluna do id como é a primeira é 0
+                    },  
+                    {
+                       "aTargets": [7], // o numero 6 é o nº da coluna
+                       "mRender": function ( data, type, full ) { //aqui é uma funçãozinha para pegar os ids
+                         return '<button id="deletarReserva" title="Deletar" data-id=' + full[0] + ' type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>';
+                        }
+                    }
+                ]
+            });            
+        }
+        else
+        {
+            console.log("Erro ao obter evento ativo");
+        }
     });
 
     var tabelaEventos = $('#tabelaeventos').DataTable({
@@ -995,6 +1052,7 @@ $(document).ready(function(){
         $.getJSON(base_url + 'index.php/controle/getEvento/', function(json, textStatus) {
             if (textStatus == 'success') {
                 if (json.length > 0) {
+                    tabelaEventoAtivo.clear().draw();
                     var button = "<button type=\"button\" class=\"btn btn-info text-center pull-left evento\" data-acao=\"imprimelog\" data-id=\""+ json[0].nome +"\" data-inicial=\""+ json[0].data_inicial +"\" data-final=\""+ json[0].data_final +"\">Log</button><button type=\"button\" class=\"btn btn-warning text-center evento\" style=\"margin-left: 5px;\" data-acao=\"desativar\" data-id=\""+ json[0].id +"\">Desativar</button><button type=\"button\" class=\"btn btn-danger text-center pull-right ativo\" data-acao=\"excluir\" data-id=\""+ json[0].id +"\">Excluir</button>";
                     tabelaEventoAtivo.row.add([
                             json[0].nome,
@@ -1026,7 +1084,7 @@ $(document).ready(function(){
 		      tabelaEventos.clear();
 		      if (data.length > 0) {
 		        $.each(data, function(i, item) {
-		        	var button = "<button type=\"button\" class=\"btn btn-danger text-center pull-right evento\" data-acao=\"excluir\" data-id=\""+ item.id +"\">Excluir</button>";
+		        	var button = "<button type=\"button\" class=\"btn btn-info text-center pull-left evento\" data-acao=\"imprimelog\" data-eventonome=\""+ item.nome +"\" data-inicial=\""+ item.data_inicial +"\" data-final=\""+ item.data_final +"\" data-id=\""+ item.id +"\">Log</button><button type=\"button\" class=\"btn btn-danger text-center pull-right evento\" data-acao=\"excluir\" data-id=\""+ item.id +"\">Excluir</button>";
 		          tabelaEventos.row.add([
 		              item.nome,
 		              item.data_inicial,
@@ -1070,22 +1128,19 @@ $(document).ready(function(){
         }
         else if (acao == 'imprimelog')
         {
-            var data_ini = this.getAttribute('data-inicial').split('-');
-            data_ini = data_ini[2] + '/' + data_ini[1] + '/' + data_ini[0];
-
-            var data_fin = this.getAttribute('data-final').split('-');
-            data_fin = data_fin[2] + '/' + data_fin[1] + '/' + data_fin[0];
+            var data_id = this.getAttribute('data-id');
+            var data_nome = this.getAttribute('data-eventonome');
 
             var tabela = '';
 
-            $.getJSON(base_url + 'index.php/controle/getDiasEvento', function(json, textStatus) {
+            $.getJSON(base_url + 'index.php/controle/getDiasEvento/' + data_id, function(json, textStatus) {
                 if (textStatus == 'success') {
                     var size = json.length;
                     size = 12/size;
                     $.each(json, function(index, item) {
                         var dia = item.split('-');
                         dia = dia[0] + '/' + dia[1] + '/' + dia[2];
-                        $('#opcoesDias').append("<div class=\"col-lg-"+ size +" col-md-"+ size +" col-xs-"+ size +"\"><button type=\"button\" class=\"btn btn-lg btn-block btn-danger text-center imprimir\" data-dia=\""+ item +"\">"+ dia +"</button></div>");
+                        $('#opcoesDias').append("<div class=\"col-lg-"+ size +" col-md-"+ size +" col-xs-"+ size +"\"><button type=\"button\" class=\"btn btn-lg btn-block btn-danger text-center imprimir\" data-eventonome=\""+ data_nome +"\" data-dia=\""+ item +"\" data-id=\""+ data_id +"\">"+ dia +"</button></div>");
                     });
                 } else {
                     console.log('Error ao obter os dias do evento!');
@@ -1099,11 +1154,15 @@ $(document).ready(function(){
 
     $(document).on('click', '.imprimir', function(event) {
         event.preventDefault();
+
+        var data_id = this.getAttribute('data-id');
+        var data_nome = this.getAttribute('data-eventonome');
+
         var dia_selecionado = this.getAttribute('data-dia').split('-');
         dia_selecionado = dia_selecionado[2] + '-' + dia_selecionado[1] + '-' + dia_selecionado[0];
         var tabela = '';
         $.ajax({
-                url: base_url + 'index.php/controle/lugaresOcupados/' + dia_selecionado,
+                url: base_url + 'index.php/controle/lugaresOcupados/'+ data_id + '/' + dia_selecionado + '/' + user_token,
                 type: 'POST',
                 dataType: 'json',
         })
@@ -1114,7 +1173,7 @@ $(document).ready(function(){
                 dataType: 'json'
             })
             .done(function(data) {
-                tabela += '<h3>Lugares Livres</h3><table class="table table-striped table-bordered"><thead><tr><th>Coluna</th><th>Número</th><th>Localização</th><th>Nível</th></tr></thead><tbody>';
+                tabela += '<h3>Lugares Livres</h3><h2>Lugares livres: '+ (data.length-lugares_ocupados.length) +'</h2><table class="table table-striped table-bordered"><thead><tr><th>Coluna</th><th>Número</th><th>Localização</th><th>Nível</th></tr></thead><tbody>';
                 $.each(data, function(index, el) {
                     if (!lugares_ocupados.includes(el.id)) {
                         tabela += "<tr><td>"+ el.coluna +"</td><td>"+ el.numero +"</td><td>"+ el.localizacao +"</td><td>"+ el.nivel +"</td></tr>";
@@ -1124,12 +1183,12 @@ $(document).ready(function(){
                 tabela += '</tbody></table>';
                 tabela += '<br><h3>Lugares Reservados</h3><table class="table table-striped table-bordered"><thead><tr><th>Usuário</th><th>CPF</th><th>E-mail</th><th>Dia</th><th>Coluna</th><th>Número</th></tr></thead><tbody>';
         
-                $.getJSON(base_url + 'index.php/controle/getInfoReservas/'+ dia_selecionado, function(json, textStatus) {
+                $.getJSON(base_url + 'index.php/controle/getInfoReservas/'+ evento_id +'/'+ dia_selecionado, function(json, textStatus) {
                     $.each(json, function(index, item) {
-                        tabela += "<tr><td>"+ item.nome +"</td><td>"+ item.cpf +"</td><td>"+ item.email +"</td><td>"+ dia +"</td><td>"+ item.coluna +"</td><td>"+ item.numero +"</td></tr>";
+                        tabela += "<tr><td>"+ item.nome +"</td><td>"+ item.cpf +"</td><td>"+ item.email +"</td><td>"+ item.dia +"</td><td>"+ item.coluna +"</td><td>"+ item.numero +"</td></tr>";
                     });
                     tabela += '</tbody></table>';
-                    $('body').append("<div id=\"imprimir\"><h1>Evento: "+ nome +"</h1><h2>Dia: "+ dia_selecionado +"</h2>"+ tabela +"</div>");
+                    $('body').append("<div id=\"imprimir\"><h1>Evento: "+ data_nome +"</h1><h2>Dia: "+ dia_selecionado +"</h2>"+ tabela +"</div>");
                     printJS('imprimir', 'html');
                     $('#imprimir').remove();
 

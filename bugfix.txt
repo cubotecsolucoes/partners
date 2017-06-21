@@ -1,11 +1,35 @@
 [X] 1 - Cadastro de usuário: usuario logado pode se auto-excluir
-[z] 2 - Usuário poder alterar seus dados
-[ ] 3 - Alterar a senha do usuário
-[ ] 4 - Inclusão da foto
-[X] 5 - Limpar o formulário de cadastro
-[X] 6 - Não permitir dois usuários com mesmo nome
-[X] 7 - Não fechar a janela de cadastro de usuário
-[X] 8 - Relatório de alunos com tamanho máximo
-[X] 9 - Limpar datas do log de evento
-[X] 10 - Atualizar lista de eventos quando é criado um evento
-[ ] 11 - Realizar ações ao desativar o evento
+[X] 3 - Alterar a senha do usuário
+[X] 4 - Limpar o formulário de cadastro
+[X] 5 - Não permitir dois usuários com mesmo nome
+[X] 6 - Não fechar a janela de cadastro de usuário
+[X] 7 - Relatório de alunos com tamanho máximo
+[X] 8 - Limpar datas do log de evento
+[X] 9 - Atualizar lista de eventos quando é criado um evento
+[X] 10 - Troca imagens do carrosel
+[X] 11 - Mudar menu para "ingresso"
+[X] 12 - Padrão do login "nome" e "cpf"
+[X] 13 - Colocar "Palco"
+[X] 14 - Mostrar Qnt. de lugares livres
+[X] 15 - Tirar fotos solitárias
+[X] 16 - Criar Espetaculos da partners
+[X] 17 - Criar Festival de Joinville
+[X] 18 - Mudar as fotos
+[X] 19 - Mudar rosa e azul
+[X] 20 - Mudar "talento" para cursos
+[X] 21 - "Organizadores" para "Diretores"
+[X] 22 - Tirar "preços" "número" "apoiadores"
+[X] 23 - Realizar ações ao desativar o evento
+
+[ ] 30 - Painel de ADM
+
+[ ] 24 - Tutorial para reservar
+[ ] 25 - Rever o qr code
+[ ] 26 - Mais logomarca
+[ ] 27 - Pedir Email
+[ ] 28 - 13/07 TESTE!
+[ ] 29 - partnerscentrodedanca.com.br
+
+CONTINUAR
+
+continuar com adaptação para o multi-tenant

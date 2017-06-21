@@ -140,8 +140,13 @@ section {
   color: #fff;
 }
 
+.novasessao {
+  text-align: center;
+  margin-top: 50px;
+}
+
 #home-slider .caption h1 {
-  color: #fff;
+  color: #f561bb;
   font-size: 60px;
   font-weight: 700;
   margin-bottom: 30px;
