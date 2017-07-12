@@ -54,7 +54,19 @@ class Eventos_model extends CI_Model {
 		return $query->tempo;
 	}
 
-	public function getQntReservas() {
+	private function getQntReservasEvento($id) {
+		$this->db->select('reservas');
+		$this->db->where('id', $id);
+
+		$result = $this->db->get('eventos')->result_array();
+
+		if (!empty($result)) {
+			print_r($result)
+			exit;
+		}
+	}
+
+	public function getQntReservasbyid($id, $dia) {
 		$this->db->select('reservas');
 		$this->db->from('eventos');
 		$this->db->where('ativo', 1);

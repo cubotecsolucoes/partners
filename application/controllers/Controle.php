@@ -67,6 +67,12 @@ class Controle extends CI_Controller {
 	}
 
 // EVENTOS
+	public function testa($id)
+	{
+		$this->load->model('eventos_model', 'eventos')
+		$this->eventos->getQntReservasEvento($id);
+	}
+
 	public function getEvento()
 	{
 		$this->load->model('eventos_model', 'eventos');
