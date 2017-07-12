@@ -553,6 +553,32 @@ class Usuarios_model extends CI_Model {
         return true;
     }
 
+    public function edit() {
+        $object = [
+            'nome' => $this->getNome(),
+            'usuario' => $this->getUsuario(),
+            'senha' => $this->getSenha(),
+            'nome_responsavel' => $this->getNomeResponsavel(),
+            'cpf' => $this->getCpf(),
+            'telefone' => $this->getTelefone(),
+            'celular' => $this->getCelular(),
+            'email' => $this->getEmail(),
+            'rua' => $this->getRua(),
+            'numero' => $this->getNumero(),
+            'bairro' => $this->getBairro(),
+            'complemento' => $this->getComplemento(),
+            'cep' => $this->getCep(),
+            'cidade' => $this->getCidade(),
+            'estado' => $this->getEstado(),
+            'data_nascimento' => $this->getDataNascimento(),
+            'usuario_token' => $this->getToken(),
+            'acesso' => $this->getAcesso()
+        ];
+        $this->db->where('id', $this->getId());
+        $this->db->update('usuarios', $object);
+        return true;
+    }
+
     public function delete($id)
     {
         $this->db->where('id', $id);
@@ -574,8 +600,16 @@ class Usuarios_model extends CI_Model {
         $this->db->set('senha',$this->getSenha());
         $this->db->where('usuario_token', $token);
         $this->db->where('senha', $old_pass);
+        $this->db->update('usuarios');
 
-        return $this->db->update('usuarios');
+        if ($this->db->affected_rows() > 0)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
     }
 }
 

@@ -189,6 +189,7 @@
                     	<div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-12">
+                                    <input type="hidden" name="flag" id="inputFlag" class="form-control" value="">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Nome</span>
 	                                    <input type="text" name="nome" id="nome" placeholder="Nome do usuário" autofocus required minlength="3" maxlength="50" class="form-control" />
@@ -389,7 +390,9 @@
                 <h4 class="modal-title">Detalhes de usuário</h4></div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12"><img alt="Foto do usuário" src="<?php echo(base_url()); ?>/assets/images/user.png" class="img-circle img-responsive" /><a href="#" class="text-uppercase text-primary">MUDAR</a></div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12"><img alt="Foto do usuário" src="<?php echo(base_url()); ?>/assets/images/user.png" class="img-circle img-responsive" />
+                        <!-- <a href="#" class="text-uppercase text-primary">MUDAR</a> -->
+                    </div>
                     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 modal-usuario">
                         <div class="row">
                             <div class="col-md-4">
@@ -554,22 +557,45 @@ $(document).ready(function(){
 
 	$('#formUsuario').submit(function(event) {
 		event.preventDefault();
+        var id = $('input[type=hidden][name=flag]').val();
         if ($('#alertaErro').length < 1)
         {
-            $.ajax({
-                url: base_url + 'index.php/controle/addUsuario/',
-                type: 'POST',
-                dataType: 'json',
-                data: $(this).serialize(),
-            })
-            .done(function() {
-                DrawTableUsuarios();
-                $('#formUsuario').trigger("reset")
-                alertify.success("Usuário adicionado com sucesso!");
-            })
-            .fail(function() {
-                console.log("error ao salvar usuario!");
-            })
+            console.log($('input[type=hidden][name=flag]').val());
+            if (id != 0)
+            {
+                $.ajax({
+                    url: base_url + 'index.php/controle/editUsuario/' + id,
+                    type: 'POST',
+                    dataType: 'json',
+                    data: $(this).serialize(),
+                })
+                .done(function() {
+                    DrawTableUsuarios();
+                    $('#formUsuario').trigger("reset")
+                    $('input[type=hidden][name=flag]').val(0);
+                    alertify.success("Usuário editado com sucesso!");
+                })
+                .fail(function() {
+                    console.log("error ao editar usuario!");
+                })
+            }
+            else
+            {
+                $.ajax({
+                    url: base_url + 'index.php/controle/addUsuario/',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: $(this).serialize(),
+                })
+                .done(function() {
+                    DrawTableUsuarios();
+                    $('#formUsuario').trigger("reset")
+                    alertify.success("Usuário adicionado com sucesso!");
+                })
+                .fail(function() {
+                    console.log("error ao salvar usuario!");
+                })
+            }
         }		
 	});
 
@@ -630,7 +656,7 @@ $(document).ready(function(){
                 {
                     $("input[name=acesso][value='2']").prop("checked",true);
                 }
-
+                $('input[type=hidden][name=flag]').val(id);
                 $('input[type=text][name=celular]').val(json[0].celular);
                 $('input[type=text][name=telefone]').val(json[0].telefone);
                 $('input[type=email][name=email]').val(json[0].email);

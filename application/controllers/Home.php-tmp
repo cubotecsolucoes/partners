@@ -19,7 +19,12 @@ class Home extends CI_Controller {
 	}
 
 	public function index() {
-		$data = array('email' => 'porktss@gmail.com');
+		$data = array(
+			'email'     => 'partnerscentrodedanca@gmail.com',
+			'site'      => 'www.partnerscentrodedanca.com.br',
+			'facebook'  => 'https://www.facebook.com/partnerscentrodedanca/',
+			'instagram' => 'https://www.instagram.com/partners_danca/',
+		);
 
 		// $this->load->view('template/index',$data);
 		$this->template->load('template/index', 'inicio/index', $data);

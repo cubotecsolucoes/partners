@@ -244,6 +244,33 @@ class Controle extends CI_Controller {
 		echo (json_encode($this->user->add()));
 	}
 
+	public function editUsuario($id) {
+		$this->load->model('usuarios_model', 'user');
+
+		$this->user->_setId($id);
+
+		$this->user->_setNome($_POST['nome']);
+		$this->user->_setUsuario($_POST['usuario']);
+		$this->user->_setSenha($_POST['senha']);
+		$this->user->_setNomeResponsavel($_POST['nome_responsavel']);
+		$this->user->_setCpf($_POST['cpf']);
+		$this->user->_setTelefone($_POST['telefone']);
+		$this->user->_setCelular($_POST['celular']);
+		$this->user->_setEmail($_POST['email']);
+		$this->user->_setRua($_POST['rua']);
+		$this->user->_setNumero($_POST['numero']);
+		$this->user->_setBairro($_POST['bairro']);
+		$this->user->_setComplemento($_POST['complemento']);
+		$this->user->_setCep($_POST['cep']);
+		$this->user->_setCidade($_POST['cidade']);
+		$this->user->_setEstado($_POST['estado']);
+		$this->user->_setDataNascimento($_POST['data_nascimento']);
+		$this->user->_setToken($_POST['senha']);
+		$this->user->_setAcesso($_POST['acesso']);
+
+		echo (json_encode($this->user->edit()));
+	}
+
 	// LUGARES
 
 	public function lugareslist() {

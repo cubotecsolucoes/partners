@@ -642,6 +642,27 @@
             </div>
           </div>
         </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" width="350" height="280" src="<?php echo (base_url());?>assets/images/portfolio/fotos/join16.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+                    <h3>The Circus</h3>
+                    <p>2014</p>
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div id="portfolio-single-wrap">
@@ -769,13 +790,12 @@
             </div>
             <div class="col-sm-6">
               <div class="contact-info wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
                 <ul class="address">
                   <li><a href="#google-map"><i class="fa fa-map-marker"></i> <span> Endereço:</span> Av. Pedro Paes Azevedo, 135 - Salgado Filho, Aracaju - SE</li></a>
                   <li><i class="fa fa-phone"></i> <span> Telefone:</span> (79) 3246-2737</li>
                   <li><i class="fa fa-envelope"></i> <span> Email:</span><a href="mailto:<?php echo ($email);?>"> <?php echo ($email);
 ?></a></li>
-                  <li><i class="fa fa-globe"></i> <span> Site:</span> <a href="#">www.sitename.com</a></li>
+                  <li><i class="fa fa-globe"></i> <span> Site:</span> <a href="#"><?php echo ($site);?></a></li>
                 </ul>
               </div>
             </div>
@@ -788,16 +808,13 @@
     <div class="footer-top wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
       <div class="container text-center">
         <div class="footer-logo">
-          <a href="index.html"><img class="img-responsive" src="<?php echo (base_url());?><?php echo (base_url());?>assets/images/logo.svg" alt=""></a>
+          <a href="index.html"><img class="img-responsive" src="<?php echo (base_url());?>assets/images/logo.svg" alt=""></a>
         </div>
         <div class="social-icons">
           <ul>
-            <li><a class="envelope" href="#"><i class="fa fa-envelope"></i></a></li>
-            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-            <li><a class="tumblr" href="#"><i class="fa fa-tumblr-square"></i></a></li>
+            <li><a class="envelope" target="_blank" href="mailto:<?php echo ($email);?>"><i class="fa fa-envelope"></i></a></li>
+            <li><a class="facebook" target="_blank" href="<?php echo ($facebook);?>"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="instagram" target="_blank" href="<?php echo ($instagram);?>"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
       </div>
