@@ -36,7 +36,7 @@ class Home extends CI_Controller {
     {
         $this->load->library('email');
 
-        $this->email->from($_POST['email'], $_POST['nome'];
+        $this->email->from($_POST['email'], $_POST['nome']);
         $this->email->to('porktss@gmail.com');
 
         $this->email->subject('Email Test');
