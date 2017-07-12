@@ -1,7 +1,7 @@
 <header id="home">
     <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
-        <div class="item active" style="background-image: url(<?php echo (base_url());?>assets/images/slider/1.jpg)">
+        <div class="item active" style="background-image: url(<?php echo (base_url());?>assets/images/slider/8.jpg)">
           <div class="caption">
             <h1 class="animated fadeInLeftBig">Partners <span>Centro De Dança</span></h1>
             <p class="animated fadeInRightBig">Escola de Dança</p>
@@ -50,7 +50,7 @@
             <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Saiba Mais</a>
           </div>
         </div>
-        <div class="item" style="background-image: url(<?php echo (base_url());?>assets/images/slider/8.jpg)">
+        <div class="item" style="background-image: url(<?php echo (base_url());?>assets/images/slider/1.jpg)">
           <div class="caption">
             <h1 class="animated fadeInLeftBig">Partners <span>Centro De Dança</span></h1>
             <p class="animated fadeInRightBig">Aqui Tem Dança, Aqui Tem Arte</p>
@@ -74,7 +74,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="index.html">
-            <h1><img class="img-responsive" src="<?php echo (base_url());?>assets/images/logo.svg" alt="logo"></h1>
+            <h1><img class="img-responsive" src="<?php echo (base_url());?>assets/images/32.png" alt="logo"></h1>
           </a>
         </div>
         <div class="collapse navbar-collapse">
@@ -348,7 +348,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/9.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -369,7 +369,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/10.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -390,7 +390,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/11.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -411,7 +411,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/12.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -432,7 +432,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/13.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -453,7 +453,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/14.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -474,7 +474,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/15.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -495,7 +495,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/16.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -516,7 +516,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/17.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -537,7 +537,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/18.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -558,7 +558,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/19.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -579,7 +579,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/20.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -600,7 +600,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/21.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -621,7 +621,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/22.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -642,7 +642,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/23.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -663,7 +663,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/(1).jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo (base_url());?>assets/images/portfolio/fotosgrandes/24.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -684,8 +684,7 @@
       <div class="row">
         <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="100ms">
           <h2>Diretores</h2>
-        </div>
-      </div>
+        </div     </div>
       <div class="team-members">
         <div class="row">
           <div class="col-sm-4"></div>
@@ -698,13 +697,6 @@
                 <h3>Joilma Valeriano e Phernão Ollavo</h3>
                 <h4>Fundadores</h4>
                 <p>Casados há 15 anos atuam como bailarinos, professores, coreógrafos e diretores da Partners Centro de Dança, que nasceu com o objetivo de dar novas asas a arte da dança em nosso estado. Realizando através de seus espetáculos (que desde o princípio são eminentemente filantrópicos) um trabalho de muita criatividade e competência, que norteiam toda  atrajetória de sucesso da Partners dentro e fora de nosso estado.</p>
-              </div>
-              <div class="social-icons">
-                <ul>
-                  <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                  <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                  <li><a class="linkedin" href="#"><i class="fa fa-instagram"></i></a></li>
-                </ul>
               </div>
             </div>
           </div>
@@ -816,7 +808,7 @@
     <div class="footer-top wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
       <div class="container text-center">
         <div class="footer-logo">
-          <a href="index.html"><img class="img-responsive" src="<?php echo (base_url());?>assets/images/logo.svg" alt=""></a>
+          <a href="index.html"><img class="img-responsive" src="<?php echo (base_url());?>assets/images/256.png" alt=""></a>
         </div>
         <div class="social-icons">
           <ul>
