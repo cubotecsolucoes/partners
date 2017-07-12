@@ -158,8 +158,9 @@
 								</div>
 								<div class="input-group" style="margin-bottom: 4px">
 									<span class="input-group-addon" id="nome_evento">Reservas por dia</span>
-									<input type="number" name="reservas_dia" id="reservas_dia" class="form-control" value="1" min="1" max="" step="1" required="required" title="Quantidade de reservas que cada usuario pode ter">
+									<input type="text" name="reservas_dia" id="reservas_dia" class="form-control" placeholder="Ex: 2,3,5" required="required" title="Quantidade de reservas que cada usuario pode ter">
 								</div>
+                                <small><b>*</b> Separar as reservas com virgula, respectivamente</small>
 							</div>
 						</div>
 					</div>
@@ -1079,7 +1080,7 @@ $(document).ready(function(){
             if (textStatus == 'success') {
                 if (json.length > 0) {
                     tabelaEventoAtivo.clear().draw();
-                    var button = "<button type=\"button\" class=\"btn btn-info text-center pull-left evento\" data-acao=\"imprimelog\" data-id=\""+ json[0].nome +"\" data-inicial=\""+ json[0].data_inicial +"\" data-final=\""+ json[0].data_final +"\">Log</button><button type=\"button\" class=\"btn btn-warning text-center evento\" style=\"margin-left: 5px;\" data-acao=\"desativar\" data-id=\""+ json[0].id +"\">Desativar</button><button type=\"button\" class=\"btn btn-danger text-center pull-right ativo\" data-acao=\"excluir\" data-id=\""+ json[0].id +"\">Excluir</button>";
+                    var button = "<button type=\"button\" class=\"btn btn-info text-center pull-left evento\" data-acao=\"imprimelog\" data-id=\""+ json[0].id +"\" data-inicial=\""+ json[0].data_inicial +"\" data-final=\""+ json[0].data_final +"\">Log</button><button type=\"button\" class=\"btn btn-warning text-center evento\" style=\"margin-left: 5px;\" data-acao=\"desativar\" data-id=\""+ json[0].id +"\">Desativar</button><button type=\"button\" class=\"btn btn-danger text-center pull-right ativo\" data-acao=\"excluir\" data-id=\""+ json[0].id +"\">Excluir</button>";
                     tabelaEventoAtivo.row.add([
                             json[0].nome,
                             json[0].data_inicial,

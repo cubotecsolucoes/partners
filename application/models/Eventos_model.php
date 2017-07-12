@@ -62,24 +62,46 @@ class Eventos_model extends CI_Model {
 
 	private function getQntReservasEvento($id)
 	{
-		$this->db->select('reservas');
+		$this->db->select('*');
+		$this->db->from('eventos');
 		$this->db->where('id', $id);
 
-		$result = $this->db->get('eventos')->result_array();
+		$result = $this->db->get()->result_array();
 
 		if (!empty($result))
 		{
-			print_r($result);
+			$result = explode(',', $result[0]['reservas']);
+			return $result;
 		}
 	}
 
 	public function getQntReservasbyid($id,$dia)
 	{
-		$this->db->select('reservas');
-		$this->db->from('eventos');
-		$this->db->where('ativo', 1);
-		$query = $this->db->get()->row();
-		return $query->reservas;
+		$result = $this->getQntReservasEvento($id);
+		if (isset($dia))
+		{
+			if (!empty($result[$dia]))
+			{
+				return $result[$dia];
+			}
+		}
+		else
+		{
+			return $result;
+		}
+		
+	}
+
+	public function getQntReservasAndDias($id)
+	{
+		$result = $this->getDiasEvento($id);
+		$array = [];
+		foreach ($result as $key => $value) {
+
+			array_push($array, [$this->getQntReservasbyid($id,$key),$value]);
+			
+		}
+		return $array;
 	}
 
 	public function ativarEvento($id)

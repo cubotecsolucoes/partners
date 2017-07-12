@@ -67,12 +67,6 @@ class Controle extends CI_Controller {
 	}
 
 // EVENTOS
-	public function testa($id)
-	{
-		$this->load->model('eventos_model', 'eventos');
-		$this->eventos->getQntReservasEvento($id);
-	}
-
 	public function getEvento()
 	{
 		$this->load->model('eventos_model', 'eventos');
@@ -103,10 +97,10 @@ class Controle extends CI_Controller {
 		echo(json_encode($this->eventos->getQntDias()));
 	}
 
-	public function getQntReservas()
+	public function getQntReservas($id)
 	{
 		$this->load->model('eventos_model', 'eventos');
-		echo(json_encode($this->eventos->getQntReservas()));
+		echo(json_encode($this->eventos->getQntReservasAndDias($id)));
 	}
 
 	public function addEvento()

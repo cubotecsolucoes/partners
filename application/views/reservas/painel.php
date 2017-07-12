@@ -194,24 +194,9 @@
     var qntReservas;
     var qntReservados;
 
-    $.ajax({
-      url: base_url + 'index.php/controle/getQntReservas/'+ evento_id,
-      type: 'POST',
-      dataType: 'json'
-    })
-    .done(function(data) {
-      qntReservas = data;
-    })
-    .fail(function() {
-      console.log("error");
-    })
-    .always(function() {
-      console.log("complete");
-    });
-
     btnReserva.click(function(event) {
       $.ajax({
-        url: base_url + 'index.php/controle/getDiasEvento/'+ evento_id,
+        url: base_url + 'index.php/controle/getQntReservas/'+ evento_id,
         type: 'POST',
         dataType: 'json',
       })
@@ -219,7 +204,7 @@
         var string = "";
         $('.datas').html("");
         $.each(data, function(index, val) {
-           string += "<div class=\"data\"><button type=\"button\" tabindex=\""+ index +"\" data-valor=\""+ val +"\" class=\"btn btn-danger btn-lg\">"+ val +"</button></div>";
+           string += "<div class=\"data\"><button type=\"button\" tabindex=\""+ index +"\" data-valor=\""+ val[1] +"\" data-reservas=\""+ val[0] +"\" class=\"btn btn-danger btn-lg\">"+ val[1] +"</button></div>";
         });
         string += "<hr>";
         $('.datas').append(string);
@@ -233,6 +218,7 @@
     $(document).on('click', '.data', function(event) {
       event.preventDefault();
       data = $(this).text();
+      qntReservas = $(event.target).attr('data-reservas');
       local.show('slow');
       qntReservados = data.split('-');
       qntReservados = qntReservados[2]+'-'+qntReservados[1]+'-'+qntReservados[0];
