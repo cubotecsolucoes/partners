@@ -69,8 +69,7 @@ class Eventos_model extends CI_Model {
 
 		if (!empty($result))
 		{
-			print_r($result)
-			exit;
+			print_r($result);
 		}
 	}
 

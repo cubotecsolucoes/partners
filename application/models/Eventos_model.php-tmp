@@ -61,8 +61,7 @@ class Eventos_model extends CI_Model {
 		$result = $this->db->get('eventos')->result_array();
 
 		if (!empty($result)) {
-			print_r($result)
-			exit;
+			print_r($result);
 		}
 	}
 
