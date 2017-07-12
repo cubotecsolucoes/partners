@@ -649,27 +649,6 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-3">
-          <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="360ms">
-            <div class="folio-image">
-              <img class="img-responsive" width="350" height="280" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/join16.jpg" alt="">
-            </div>
-            <div class="overlay">
-              <div class="overlay-content">
-                <div class="overlay-text">
-                  <div class="folio-info">
-                    <h3>The Circus</h3>
-                    <p>2014</p>
-                  </div>
-                  <div class="folio-overview">
-                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/24.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <div id="portfolio-single-wrap">
