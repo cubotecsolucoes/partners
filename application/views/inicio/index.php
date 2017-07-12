@@ -766,6 +766,7 @@
             <div class="col-sm-6">
               <form id="main-contact-form" name="contact-form" method="post" action="<?php echo(base_url('index.php/Home/contato/')); ?>">
                 <div class="row  wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+                  <input type="hidden" name="toemail" id="inputToemail" class="form-control" value="<?php echo($email); ?>">
                   <div class="col-sm-6">
                     <div class="form-group">
                       <input type="text" name="nome" class="form-control" placeholder="Nome Completo" required="required">
