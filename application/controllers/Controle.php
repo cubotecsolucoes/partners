@@ -9,6 +9,33 @@ class Controle extends CI_Controller {
 	}
 
 
+// categoria e portfolio
+	public function getCategoriaList()
+	{
+		$this->load->model('portfolio_model','portfolio');
+		echo(json_encode($this->portfolio->getAllCategoryList()));
+	}
+
+	public function deleteCategoria($id)
+	{
+		$this->load->model('portfolio_model','portfolio');
+		echo(json_encode($this->portfolio->deleteCategory($id)));
+	}
+
+
+	public function getPortfolioList()
+	{
+		$this->load->model('portfolio_model','portfolio');
+		echo(json_encode($this->portfolio->getAll()));
+	}
+
+	public function deletePortfolio($id)
+	{
+		$this->load->model('portfolio_model','portfolio');
+		echo(json_encode($this->portfolio->deletePortfolio($id)));
+	}
+
+
 // CHANGE PASS
 	public function updatePass($token)
 	{

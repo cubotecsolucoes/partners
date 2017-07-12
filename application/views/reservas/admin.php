@@ -131,6 +131,75 @@
     </div>
 </div>
 
+<div class="row linha-tabela-categorias">
+    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+        <div class="panel panel-info panel-user">
+            <div class="panel-heading">
+                <h3 class="panel-title">Categorias</h3></div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-info btn-modal" id="cadastrarUsuarios" type="button" data-toggle="modal" data-target="#modal-categoria">Cadastrar Categoria</button>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table id="tabelacategorias" class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th width="100px">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row linha-tabela-portfolio">
+    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+        <div class="panel panel-info panel-user">
+            <div class="panel-heading">
+                <h3 class="panel-title">Portfolio</h3></div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-info btn-modal" id="cadastrarUsuarios" type="button" data-toggle="modal" data-target="#modal-portifolio">Cadastrar Portfolio</button>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table id="tabelaportfolio" class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Categoria</th>
+                                        <th>Nome</th>
+                                        <th>Ano</th>
+                                        <th>Foto</th>
+                                        <th width="100px">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- MODAL EVENTOS -->
 <div class="modal fade" id="modal-eventos">
 	<div class="modal-dialog">
@@ -329,6 +398,80 @@
         </div>
     </div>
 </div>
+
+<!-- MODAL Categoria -->
+<div class="modal fade" id="modal-categoria">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <form action="" id="categoria" method="POST" role="form">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Cadastrar Categoria</h4>
+            </div>
+            <div class="modal-body" style="padding: ">
+                <div class="form-group">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                            <div class="input-group">
+                                <span class="input-group-addon">Nome</span>
+                                <input type="text" name="nome" tabindex="1" placeholder="Nome da categoria" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning btn-lg pull-left" tabindex="5" data-dismiss="modal">Cancelar</button>
+                <button type="submit" id="cadastrar" tabindex="4" class="btn btn-primary btn-lg pull-right">Reservar</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL portfolio -->
+<div class="modal fade" id="modal-portifolio">
+    <div class="modal-dialog modal-lg">
+        <form action="" id="portfolio" method="POST" role="form">
+        <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Cadastrar Portfolio</h4>
+                </div>
+                <div class="modal-body" style="margin-bottom: 10px">
+                    <div class="form-group">
+                        <div class="col-12">
+                            <div class="input-group" style="margin-bottom: 5px">
+                                <span class="input-group-addon">Nome</span>
+                                <input type="text" name="nome" id="inputNome" class="form-control" value="" required="required" pattern="" title="">
+                                </select>
+                            </div>
+                            <div class="input-group" style="margin-bottom: 5px">
+                                <span class="input-group-addon">Categoria</span>
+                                <select name="" id="selectCategorias" class="form-control" required="required">
+                                </select>
+                            </div>
+                            <div class="input-group" style="margin-bottom: 5px">
+                                <span class="input-group-addon">Ano</span>
+                                <input type="text" name="ano" class="form-control" value="" required="required" pattern="" title="">
+                            </div>
+                            <div class="input-group" style="margin-bottom: 5px">
+                                <span class="input-group-addon">foto</span>
+                                <input type="file" name="arquivo"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning btn-lg pull-left" tabindex="5" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" id="cadastrar" tabindex="4" class="btn btn-primary btn-lg pull-right">Reservar</button>
+                </div>
+        </div>
+        </form>
+    </div>
+</div>
+
+
 
 <!-- MODAL LUGARES -->
 <div class="modal fade" id="modal-lugares">
@@ -926,6 +1069,25 @@ $(document).ready(function(){
         $('#lugares').html("");
     });
 
+    $('#modal-portifolio').on('show.bs.modal', function () {
+        $('#selectCategorias').html('');
+        $.getJSON(base_url + 'index.php/controle/getCategoriaList/', function(json, textStatus) {
+            if (textStatus == 'success')
+            {
+                if (json.length > 0)
+                {
+                    $.each(json, function (i, item) {
+                        $('#selectCategorias').append($('<option>', { 
+                            value: item.id,
+                            text : item.nome 
+                        }));
+                    });
+                }
+            }
+        });
+    });
+
+
     $('#modal-log-evento').on('hidden.bs.modal', function () {
         $('#opcoesDias').html("");
     });
@@ -975,6 +1137,22 @@ $(document).ready(function(){
         "lengthChange": false
     });
 
+    var tabelaCategorias = $('#tabelacategorias').DataTable({
+      "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
+        },
+        "pageLength": 10,
+        "lengthChange": false
+    });
+
+    var tabelaPortfolio = $('#tabelaportfolio').DataTable({
+      "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
+        },
+        "pageLength": 10,
+        "lengthChange": false
+    });
+
     var tabelaEventoAtivo = $('#tabelaeventoativo').DataTable({
       "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
@@ -1012,6 +1190,8 @@ $(document).ready(function(){
     DrawTableEventoAtivo();
     DrawTableEventos();
     DrawTableUsuarios();
+    DrawTableCategorias();
+    DrawTablePortfolio();
 
     // CARREGAR GRÁFICO
 
@@ -1278,6 +1458,87 @@ $(document).ready(function(){
 		  .fail(function() {
 		    console.log('Error ao tentar carregar a lista de reservas!')
 		  });
+    }
+
+    function DrawTableCategorias() {
+        $.ajax({
+            url: base_url + 'index.php/controle/getCategoriaList/',
+            type: 'POST',
+            dataType: 'json'
+          })
+          .done(function(data) {
+              tabelaCategorias.clear();
+              if (data.length > 0) {
+                $.each(data, function(i, item) {
+                    button = "<button type=\"button\" title=\"Deletar\" class=\"btn btn-danger text-center pull-right acaocinco\" data-acao=\"deleta\" data-id=\""+ item.id +"\"><span class=\"glyphicon glyphicon-remove\"></span></button>";
+                    
+                  tabelaCategorias.row.add([
+                      item.nome,
+                      button
+                    ]).draw();
+                })
+              } else {
+                tabelaCategorias.clear().draw();
+              }
+              $('.acaocinco').click(function(event) {
+                $.ajax({
+                  url: base_url + 'index.php/controle/deleteCategoria/' + this.getAttribute('data-id'),
+                  type: 'POST',
+                })
+                .done(function() {
+                 alertify.log("Categoria deletada com sucesso!");
+                 DrawTableCategorias();
+                })
+                .fail(function() {
+                  console.log("Erro ao tentar excluir a categoria!");
+                });                
+              });
+          })
+          .fail(function() {
+            console.log('Error ao tentar carregar a lista de categorias!')
+          });
+    }
+
+     function DrawTablePortfolio() {
+        $.ajax({
+            url: base_url + 'index.php/controle/getPortfolioList/',
+            type: 'POST',
+            dataType: 'json'
+          })
+          .done(function(data) {
+              tabelaPortfolio.clear();
+              if (data.length > 0) {
+                $.each(data, function(i, item) {
+                    button = "<button type=\"button\" title=\"Deletar\" class=\"btn btn-danger text-center pull-right acaoseis\" data-acao=\"deleta\" data-id=\""+ item.id +"\"><span class=\"glyphicon glyphicon-remove\"></span></button>";
+                    
+                  tabelaPortfolio.row.add([
+                      item.categoria,
+                      item.nome,
+                      item.ano,
+                      item.foto,
+                      button
+                    ]).draw();
+                })
+              } else {
+                tabelaPortfolio.clear().draw();
+              }
+              $('.acaoseis').click(function(event) {
+                $.ajax({
+                  url: base_url + 'index.php/controle/deletePortfolio/' + this.getAttribute('data-id'),
+                  type: 'POST',
+                })
+                .done(function() {
+                 alertify.log("Portfolio deletada com sucesso!");
+                 DrawTablePortfolio();
+                })
+                .fail(function() {
+                  console.log("Erro ao tentar excluir o Portfolio!");
+                });                
+              });
+          })
+          .fail(function() {
+            console.log('Error ao tentar carregar a lista de Portfolio!')
+          });
     }
 });
 </script>
