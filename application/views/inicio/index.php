@@ -140,7 +140,7 @@
           </div>
         </div>
         <div class="col-sm-6">
-          <img src="#" class="img-responsive" src="<?php echo(base_url()); ?>assets/images/trans.jpg" alt="Image">
+          <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/trans.jpg" alt="Image">
         </div>
       </div>
     </div>
