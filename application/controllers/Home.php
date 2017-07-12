@@ -22,7 +22,7 @@ class Home extends CI_Controller {
     public function index()
     {
         $data = array(
-            'email'=>'porktss@gmail.com',
+            'email'=>'partnerscentrodedanca@gmail.com',
             'site' => 'www.partnerscentrodedanca.com.br',
             'facebook' => 'https://www.facebook.com/partnerscentrodedanca/',
             'instagram' => 'https://www.instagram.com/partners_danca/',
