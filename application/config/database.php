@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['production'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mysql796.umbler.com',
-	'username' => 'gerenciador',
-	'password' => 'evfawe17',
-	'database' => 'partners',
+	'hostname' => 'mysql873.umbler.com',
+	'username' => 'local',
+	'password' => 'weev2017',
+	'database' => 'evento',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
