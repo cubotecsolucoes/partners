@@ -25,7 +25,7 @@
         <div class="item" style="background-image: url(<?php echo(base_url()); ?>assets/images/slider/4.jpg)">
           <div class="caption">
             <h1 class="animated fadeInLeftBig">Partners <span>Centro De Dança</span></h1>
-            <p class="animated fadeInRightBig">Todos Junto Somos Partners</p>
+            <p class="animated fadeInRightBig">Todos Juntos Somos Partners</p>
             <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Saiba Mais</a>
           </div>
         </div>
@@ -46,7 +46,7 @@
         <div class="item" style="background-image: url(<?php echo(base_url()); ?>assets/images/slider/7.jpg)">
           <div class="caption">
             <h1 class="animated fadeInLeftBig">Partners <span>Centro De Dança</span></h1>
-            <p class="animated fadeInRightBig">16 anos mudando conceitos sobre dança</p>
+            <p class="animated fadeInRightBig">Se você não tem com quem dançar venha dançar com a gente</p>
             <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Saiba Mais</a>
           </div>
         </div>
@@ -73,7 +73,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="#home">
             <h1><img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/32.png" alt="logo"></h1>
           </a>                    
         </div>
@@ -119,9 +119,9 @@
             </div>
             <div class="service-info">
               <h3>Cursos</h3>
-              <p>Baby Class, Dança do Ventre</p>
-              <p>Ballet Clássico, Ballet Adulto, Jazz Infantil</p>
-              <p>Jazz Dance, Jazz Adulto</p>
+              <p>Baby Class, Ballet Clássico</p>
+              <p>Ballet Adulto, Jazz Infantil, Jazz Dance</p>
+              <p>Jazz Adulto, Dança do Ventre</p>
             </div>
           </div>
           <div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="250ms">
@@ -319,8 +319,8 @@
               <div class="overlay-content">
                 <div class="overlay-text">
                   <div class="folio-info">
-                    <h3>The Circus</h3>
-                    <p>2014</p>
+                    <h3>Remake</h3>
+                    <p>2016</p>
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
@@ -331,13 +331,10 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-12 novasessao wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="100ms">
-          <h2>Festival de Joinville</h2>
-        </div>
         <div class="col-sm-3">
-          <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+          <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="300ms">
             <div class="folio-image">
-              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/join1.jpg" alt="">
+              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/9.jpg" alt="">
             </div>
             <div class="overlay">
               <div class="overlay-content">
@@ -356,9 +353,9 @@
           </div>
         </div>
         <div class="col-sm-3">
-          <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+          <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="300ms">
             <div class="folio-image">
-              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/join2.jpg" alt="">
+              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/10.jpg" alt="">
             </div>
             <div class="overlay">
               <div class="overlay-content">
@@ -377,9 +374,9 @@
           </div>
         </div>
         <div class="col-sm-3">
-          <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+          <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="300ms">
             <div class="folio-image">
-              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/join3.jpg" alt="">
+              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/11.jpg" alt="">
             </div>
             <div class="overlay">
               <div class="overlay-content">
@@ -398,9 +395,9 @@
           </div>
         </div>
         <div class="col-sm-3">
-          <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+          <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="300ms">
             <div class="folio-image">
-              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/join4.jpg" alt="">
+              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/12.jpg" alt="">
             </div>
             <div class="overlay">
               <div class="overlay-content">
@@ -418,6 +415,88 @@
             </div>
           </div>
         </div>
+        <div class="col-sm-12 novasessao wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="100ms">
+          <h2>Festival de Joinville</h2>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/join1.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/join9.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/join2.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/join10.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/join3.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/join11.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/join4.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/join12.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="col-sm-3">
           <div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="360ms">
             <div class="folio-image">
@@ -427,12 +506,10 @@
               <div class="overlay-content">
                 <div class="overlay-text">
                   <div class="folio-info">
-                    <h3>The Circus</h3>
-                    <p>2014</p>
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/13.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/join13.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -448,12 +525,10 @@
               <div class="overlay-content">
                 <div class="overlay-text">
                   <div class="folio-info">
-                    <h3>The Circus</h3>
-                    <p>2014</p>
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/14.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/join14.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -463,18 +538,16 @@
         <div class="col-sm-3">
           <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="360ms">
             <div class="folio-image">
-              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/join7.jpg" alt="">
+              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/join13.jpg" alt="">
             </div>
             <div class="overlay">
               <div class="overlay-content">
                 <div class="overlay-text">
                   <div class="folio-info">
-                    <h3>The Circus</h3>
-                    <p>2014</p>
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/15.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/join15.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -490,12 +563,10 @@
               <div class="overlay-content">
                 <div class="overlay-text">
                   <div class="folio-info">
-                    <h3>The Circus</h3>
-                    <p>2014</p>
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/16.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/join16.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -511,12 +582,10 @@
               <div class="overlay-content">
                 <div class="overlay-text">
                   <div class="folio-info">
-                    <h3>The Circus</h3>
-                    <p>2014</p>
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/17.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/join113.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -532,12 +601,10 @@
               <div class="overlay-content">
                 <div class="overlay-text">
                   <div class="folio-info">
-                    <h3>The Circus</h3>
-                    <p>2014</p>
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/18.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/join18.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -553,12 +620,10 @@
               <div class="overlay-content">
                 <div class="overlay-text">
                   <div class="folio-info">
-                    <h3>The Circus</h3>
-                    <p>2014</p>
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/19.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/join19.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -574,12 +639,10 @@
               <div class="overlay-content">
                 <div class="overlay-text">
                   <div class="folio-info">
-                    <h3>The Circus</h3>
-                    <p>2014</p>
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/20.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/join20.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -595,12 +658,10 @@
               <div class="overlay-content">
                 <div class="overlay-text">
                   <div class="folio-info">
-                    <h3>The Circus</h3>
-                    <p>2014</p>
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/21.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/join21.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -616,12 +677,10 @@
               <div class="overlay-content">
                 <div class="overlay-text">
                   <div class="folio-info">
-                    <h3>The Circus</h3>
-                    <p>2014</p>
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/22.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/join22.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -637,12 +696,29 @@
               <div class="overlay-content">
                 <div class="overlay-text">
                   <div class="folio-info">
-                    <h3>The Circus</h3>
-                    <p>2014</p>
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/23.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/join23.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="360ms">
+            <div class="folio-image">
+              <img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/portfolio/fotos/join16.jpg" alt="">
+            </div>
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="overlay-text">
+                  <div class="folio-info">
+                  </div>
+                  <div class="folio-overview">
+                    <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/join24.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
@@ -675,7 +751,7 @@
               <div class="member-info">
                 <h3>Joilma Valeriano e Phernão Ollavo</h3>
                 <h4>Fundadores</h4>
-                <p>Casados há 15 anos atuam como bailarinos, professores, coreógrafos e diretores da Partners Centro de Dança, que nasceu com o objetivo de dar novas asas a arte da dança em nosso estado. Realizando através de seus espetáculos (que desde o princípio são eminentemente filantrópicos) um trabalho de muita criatividade e competência, que norteiam toda  atrajetória de sucesso da Partners dentro e fora de nosso estado.</p>
+                <p>Atuam como bailarinos, professores, coreógrafos e diretores da Partners Centro de Dança, que nasceu com o objetivo de dar novas asas a arte da dança em nosso estado. Realizando através de seus espetáculos (que desde o princípio são eminentemente filantrópicos) um trabalho de muita criatividade e competência, que norteiam toda  a trajetória de sucesso da Partners dentro e fora de nosso estado.</p>
               </div>
             </div>
           </div>
@@ -786,7 +862,7 @@
     <div class="footer-top wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
       <div class="container text-center">
         <div class="footer-logo">
-          <a href="index.html"><img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/256.png" alt=""></a>
+          <a href="#home"><img class="img-responsive" src="<?php echo(base_url()); ?>assets/images/256.png" alt=""></a>
         </div>
         <div class="social-icons">
           <ul>
