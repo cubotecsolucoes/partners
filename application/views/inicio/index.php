@@ -340,8 +340,8 @@
               <div class="overlay-content">
                 <div class="overlay-text">
                   <div class="folio-info">
-                    <h3>The Circus</h3>
-                    <p>2014</p>
+                    <h3>Remake</h3>
+                    <p>2016</p>
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
@@ -361,8 +361,8 @@
               <div class="overlay-content">
                 <div class="overlay-text">
                   <div class="folio-info">
-                    <h3>The Circus</h3>
-                    <p>2014</p>
+                    <h3>Remake</h3>
+                    <p>2016</p>
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
@@ -382,8 +382,8 @@
               <div class="overlay-content">
                 <div class="overlay-text">
                   <div class="folio-info">
-                    <h3>The Circus</h3>
-                    <p>2014</p>
+                    <h3>Remake</h3>
+                    <p>2016</p>
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
@@ -403,8 +403,8 @@
               <div class="overlay-content">
                 <div class="overlay-text">
                   <div class="folio-info">
-                    <h3>The Circus</h3>
-                    <p>2014</p>
+                    <h3>Remake</h3>
+                    <p>2016</p>
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
