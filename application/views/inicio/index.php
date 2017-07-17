@@ -82,7 +82,6 @@
             <li class="scroll active"><a href="#services">Sobre</a></li>                   
             <li class="scroll"><a href="#portfolio">Fotos</a></li>
             <li class="scroll"><a href="#team">Organização</a></li>
-            <li class="scroll"><a href="#pricing">Comprar</a></li>
             <li class="scroll"><a href="#apoio">Apoio</a></li>
             <li class="scroll"><a href="#contact">Contato</a></li>     
             <li class="scroll"><a href="#entrar">Ingresso</a></li>
