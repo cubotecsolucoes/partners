@@ -928,11 +928,11 @@ $(document).ready(function(){
     $(document).on('keyup', '#nome', function(event) {
         if ($(this).val().length > 0)
         {
+            var valor = '';
             var palavras = $(this).val().split(" ");
             if (palavras.length > 0)
             {
-                var valor = '';
-                for (var i = 0; i >= palavras.length; i++) {
+                for (var i = 0; i <= palavras.length-1; i++) {
                     valor += palavras[i].toLowerCase();
                 }
                 $('#usuario').val(valor);
@@ -943,11 +943,6 @@ $(document).ready(function(){
         {
             $('#usuario').val("");
         }
-    });
-
-    $(document).blur('#nome', function(event) {
-        /* Act on the event */
-        
     });
 
     $(document).on('keyup', '#cpf', function(event) {
