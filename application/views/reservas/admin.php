@@ -287,11 +287,11 @@
                                 <div class="col-md-12">
                                     <div id="ContemUsuario" class="input-group">
                                         <span class="input-group-addon">Usuário</span>
-                                        <input type="text" name="usuario" id="usuario" placeholder="Usuário" required minlength="3" maxlength="50" class="form-control" />
+                                        <input type="text" name="usuario" id="usuario" tabindex="16" placeholder="Usuário" required minlength="3" maxlength="50" class="form-control" />
                                     </div>
                                     <div class="input-group">
                                         <span class="input-group-addon">Senha</span>
-                                        <input type="text" name="senha" placeholder="Senha" id="senha" required minlength="3" maxlength="50" class="form-control" />
+                                        <input type="text" name="senha" placeholder="Senha" id="senha" tabindex="17" required minlength="3" maxlength="50" class="form-control" />
                                     </div>
                                     <div class="input-group">
                                         <div class="radio">
