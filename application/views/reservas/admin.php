@@ -931,7 +931,11 @@ $(document).ready(function(){
             var palavras = $(this).val().split(" ");
             if (palavras.length > 0)
             {
-                $('#usuario').val(palavras[0].toLowerCase());
+                var valor = '';
+                for (var i = 0; i >= palavras.length; i++) {
+                    valor += palavras[i].toLowerCase();
+                }
+                $('#usuario').val(valor);
                 $('#usuario').trigger('keyup');
             }
         }
