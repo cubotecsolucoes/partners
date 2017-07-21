@@ -929,6 +929,7 @@ $(document).ready(function(){
         if ($(this).val().length > 0)
         {
             var valor = '';
+            var palavras_longas = 0;
             var palavras = $(this).val().split(" ");
             if (palavras.length > 0)
             {
@@ -936,8 +937,14 @@ $(document).ready(function(){
                 for (var i = 0; i <= palavras.length-1; i++) {
                     if (palavras[i].length > 2) 
                     {
+                        palavras_longas++;
+                    }                    
+
+                    if (palavras_longas <= 3) 
+                    {
                         valor += palavras[i].toLowerCase();
                     }
+
                 }
                 $('#usuario').val(valor);
                 $('#usuario').trigger('keyup');
