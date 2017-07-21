@@ -262,19 +262,19 @@
                                     <input type="hidden" name="flag" id="inputFlag" class="form-control" value="">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Nome</span>
-	                                    <input type="text" name="nome" id="nome" placeholder="Nome do usuário" autofocus required minlength="3" maxlength="50" class="form-control" />
+	                                    <input type="text" name="nome" id="nome" placeholder="Nome do usuário" autofocus tabindex="1" required minlength="3" maxlength="50" class="form-control" />
 	                                </div>
 	                                <div class="checkbox">
     	                                <label for="nome">
-        	                            <input type="checkbox" tabindex="1" id="responsavel" />Requer responsável</label>
+        	                            <input type="checkbox" tabindex="2" id="responsavel" />Requer responsável</label>
             	                    </div>
             	                    <div id="input_responsavel" class="input-group hidden">
 	                                    <span class="input-group-addon">Responsável</span>
-	                                    <input type="text" name="nome_responsavel" placeholder="Nome do Responsável" tabindex="2" minlength="3" maxlength="50" class="form-control" />
+	                                    <input type="text" name="nome_responsavel" placeholder="Nome do Responsável" tabindex="3" minlength="3" maxlength="50" class="form-control" />
 	                                </div>
 	                                <div class="input-group">
                                     	<span class="input-group-addon">Cpf</span>
-                                    	<input type="text" name="cpf" id="cpf" tabindex="3" placeholder="CPF do " required class="form-control" />
+                                    	<input type="text" name="cpf" id="cpf" tabindex="4" placeholder="CPF do " required class="form-control" />
                                 	</div>
                                 </div>
                             </div>
@@ -287,19 +287,19 @@
                                 <div class="col-md-12">
                                     <div id="ContemUsuario" class="input-group">
                                         <span class="input-group-addon">Usuário</span>
-                                        <input type="text" name="usuario" id="usuario" tabindex="16" placeholder="Usuário" required minlength="3" maxlength="50" class="form-control" />
+                                        <input type="text" name="usuario" id="usuario" tabindex="5" placeholder="Usuário" required minlength="3" maxlength="50" class="form-control" />
                                     </div>
                                     <div class="input-group">
                                         <span class="input-group-addon">Senha</span>
-                                        <input type="text" name="senha" placeholder="Senha" id="senha" tabindex="17" required minlength="3" maxlength="50" class="form-control" />
+                                        <input type="text" name="senha" placeholder="Senha" id="senha" tabindex="6" required minlength="3" maxlength="50" class="form-control" />
                                     </div>
                                     <div class="input-group">
                                         <div class="radio">
                                             <label class="radio-inline">
-                                                <input type="radio" tabindex="4" name="acesso" value="1">Usuário
+                                                <input type="radio" tabindex="7" name="acesso" value="1">Usuário
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="acesso" value="2">Admin
+                                                <input type="radio" tabindex="8" name="acesso" value="2">Admin
                                             </label>
                                         </div>
                                     </div>
@@ -314,19 +314,19 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Celular</span>
-	                                    <input type="text" name="celular" tabindex="5" id="celular" placeholder="Número do celular" class="form-control" />
+	                                    <input type="text" name="celular" tabindex="9" id="celular" placeholder="Número do celular" class="form-control" />
                                 	</div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Telefone</span>
-                                    	<input type="text" name="telefone" tabindex="6" id="telefone" placeholder="Telefone de contato" class="form-control" />
+                                    	<input type="text" name="telefone" tabindex="10" id="telefone" placeholder="Telefone de contato" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Email</span>
-                                    	<input type="email" name="email" tabindex="7" placeholder="Email do usuário" required class="form-control" />
+                                    	<input type="email" name="email" tabindex="11" placeholder="Email do usuário" required class="form-control" />
                                     </div>
                                 </div>
                             </div>
@@ -339,38 +339,38 @@
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Cep</span>
-                                    	<input type="text" name="cep" id="cep" tabindex="8" placeholder="Cep do usuário" class="form-control" />
+                                    	<input type="text" name="cep" id="cep" tabindex="12" placeholder="Cep do usuário" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Cidade</span>
-                                    	<input type="text" name="cidade" id="cidade" tabindex="9" placeholder="Cidade do usuário" class="form-control" />
+                                    	<input type="text" name="cidade" id="cidade" tabindex="13" placeholder="Cidade do usuário" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon">Bairro</span>
-                                        <input type="text" name="bairro" id="bairro" tabindex="10" placeholder="Bairro do usuário" class="form-control" />
+                                        <input type="text" name="bairro" id="bairro" tabindex="14" placeholder="Bairro do usuário" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
-                                    <input type="text" name="estado" id="uf" tabindex="11" placeholder="UF" class="form-control" />
+                                    <input type="text" name="estado" id="uf" tabindex="15" placeholder="UF" class="form-control" />
                                 </div>
                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Rua</span>
-                                    	<input type="text" name="rua" id="rua" tabindex="12" placeholder="Rua do usuário" class="form-control" />
+                                    	<input type="text" name="rua" id="rua" tabindex="16" placeholder="Rua do usuário" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Número</span>
-                                    	<input type="number" name="numero" id="numero" tabindex="13" placeholder="Número" class="form-control" />
+                                    	<input type="number" name="numero" id="numero" tabindex="17" placeholder="Número" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <textarea name="complemento" id="complemento" tabindex="14" placeholder="Complemento" rows="2" class="form-control"></textarea>
+                                    <textarea name="complemento" id="complemento" tabindex="18" placeholder="Complemento" rows="2" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="row">
@@ -382,7 +382,7 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Data de Nasc.</span>
-                                    	<input type="date" class="form-control" tabindex="15" name="data_nascimento" required />
+                                    	<input type="date" class="form-control" tabindex="19" name="data_nascimento" required />
                                     </div>
                                 </div>
                             </div>
@@ -391,8 +391,8 @@
                 	</div>
             	</div>
             	<div class="modal-footer">
-            		<button class="btn btn-success pull-left" type="submit">Salvar </button>
-                	<button class="btn btn-warning pull-right" type="reset" data-dismiss="modal">Cancelar </button>
+            		<button class="btn btn-success pull-left" tabindex="20" type="submit">Salvar </button>
+                	<button class="btn btn-warning pull-right" tabindex="21" type="reset" data-dismiss="modal">Cancelar </button>
             	</div>
             </form>
         </div>
@@ -935,17 +935,19 @@ $(document).ready(function(){
             {
 
                 for (var i = 0; i <= palavras.length-1; i++) {
-                    if (palavras[i].length > 2) 
-                    {
-                        palavras_longas++;
-                    }                    
+                    
 
-                    if (palavras_longas <= 3) 
+                    if (palavras[i].length > 2)
+                    {
+                        palavras_longas++;    
+                    }
+
+                    if (palavras_longas <= 3)
                     {
                         valor += palavras[i].toLowerCase();
                     }
-
                 }
+                console.log(palavras_longas);
                 $('#usuario').val(valor);
                 $('#usuario').trigger('keyup');
             }
