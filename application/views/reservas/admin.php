@@ -930,7 +930,7 @@ $(document).ready(function(){
         {
             var valor = '';
             var palavras = $(this).val().split(" ");
-            if (palavras.length > 0)
+            if (palavras.length > 0 && palavras.length <= 3)
             {
                 for (var i = 0; i <= palavras.length-1; i++) {
                     valor += palavras[i].toLowerCase();
