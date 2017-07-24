@@ -118,9 +118,7 @@
             </div>
             <div class="service-info">
               <h3>Cursos</h3>
-              <p>Baby Class, Ballet Clássico
-              Ballet Adulto, Jazz Infantil, Jazz Dance
-              Jazz Adulto, Dança do Ventre</p>
+              <p>Baby Class, Ballet Clássico, Ballet Adulto, Jazz Infantil, Jazz Dance, Jazz Adulto, Dança do Ventre</p>
             </div>
           </div>
           <div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="250ms">
