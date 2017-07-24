@@ -1371,6 +1371,20 @@ $(document).ready(function(){
         }
     });
 
+    $(document).on('click', '.acaotres', function(event) {
+        $.ajax({
+          url: base_url + 'index.php/controle/deleteUsuario/' + this.getAttribute('data-id'),
+          type: 'POST',
+        })
+        .done(function() {
+         alertify.log("Usuário deletado com sucesso!");
+         DrawTableUsuarios();
+        })
+        .fail(function() {
+          console.log("Erro ao tentar excluir a reserva!");
+        });                
+    });
+
     $(document).on('click', '.imprimir', function(event) {
         event.preventDefault();
 
@@ -1453,19 +1467,6 @@ $(document).ready(function(){
 		      } else {
 		        tabelaUsuarios.clear().draw();
 		      }
-		      $('.acaotres').click(function(event) {
-		        $.ajax({
-		          url: base_url + 'index.php/controle/deleteUsuario/' + this.getAttribute('data-id'),
-		          type: 'POST',
-		        })
-		        .done(function() {
-                 alertify.log("Usuário deletado com sucesso!");
-		         DrawTableUsuarios();
-		        })
-		        .fail(function() {
-		          console.log("Erro ao tentar excluir a reserva!");
-		        });                
-		      });
 		  })
 		  .fail(function() {
 		    console.log('Error ao tentar carregar a lista de reservas!')
