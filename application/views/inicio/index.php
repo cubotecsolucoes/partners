@@ -584,7 +584,7 @@
                   </div>
                   <div class="folio-overview">
                     <span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html" ><i class="fa fa-link"></i></a></span>
-                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/join113.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
+                    <span class="folio-expand"><a href="<?php echo(base_url()); ?>assets/images/portfolio/fotosgrandes/join17.jpg" data-lightbox="portfolio"><i class="fa fa-search-plus"></i></a></span>
                   </div>
                 </div>
               </div>
