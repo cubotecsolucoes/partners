@@ -886,7 +886,7 @@
 
   <script type="text/javascript" src="<?php echo(base_url()); ?>assets/js/jquery.js"></script>
   <script type="text/javascript" src="<?php echo(base_url()); ?>assets/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyAGAmP1p53eze5YVPq14vrcayz76attY34"></script>
+  <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyBkiUAbIDvtU3jpccOfj58l6BCk-z0zk68"></script>
   <script type="text/javascript" src="<?php echo(base_url()); ?>assets/js/jquery.inview.min.js"></script>
   <script type="text/javascript" src="<?php echo(base_url()); ?>assets/js/wow.min.js"></script>
   <script type="text/javascript" src="<?php echo(base_url()); ?>assets/js/mousescroll.js"></script>
