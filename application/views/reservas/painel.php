@@ -1,4 +1,4 @@
-<script src="<?php echo(base_url()); ?>/assets/js/jquery-qrcode-0.14.0.min.js"></script>
+<script src="<?php echo(base_url()); ?>/assets/js/jquery-barcode.min.js"></script>
 <div class="row" style="min-height: 740px;">
     <div class="col-lg-10 col-lg-offset-1 col-md-12 panel-graficos">
         <div class="panel panel-primary">
@@ -115,7 +115,7 @@
     </div>
   </div>
 </div>
-<div id="ingresso" style="display: none;">
+<div id="ingresso" style="display: none">
 
 </div>
 <script type="text/javascript">
@@ -191,12 +191,28 @@
     var check
     var classe;
     var lugares_ocupados = [];
+    var arrayReservas;
     var qntReservas;
     var qntReservados;
 
+    $.ajax({
+      url: base_url + 'index.php/controle/getQntReservas/'+ evento_id,
+      type: 'POST',
+      dataType: 'json'
+    })
+    .done(function(data) {
+        arrayReservas = data;
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+
     btnReserva.click(function(event) {
       $.ajax({
-        url: base_url + 'index.php/controle/getQntReservas/'+ evento_id,
+        url: base_url + 'index.php/controle/getDiasEvento/'+ evento_id,
         type: 'POST',
         dataType: 'json',
       })
@@ -204,7 +220,7 @@
         var string = "";
         $('.datas').html("");
         $.each(data, function(index, val) {
-           string += "<div class=\"data\"><button type=\"button\" tabindex=\""+ index +"\" data-valor=\""+ val[1] +"\" data-reservas=\""+ val[0] +"\" class=\"btn btn-danger btn-lg\">"+ val[1] +"</button></div>";
+           string += "<div class=\"data\"><button type=\"button\" tabindex=\""+ index +"\" data-valor=\""+ val +"\" class=\"btn btn-danger btn-lg\">"+ val +"</button></div>";
         });
         string += "<hr>";
         $('.datas').append(string);
@@ -218,8 +234,8 @@
     $(document).on('click', '.data', function(event) {
       event.preventDefault();
       data = $(this).text();
-      qntReservas = $(event.target).attr('data-reservas');
       local.show('slow');
+      qntReservas = arrayReservas[data];
       qntReservados = data.split('-');
       qntReservados = qntReservados[2]+'-'+qntReservados[1]+'-'+qntReservados[0];
 
@@ -357,10 +373,47 @@
               if (Status == 'success') {
                 $.each(dias, function(index, item) {
                   var ingressounico = '';
-                  ingressounico += '<div class="row ingresso'+ index +'"><div class="col-md-12 col-md-offset-0 coluna-reserva"><div class="row"><div class="col-md-8 col-lg-8 col-sm-8 col-xs-8"><h4 class="text-center">Partners Centro de Dança</h4><h5 id="cabecalho" class="text-center">Evento Teste<br>Data: <b class="data">'+ item +'</b></h5></div><div class="col-md-4 col-lg-4 col-sm-4 col-xs-4"><div class="qrcode'+ index +'"></div></div></div><div class="row"><div class="col-lg-10 col-lg-offset-1 col-md-12"><div class="table-responsive"><table id="tabela'+ index +'" class="table"><thead><tr><th>CPF</th><th>Coluna</th><th>Número</th><th>Piso</th><th>Loc.</th></tr></thead><tbody></tbody></table></div></div></div><div class="row"><div class="col-md-12"></div></div></div><p>------------------------------------------------------------------------------------------------------------------------- Corte aqui</p></div>';
-                $('#ingresso').append(ingressounico);
+                  ingressounico += '<div class="row ingresso'+ index +'">' +
+                      '<div style="margin-left: 40px;" class="coluna-reserva">' +
+                        '<div>' +
+                            '<div >' +
+                                '<h4 class="text-center">Partners Centro de Dança</h4>' +
+                                '<h5 id="cabecalho" class="text-center">Evento Teste<br>Data: <b class="data">'+ item +'</b></h5>' +
+                            '</div>' +
+                            '<div >' +
+                                '<div class="qrcode'+ index +'"></div>' +
+                            '</div>' +
+                        '</div>' +
+                        '<div class="row">' +
+                            '<div >' +
+                                '<div >' +
+                                    '<table id="tabela'+ index +'" class="table table-bordered">' +
+                                        '<thead>' +
+                                            '<tr>' +
+                                                '<th>CPF</th>' +
+                                                '<th>Coluna</th>' +
+                                                '<th>Número</th>' +
+                                                '<th>Piso</th>' +
+                                                '<th>Loc.</th>' +
+                                            '</tr>' +
+                                        '</thead>' +
+                                        '<tbody>' +
+                                        '</tbody>' +
+                                    '</table>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>' +
+                        '<div >' +
+                            '<div >' +
+                            '</div>' +
+                        '</div>' +
+                      '</div>' +
+                      '<p>------------------------------------------------------------------------------------------------------------------------- Corte aqui</p>' +
+                  '</div>';
 
-                  var tabelaIngresso = $('#tabela'+ index).DataTable({
+                  $('#ingresso').append(ingressounico);
+
+                var tabelaIngresso = $('#tabela'+ index).DataTable({
                     "language": {
                           "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
                       },
@@ -370,7 +423,7 @@
                       "paging": false,
                       "pageLength": 50,
                       "lengthChange": false
-                  });
+                });
 
 
                   $.getJSON(base_url + 'index.php/controle/lugaresDoDia/'+ evento_id +'/'+ item + '/' + user_token, function(lugares, textStatus) {
@@ -384,31 +437,11 @@
                             val.localizacao
                           ]);
                         tabelaIngresso.draw();
+
+                        $('.qrcode'+index).barcode(val.uid, "code128", {output:'bmp',barWidth:2});
                       });
                   });
-                  var options = {
-                      render: 'image',
-                      minVersion: 1,
-                      maxVersion: 40,
-                      ecLevel: 'L',
-                      left: 0,
-                      top: 0,
-                      size: 100,
-                      fill: '#000',
-                      background: 'white',
-                      text: base_url + 'index.php/controle/valida/'+ evento_id +'/'+ user_token + '/' + item,
-                      radius: 0,
-                      quiet: 0,
-                      mode: 0,
-                      mSize: 0.1,
-                      mPosX: 0.5,
-                      mPosY: 0.5,
-                      label: 'no label',
-                      fontname: 'sans',
-                      fontcolor: '#000',
-                      image: null
-                  }
-                  $('.qrcode'+index).qrcode(options);
+
                 });
 
                 

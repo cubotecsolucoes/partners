@@ -131,75 +131,6 @@
     </div>
 </div>
 
-<div class="row linha-tabela-categorias">
-    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
-        <div class="panel panel-info panel-user">
-            <div class="panel-heading">
-                <h3 class="panel-title">Categorias</h3></div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <button class="btn btn-info btn-modal" id="cadastrarUsuarios" type="button" data-toggle="modal" data-target="#modal-categoria">Cadastrar Categoria</button>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table id="tabelacategorias" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Nome</th>
-                                        <th width="100px">Ações</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row linha-tabela-portfolio">
-    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
-        <div class="panel panel-info panel-user">
-            <div class="panel-heading">
-                <h3 class="panel-title">Portfolio</h3></div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <button class="btn btn-info btn-modal" id="cadastrarUsuarios" type="button" data-toggle="modal" data-target="#modal-portifolio">Cadastrar Portfolio</button>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table id="tabelaportfolio" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Categoria</th>
-                                        <th>Nome</th>
-                                        <th>Ano</th>
-                                        <th>Foto</th>
-                                        <th width="100px">Ações</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- MODAL EVENTOS -->
 <div class="modal fade" id="modal-eventos">
 	<div class="modal-dialog">
@@ -227,9 +158,8 @@
 								</div>
 								<div class="input-group" style="margin-bottom: 4px">
 									<span class="input-group-addon" id="nome_evento">Reservas por dia</span>
-									<input type="text" name="reservas_dia" id="reservas_dia" class="form-control" placeholder="Ex: 2,3,5" required="required" title="Quantidade de reservas que cada usuario pode ter">
+									<input type="number" name="reservas_dia" id="reservas_dia" class="form-control" value="1" min="1" max="" step="1" required="required" title="Quantidade de reservas que cada usuario pode ter">
 								</div>
-                                <small><b>*</b> Separar as reservas com virgula, respectivamente</small>
 							</div>
 						</div>
 					</div>
@@ -262,19 +192,19 @@
                                     <input type="hidden" name="flag" id="inputFlag" class="form-control" value="">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Nome</span>
-	                                    <input type="text" name="nome" id="nome" placeholder="Nome do usuário" autofocus tabindex="1" required minlength="3" maxlength="50" class="form-control" />
+	                                    <input type="text" name="nome" id="nome" placeholder="Nome do usuário" autofocus required minlength="3" maxlength="50" class="form-control" />
 	                                </div>
 	                                <div class="checkbox">
     	                                <label for="nome">
-        	                            <input type="checkbox" tabindex="2" id="responsavel" />Requer responsável</label>
+        	                            <input type="checkbox" tabindex="1" id="responsavel" />Requer responsável</label>
             	                    </div>
             	                    <div id="input_responsavel" class="input-group hidden">
 	                                    <span class="input-group-addon">Responsável</span>
-	                                    <input type="text" name="nome_responsavel" placeholder="Nome do Responsável" tabindex="3" minlength="3" maxlength="50" class="form-control" />
+	                                    <input type="text" name="nome_responsavel" placeholder="Nome do Responsável" tabindex="2" minlength="3" maxlength="50" class="form-control" />
 	                                </div>
 	                                <div class="input-group">
                                     	<span class="input-group-addon">Cpf</span>
-                                    	<input type="text" name="cpf" id="cpf" tabindex="4" placeholder="CPF do " required class="form-control" />
+                                    	<input type="text" name="cpf" id="cpf" tabindex="3" placeholder="CPF do " required class="form-control" />
                                 	</div>
                                 </div>
                             </div>
@@ -287,19 +217,19 @@
                                 <div class="col-md-12">
                                     <div id="ContemUsuario" class="input-group">
                                         <span class="input-group-addon">Usuário</span>
-                                        <input type="text" name="usuario" id="usuario" tabindex="5" placeholder="Usuário" required minlength="3" maxlength="50" class="form-control" />
+                                        <input type="text" name="usuario" id="usuario" placeholder="Usuário" required minlength="3" maxlength="50" class="form-control" />
                                     </div>
                                     <div class="input-group">
                                         <span class="input-group-addon">Senha</span>
-                                        <input type="text" name="senha" placeholder="Senha" id="senha" tabindex="6" required minlength="3" maxlength="50" class="form-control" />
+                                        <input type="text" name="senha" placeholder="Senha" id="senha" required minlength="3" maxlength="50" class="form-control" />
                                     </div>
                                     <div class="input-group">
                                         <div class="radio">
                                             <label class="radio-inline">
-                                                <input type="radio" tabindex="7" name="acesso" value="1">Usuário
+                                                <input type="radio" tabindex="4" name="acesso" value="1">Usuário
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" tabindex="8" name="acesso" value="2">Admin
+                                                <input type="radio" name="acesso" value="2">Admin
                                             </label>
                                         </div>
                                     </div>
@@ -314,19 +244,19 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Celular</span>
-	                                    <input type="text" name="celular" tabindex="9" id="celular" placeholder="Número do celular" class="form-control" />
+	                                    <input type="text" name="celular" tabindex="5" id="celular" placeholder="Número do celular" class="form-control" />
                                 	</div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Telefone</span>
-                                    	<input type="text" name="telefone" tabindex="10" id="telefone" placeholder="Telefone de contato" class="form-control" />
+                                    	<input type="text" name="telefone" tabindex="6" id="telefone" placeholder="Telefone de contato" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Email</span>
-                                    	<input type="email" name="email" tabindex="11" placeholder="Email do usuário" required class="form-control" />
+                                    	<input type="email" name="email" tabindex="7" placeholder="Email do usuário" required class="form-control" />
                                     </div>
                                 </div>
                             </div>
@@ -339,38 +269,38 @@
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Cep</span>
-                                    	<input type="text" name="cep" id="cep" tabindex="12" placeholder="Cep do usuário" class="form-control" />
+                                    	<input type="text" name="cep" id="cep" tabindex="8" placeholder="Cep do usuário" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Cidade</span>
-                                    	<input type="text" name="cidade" id="cidade" tabindex="13" placeholder="Cidade do usuário" class="form-control" />
+                                    	<input type="text" name="cidade" id="cidade" tabindex="9" placeholder="Cidade do usuário" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon">Bairro</span>
-                                        <input type="text" name="bairro" id="bairro" tabindex="14" placeholder="Bairro do usuário" class="form-control" />
+                                        <input type="text" name="bairro" id="bairro" tabindex="10" placeholder="Bairro do usuário" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
-                                    <input type="text" name="estado" id="uf" tabindex="15" placeholder="UF" class="form-control" />
+                                    <input type="text" name="estado" id="uf" tabindex="11" placeholder="UF" class="form-control" />
                                 </div>
                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Rua</span>
-                                    	<input type="text" name="rua" id="rua" tabindex="16" placeholder="Rua do usuário" class="form-control" />
+                                    	<input type="text" name="rua" id="rua" tabindex="12" placeholder="Rua do usuário" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Número</span>
-                                    	<input type="number" name="numero" id="numero" tabindex="17" placeholder="Número" class="form-control" />
+                                    	<input type="number" name="numero" id="numero" tabindex="13" placeholder="Número" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <textarea name="complemento" id="complemento" tabindex="18" placeholder="Complemento" rows="2" class="form-control"></textarea>
+                                    <textarea name="complemento" id="complemento" tabindex="14" placeholder="Complemento" rows="2" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="row">
@@ -382,7 +312,7 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 	<div class="input-group">
                                 		<span class="input-group-addon">Data de Nasc.</span>
-                                    	<input type="date" class="form-control" tabindex="19" name="data_nascimento" required />
+                                    	<input type="date" class="form-control" tabindex="15" name="data_nascimento" required />
                                     </div>
                                 </div>
                             </div>
@@ -391,87 +321,13 @@
                 	</div>
             	</div>
             	<div class="modal-footer">
-            		<button class="btn btn-success pull-left" tabindex="20" type="submit">Salvar </button>
-                	<button class="btn btn-warning pull-right" tabindex="21" type="reset" data-dismiss="modal">Cancelar </button>
+            		<button class="btn btn-success pull-left" type="submit">Salvar </button>
+                	<button class="btn btn-warning pull-right" type="reset" data-dismiss="modal">Cancelar </button>
             	</div>
             </form>
         </div>
     </div>
 </div>
-
-<!-- MODAL Categoria -->
-<div class="modal fade" id="modal-categoria">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-        <form action="" id="categoria" method="POST" role="form">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Cadastrar Categoria</h4>
-            </div>
-            <div class="modal-body" style="padding: ">
-                <div class="form-group">
-                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
-                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">Nome</span>
-                                <input type="text" name="nome" tabindex="1" placeholder="Nome da categoria" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-warning btn-lg pull-left" tabindex="5" data-dismiss="modal">Cancelar</button>
-                <button type="submit" id="cadastrar" tabindex="4" class="btn btn-primary btn-lg pull-right">Reservar</button>
-            </div>
-        </form>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL portfolio -->
-<div class="modal fade" id="modal-portifolio">
-    <div class="modal-dialog modal-lg">
-        <form action="" id="portfolio" method="POST" role="form">
-        <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Cadastrar Portfolio</h4>
-                </div>
-                <div class="modal-body" style="margin-bottom: 10px">
-                    <div class="form-group">
-                        <div class="col-12">
-                            <div class="input-group" style="margin-bottom: 5px">
-                                <span class="input-group-addon">Nome</span>
-                                <input type="text" name="nome" id="inputNome" class="form-control" value="" required="required" pattern="" title="">
-                                </select>
-                            </div>
-                            <div class="input-group" style="margin-bottom: 5px">
-                                <span class="input-group-addon">Categoria</span>
-                                <select name="" id="selectCategorias" class="form-control" required="required">
-                                </select>
-                            </div>
-                            <div class="input-group" style="margin-bottom: 5px">
-                                <span class="input-group-addon">Ano</span>
-                                <input type="text" name="ano" class="form-control" value="" required="required" pattern="" title="">
-                            </div>
-                            <div class="input-group" style="margin-bottom: 5px">
-                                <span class="input-group-addon">foto</span>
-                                <input type="file" name="arquivo"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-warning btn-lg pull-left" tabindex="5" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" id="cadastrar" tabindex="4" class="btn btn-primary btn-lg pull-right">Reservar</button>
-                </div>
-        </div>
-        </form>
-    </div>
-</div>
-
-
 
 <!-- MODAL LUGARES -->
 <div class="modal fade" id="modal-lugares">
@@ -855,7 +711,6 @@ $(document).ready(function(){
     var locVal;
     var aliVal;
     var dia;
-    var check
     var classe;
     var lugares_ocupados = [];
     var tabelaLugares;
@@ -928,27 +783,10 @@ $(document).ready(function(){
     $(document).on('keyup', '#nome', function(event) {
         if ($(this).val().length > 0)
         {
-            var valor = '';
-            var palavras_longas = 0;
             var palavras = $(this).val().split(" ");
             if (palavras.length > 0)
             {
-
-                for (var i = 0; i <= palavras.length-1; i++) {
-                    
-
-                    if (palavras[i].length > 2)
-                    {
-                        palavras_longas++;    
-                    }
-
-                    if (palavras_longas <= 3)
-                    {
-                        valor += palavras[i].toLowerCase();
-                    }
-                }
-                console.log(palavras_longas);
-                $('#usuario').val(valor);
+                $('#usuario').val(palavras[0].toLowerCase());
                 $('#usuario').trigger('keyup');
             }
         }
@@ -956,6 +794,11 @@ $(document).ready(function(){
         {
             $('#usuario').val("");
         }
+    });
+
+    $(document).blur('#nome', function(event) {
+        /* Act on the event */
+        
     });
 
     $(document).on('keyup', '#cpf', function(event) {
@@ -1081,25 +924,6 @@ $(document).ready(function(){
         $('#lugares').html("");
     });
 
-    $('#modal-portifolio').on('show.bs.modal', function () {
-        $('#selectCategorias').html('');
-        $.getJSON(base_url + 'index.php/controle/getCategoriaList/', function(json, textStatus) {
-            if (textStatus == 'success')
-            {
-                if (json.length > 0)
-                {
-                    $.each(json, function (i, item) {
-                        $('#selectCategorias').append($('<option>', { 
-                            value: item.id,
-                            text : item.nome 
-                        }));
-                    });
-                }
-            }
-        });
-    });
-
-
     $('#modal-log-evento').on('hidden.bs.modal', function () {
         $('#opcoesDias').html("");
     });
@@ -1149,22 +973,6 @@ $(document).ready(function(){
         "lengthChange": false
     });
 
-    var tabelaCategorias = $('#tabelacategorias').DataTable({
-      "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
-        },
-        "pageLength": 10,
-        "lengthChange": false
-    });
-
-    var tabelaPortfolio = $('#tabelaportfolio').DataTable({
-      "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
-        },
-        "pageLength": 10,
-        "lengthChange": false
-    });
-
     var tabelaEventoAtivo = $('#tabelaeventoativo').DataTable({
       "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
@@ -1202,8 +1010,6 @@ $(document).ready(function(){
     DrawTableEventoAtivo();
     DrawTableEventos();
     DrawTableUsuarios();
-    DrawTableCategorias();
-    DrawTablePortfolio();
 
     // CARREGAR GRÁFICO
 
@@ -1371,20 +1177,6 @@ $(document).ready(function(){
         }
     });
 
-    $(document).on('click', '.acaotres', function(event) {
-        $.ajax({
-          url: base_url + 'index.php/controle/deleteUsuario/' + this.getAttribute('data-id'),
-          type: 'POST',
-        })
-        .done(function() {
-         alertify.log("Usuário deletado com sucesso!");
-         DrawTableUsuarios();
-        })
-        .fail(function() {
-          console.log("Erro ao tentar excluir a reserva!");
-        });                
-    });
-
     $(document).on('click', '.imprimir', function(event) {
         event.preventDefault();
 
@@ -1467,91 +1259,23 @@ $(document).ready(function(){
 		      } else {
 		        tabelaUsuarios.clear().draw();
 		      }
+		      $('.acaotres').click(function(event) {
+		        $.ajax({
+		          url: base_url + 'index.php/controle/deleteUsuario/' + this.getAttribute('data-id'),
+		          type: 'POST',
+		        })
+		        .done(function() {
+                 alertify.log("Usuário deletado com sucesso!");
+		         DrawTableUsuarios();
+		        })
+		        .fail(function() {
+		          console.log("Erro ao tentar excluir a reserva!");
+		        });                
+		      });
 		  })
 		  .fail(function() {
 		    console.log('Error ao tentar carregar a lista de reservas!')
 		  });
-    }
-
-    function DrawTableCategorias() {
-        $.ajax({
-            url: base_url + 'index.php/controle/getCategoriaList/',
-            type: 'POST',
-            dataType: 'json'
-          })
-          .done(function(data) {
-              tabelaCategorias.clear();
-              if (data.length > 0) {
-                $.each(data, function(i, item) {
-                    button = "<button type=\"button\" title=\"Deletar\" class=\"btn btn-danger text-center pull-right acaocinco\" data-acao=\"deleta\" data-id=\""+ item.id +"\"><span class=\"glyphicon glyphicon-remove\"></span></button>";
-                    
-                  tabelaCategorias.row.add([
-                      item.nome,
-                      button
-                    ]).draw();
-                })
-              } else {
-                tabelaCategorias.clear().draw();
-              }
-              $('.acaocinco').click(function(event) {
-                $.ajax({
-                  url: base_url + 'index.php/controle/deleteCategoria/' + this.getAttribute('data-id'),
-                  type: 'POST',
-                })
-                .done(function() {
-                 alertify.log("Categoria deletada com sucesso!");
-                 DrawTableCategorias();
-                })
-                .fail(function() {
-                  console.log("Erro ao tentar excluir a categoria!");
-                });                
-              });
-          })
-          .fail(function() {
-            console.log('Error ao tentar carregar a lista de categorias!')
-          });
-    }
-
-     function DrawTablePortfolio() {
-        $.ajax({
-            url: base_url + 'index.php/controle/getPortfolioList/',
-            type: 'POST',
-            dataType: 'json'
-          })
-          .done(function(data) {
-              tabelaPortfolio.clear();
-              if (data.length > 0) {
-                $.each(data, function(i, item) {
-                    button = "<button type=\"button\" title=\"Deletar\" class=\"btn btn-danger text-center pull-right acaoseis\" data-acao=\"deleta\" data-id=\""+ item.id +"\"><span class=\"glyphicon glyphicon-remove\"></span></button>";
-                    
-                  tabelaPortfolio.row.add([
-                      item.categoria,
-                      item.nome,
-                      item.ano,
-                      item.foto,
-                      button
-                    ]).draw();
-                })
-              } else {
-                tabelaPortfolio.clear().draw();
-              }
-              $('.acaoseis').click(function(event) {
-                $.ajax({
-                  url: base_url + 'index.php/controle/deletePortfolio/' + this.getAttribute('data-id'),
-                  type: 'POST',
-                })
-                .done(function() {
-                 alertify.log("Portfolio deletada com sucesso!");
-                 DrawTablePortfolio();
-                })
-                .fail(function() {
-                  console.log("Erro ao tentar excluir o Portfolio!");
-                });                
-              });
-          })
-          .fail(function() {
-            console.log('Error ao tentar carregar a lista de Portfolio!')
-          });
     }
 });
 </script>
