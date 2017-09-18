@@ -49,10 +49,9 @@
 
         input.focus();
         input.on('keyup', function (event) {
-            console.log(event.charCode);
             info.hide();
             innerinfo.html('');
-            if (this.value.length > 9)
+            if (event.charCode == 13)
             {
                 console.log(this.value.length);
                 console.log('passei por aqui');
