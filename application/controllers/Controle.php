@@ -9,33 +9,6 @@ class Controle extends CI_Controller {
 	}
 
 
-// categoria e portfolio
-	public function getCategoriaList()
-	{
-		$this->load->model('portfolio_model','portfolio');
-		echo(json_encode($this->portfolio->getAllCategoryList()));
-	}
-
-	public function deleteCategoria($id)
-	{
-		$this->load->model('portfolio_model','portfolio');
-		echo(json_encode($this->portfolio->deleteCategory($id)));
-	}
-
-
-	public function getPortfolioList()
-	{
-		$this->load->model('portfolio_model','portfolio');
-		echo(json_encode($this->portfolio->getAll()));
-	}
-
-	public function deletePortfolio($id)
-	{
-		$this->load->model('portfolio_model','portfolio');
-		echo(json_encode($this->portfolio->deletePortfolio($id)));
-	}
-
-
 // CHANGE PASS
 	public function updatePass($token)
 	{
@@ -54,17 +27,57 @@ class Controle extends CI_Controller {
 
 // VALIDAÇÃO
 
-	public function valida($evento_id,$token,$dia)
+	public function valida()
 	{
-		$this->load->model('reservas_model','reservas');
-		$data = [
-			'liberado' => $this->reservas->liberado($evento_id,$dia,$token),
-			'dia' => $dia,
-			'token' => $token
-		];
+//		$this->load->model('reservas_model','reservas');
+//		$data = [
+//			'liberado' => $this->reservas->liberado($evento_id,$dia,$token),
+//			'dia' => $dia,
+//			'token' => $token
+//		];
 
-		$this->load->view('valida/index', $data);
+		$this->load->view('valida/index');
 	}
+
+	public function liberado($codigo)
+    {
+        $this->load->model('reservas_model','reservas');
+        $this->load->model('usuarios_model','usuarios');
+
+        $qnt = $this->reservas->liberado($codigo);
+
+        $data = [];
+
+        if ($qnt > 0)
+        {
+            $data['status'] = true;
+            $data['qnt'] = $qnt;
+
+            $this->db->select('usuario_token');
+            $this->db->where('uid',$codigo);
+            $this->db->from('reservas');
+            $token = $this->db->get()->result_array()[0]['usuario_token'];
+
+            $data['nome'] = $this->usuarios->getUserByToken($token)[0]['nome'];
+
+            $this->delLiberado($token);
+        }
+        else
+        {
+            $data['status'] = false;
+        }
+
+        echo json_encode($data);
+    }
+
+    public function delLiberado($codigo)
+    {
+        date_default_timezone_set('America/Sao_Paulo');
+
+        $this->db->where('usuario_token', $codigo);
+        $this->db->where('dia', date ("Y-m-d"));
+        $this->db->delete('reservas');
+    }
 
 	public function getUserbyname($nome)
 	{
@@ -124,10 +137,10 @@ class Controle extends CI_Controller {
 		echo(json_encode($this->eventos->getQntDias()));
 	}
 
-	public function getQntReservas($id)
+	public function getQntReservas()
 	{
 		$this->load->model('eventos_model', 'eventos');
-		echo(json_encode($this->eventos->getQntReservasAndDias($id)));
+		echo(json_encode($this->eventos->getQntReservas()));
 	}
 
 	public function addEvento()
