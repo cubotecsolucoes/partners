@@ -49,6 +49,7 @@
 
         input.focus();
         input.on('keyup', function (event) {
+            console.log(event.charCode);
             info.hide();
             innerinfo.html('');
             if (this.value.length > 9)
