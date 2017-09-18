@@ -51,7 +51,7 @@
         input.on('keyup', function (event) {
             info.hide();
             innerinfo.html('');
-            if (this.value.length == 10)
+            if (this.value.length == 11)
             {
                 $.ajax({
                     url: base_url + 'index.php/controle/liberado/' + this.value,
