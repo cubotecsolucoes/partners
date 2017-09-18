@@ -528,6 +528,14 @@ class Usuarios_model extends CI_Model {
         return $this->db->get('usuarios')->result_array();
     }
 
+    public function getUserByToken($token)
+    {
+        $this->db->select('*');
+        $this->db->where('usuario_token', $token);
+
+        return $this->db->get('usuarios')->result_array();
+    }
+
     public function add() {
     	$object = [
             'nome' => $this->getNome(),

@@ -60,48 +60,26 @@ class Eventos_model extends CI_Model {
 		return $query->tempo;
 	}
 
-	private function getQntReservasEvento($id)
+	public function getQntReservas()
 	{
-		$this->db->select('*');
+		$this->db->select('reservas');
 		$this->db->from('eventos');
-		$this->db->where('id', $id);
+		$this->db->where('ativo', 1);
 
-		$result = $this->db->get()->result_array();
+		$query = $this->db->get()->row();
 
-		if (!empty($result))
-		{
-			$result = explode(',', $result[0]['reservas']);
-			return $result;
-		}
-	}
+		$reservas = explode(',', $query->reservas);
 
-	public function getQntReservasbyid($id,$dia)
-	{
-		$result = $this->getQntReservasEvento($id);
-		if (isset($dia))
-		{
-			if (!empty($result[$dia]))
-			{
-				return $result[$dia];
-			}
-		}
-		else
-		{
-			return $result;
-		}
-		
-	}
+		$dias = $this->getDiasEvento($this->getEventoAtivo()[0]->id);
 
-	public function getQntReservasAndDias($id)
-	{
-		$result = $this->getDiasEvento($id);
-		$array = [];
-		foreach ($result as $key => $value) {
+		$retorno = [];
 
-			array_push($array, [$this->getQntReservasbyid($id,$key),$value]);
-			
-		}
-		return $array;
+		foreach ($dias as $index => $dia)
+        {
+            $retorno[$dia] = $reservas[$index];
+        }
+
+		return $retorno;
 	}
 
 	public function ativarEvento($id)

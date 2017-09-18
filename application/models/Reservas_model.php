@@ -9,18 +9,34 @@ class Reservas_model extends CI_Model {
 		}
 
 	public function add($value)
-		{
-			foreach ($value['id_lugar'] as $lugar) {
-				$objeto = [
-					'id_evento' => $value['id_evento'],
-					'id_lugar' => $lugar,
-					'usuario_token' => $value['usuario_token'],
-					'dia' => $value['dia']
-				];
-				$this->db->insert('reservas', $objeto);
-			}
-			return true;
-		}
+	{
+	    $uniqid = $this->uniqueAlfa(10);
+        foreach ($value['id_lugar'] as $lugar) {
+            $objeto = [
+                'id_evento' => $value['id_evento'],
+                'id_lugar' => $lugar,
+                'usuario_token' => $value['usuario_token'],
+                'dia' => $value['dia'],
+                'uid' => $uniqid,
+            ];
+            $this->db->insert('reservas', $objeto);
+        }
+        return true;
+	}
+
+    public function uniqueAlfa($length=16)
+    {
+        $salt = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $len = strlen($salt);
+        $pass = '';
+        mt_srand(10000000*(double)microtime());
+        for ($i = 0; $i < $length; $i++)
+        {
+            $pass .= $salt[mt_rand(0,$len - 1)];
+        }
+        return $pass;
+	}
+    
 
 	public function edit($id,$dados)
 	{
@@ -106,36 +122,57 @@ class Reservas_model extends CI_Model {
 
     public function lugaresPorDia($id_evento,$dia,$token)
     {
-    	$this->db->select('cpf,coluna,numero,localizacao,nivel');
+    	$this->db->select('cpf,coluna,numero,localizacao,nivel,uid');
     	$this->db->where('dia', $dia);
     	$this->db->where('id_evento', $id_evento);
     	$this->db->where('token', $token);
     	return $this->db->get('view_reservas')->result_array();
     }
 
-    public function liberado($id_evento,$dia,$token)
+    /**
+     * @param $token
+     * @return integer
+     */
+    public function liberado($token /* $id_evento,$dia,$token */)
     {
-    	if ($this->hasImprimiuDia($token,$dia)) {
-    		$this->db->select('id_reserva');
-	    	$this->db->where('id_evento', $id_evento);
-	    	$this->db->where('dia', $dia);
-	    	$this->db->where('usuario_token', $token);
-	    	$this->db->from('reservas');
-	    	$qnt = $this->db->count_all_results();
-	    	if ($qnt > 0) {
-	    		return $qnt;
-	    	} else {
-	    		return '';
-	    	}
-    	} else {
-    		return 'block';
-    	}
+        if (!isset($token) || empty($token))
+        {
+            return false;
+        }
+
+        if ($this->hasImprimiu($token))
+        {
+            date_default_timezone_set('America/Sao_Paulo');
+            $this->db->select('id');
+            $this->db->where('uid', $token);
+            $this->db->where('dia', date ("Y-m-d"));
+            $this->db->from('view_reservas');
+
+            $qnt = $this->db->count_all_results();
+
+            return $qnt;
+        }
+//    	if ($this->hasImprimiuDia($token,$dia)) {
+//    		$this->db->select('id_reserva');
+//	    	$this->db->where('id_evento', $id_evento);
+//	    	$this->db->where('dia', $dia);
+//	    	$this->db->where('usuario_token', $token);
+//	    	$this->db->from('reservas');
+//	    	$qnt = $this->db->count_all_results();
+//	    	if ($qnt > 0) {
+//	    		return $qnt;
+//	    	} else {
+//	    		return '';
+//	    	}
+//    	} else {
+//    		return 'block';
+//    	}
     	
     }
 
     public function hasImprimiu($token)
     {
-    	$resultado = $this->db->query("SELECT COUNT(id) AS count FROM reservados WHERE usuario_token = '". $token ."'");
+    	$resultado = $this->db->query("SELECT COUNT(id) AS count FROM view_reservas WHERE uid = '". $token ."'");
     	$row = $resultado->row();
 
     	return ($row->count > 0)? true : false;
