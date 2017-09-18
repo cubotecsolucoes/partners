@@ -53,6 +53,7 @@
             innerinfo.html('');
             if (this.value.length > 9)
             {
+                console.log(this.value.length);
                 console.log('passei por aqui');
                 $.ajax({
                     url: base_url + 'index.php/controle/liberado/' + this.value,
