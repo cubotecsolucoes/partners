@@ -20,69 +20,74 @@
     <title>Válida Ingresso</title>
   </head>
 
-  	<?php if (empty($liberado)): ?>
-  		<body style="width: 100%margin: 0px;padding: 0px; background-color: red;">
-			<div class="row">
-				<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2 text-center" style="background-color: white;vertical-align: middle; position: relative;margin-top: 30px;padding-bottom: 20px ;border-radius: 5px">
-					<div class="row">
-						<div class="aviso">
-							<h2 style="font-family: sans-serif;font-variant: small-caps;font-weight: bold;">Error! Código inexistente</h2>
-						</div>
-					</div>
-				</div>
-			</div>
-		</body>
-	<?php  elseif ($liberado == 'block'): ?>
-		<body style="width: 100%margin: 0px;padding: 0px; background-color: red;">
-			<div class="row">
-				<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2 text-center" style="background-color: white;vertical-align: middle; position: relative;margin-top: 30px;height: 80px;border-radius: 5px">
-					<div class="row">
-						<div class="aviso">
-							<h2 style="font-family: sans-serif;font-variant: small-caps;font-weight: bold;">Usuário já entrou!</h2>
-						</div>
-					</div>
-				</div>
-			</div>
-		</body>
-  	<?php  elseif ($liberado > 0): ?>
-  		<body style="width: 100%margin: 0px;padding: 0px; background-color: green;">
-			<div class="row">
-				<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2 text-center" style="background-color: white;vertical-align: middle; position: relative;margin-top: 30px;padding-bottom: 20px ;border-radius: 5px">
-					<div class="row">
-						<div class="aviso">
-							<h2 id="aviso" style="font-family: sans-serif;font-variant: small-caps;font-weight: bold;">Liberado: <?php echo($liberado); ?> Lugares</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top: 30px">
-							<button id="bloquear" type="button" class="btn btn-block btn-lg btn-block btn-danger" style="height: 80px">Bloquear Acesso</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</body>
-		<script type="text/javascript">
-			$(document).ready(function($) {
-				var butao = $('#bloquear');
+  <body style="width: 100%margin: 0px;padding: 0px; background-color: grey;">
+  <div class="row">
+      <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2 text-center" style="background-color: white;vertical-align: middle; position: relative;margin-top: 30px;padding-bottom: 20px ;border-radius: 5px">
+          <div class="row">
+              <div class="row" id="info" style="display: none">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    </div>
+              </div>
+              <div class="row">
+                  <div class="aviso">
+                      <h2 style="font-family: sans-serif;font-variant: small-caps;font-weight: bold;">Insira o código</h2>
+                      <input type="text" name="codigo" id="codigo" autofocus>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </body>
+<script>
+    window.onload = function () {
+        var input = $('input');
+        var body = $('body');
+        var base_url = "<?php echo(base_url()); ?>";
 
-				butao.click(function(event) {
-					$.post('<?php echo(base_url()); ?>index.php/controle/bloquear/<?php echo($token); ?>/<?php echo($dia); ?>');
-					$(this).hide('fast');
-					$('#aviso').text('Código bloqueado!');
-				});
-			});
-		</script>
-	<?php else: ?>
-		<body style="width: 100%margin: 0px;padding: 0px; background-color: red;">
-			<div class="row">
-				<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2 text-center" style="background-color: white;vertical-align: middle; position: relative;margin-top: 30px;height: 80px;border-radius: 5px">
-					<div class="row">
-						<div class="aviso">
-							<h2 style="font-family: sans-serif;font-variant: small-caps;font-weight: bold;">Usuário sem Reservas para hoje!</h2>
-						</div>
-					</div>
-				</div>
-			</div>
-		</body>
-	<?php endif; ?>
+        var info = $('#info');
+        var innerinfo = $('#info').children();
+
+        input.focus();
+        input.on('keyup', function (event) {
+            info.hide();
+            innerinfo.html('');
+            if (this.value.length == 10)
+            {
+                $.ajax({
+                    url: base_url + 'index.php/controle/liberado/' + this.value,
+                    type: 'POST',
+                    dataType: 'json'
+                })
+                    .done(function(data) {
+                        if (data.status) {
+                            body.css('background-color', 'green');
+
+                            info.show();
+                            innerinfo.html('<h3><b><span id="msg">Ingresso Liberado!</span></b></h3>\n' +
+                                '<h4>Nome: <b><span id="nome">'+ data.nome +'</span></b></h4>\n' +
+                                '<h5>Quantidade: <b><span id="qnt">'+ data.qnt +'</span></b></h5>');
+                            input.val('');
+                        } else {
+                            body.css('background-color', 'red');
+
+                            info.show();
+                            innerinfo.html('<h3><b><span id="msg">Ingresso Não Encontrado!</span></b></h3>\n');
+                            input.val('');
+                        }
+                    })
+                    .fail(function() {
+                        console.log('Error ao consultar o código!')
+                    });
+
+                input.focus();
+
+            }
+            else
+            {
+                return true;
+            }
+
+        });
+    };
+</script>
 </html>
