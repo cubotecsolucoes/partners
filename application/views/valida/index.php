@@ -48,7 +48,7 @@
         var innerinfo = $('#info').children();
 
         input.focus();
-        input.on('keyup', function (event) {
+        input.on('keypress', function (event) {
             info.hide();
             innerinfo.html('');
             if (event.charCode == 13)
