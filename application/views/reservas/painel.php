@@ -280,7 +280,7 @@
           data: {localizacao: aliVal,piso: locVal},
         })
         .done(function(data) {
-          lugares.html("<div class='recado'><h3>Selecione <span id=\"lugQnt\">três lugares</span></h3></div>");
+          lugares.html("<div class='recado'><h3>Selecione <span id=\"lugQnt\"></span> lugares</h3></div>");
           $('#lugQnt').text(qntReservas - qntReservados);
           var adiciona = '<div class="fila">';
           var colum = data[0];
@@ -307,7 +307,7 @@
 
           $('.ok').click(function(event) {
               if ($('.selecionado').length <= (qntReservas - qntReservados)-1) {
-                  $('#lugQnt').text(qntReservas - $('.selecionado'.length));
+                  $('#lugQnt').text(qntReservas - $('.selecionado').length));
                 $(this).addClass('selecionado');
               }
             });
