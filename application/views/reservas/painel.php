@@ -308,7 +308,7 @@
           $('.ok').click(function(event) {
               if ($(this).hasClass('selecionado'))
               {
-                  $('#lugQnt').text(qntReservas - $('.selecionado').length -1);
+                  $('#lugQnt').text(qntReservas - $('.selecionado').length +1);
                   $(this).removeClass('selecionado');
               }
               else
