@@ -311,6 +311,11 @@
                 $(this).addClass('selecionado');
               }
             });
+
+          $('.selecionado').click(function (event) {
+              $('#lugQnt').text(qntReservas - $('.selecionado').length -1);
+             $(this).toggleClass('selecionado');
+          });
         })
         .fail(function() {
           console.log("error");
