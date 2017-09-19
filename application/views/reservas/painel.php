@@ -33,7 +33,7 @@
 </div>
 <!-- Modal de cadastro -->
 <div class="modal" id="modal-cadastro">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg" style="@media (min-width: 992px).modal-lg{width: 950px !important;}">
         <div class="modal-content">
           <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -300,7 +300,7 @@
           adiciona += '</div>';
           
           lugares.append(adiciona);
-          lugares.append('<div class="row"><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> style="border: 2px solid black;margin-top: 15px;margin-bottom: 15px"><h2>PALCO</h2></div>');
+          lugares.append('<div class="row"><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border: 2px solid black;margin-top: 15px;margin-bottom: 15px"><h2>PALCO</h2></div>');
           lugares.append('<hr>');
           lugares.append('<h6><b style="color: red">*</b> Cadeira Indisponivel</h6>');
           lugares.append('<h6><b style="color: green">*</b> Cadeira Disponivel</h6>');
