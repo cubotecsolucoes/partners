@@ -306,16 +306,19 @@
           lugares.append('<h6><b style="color: grey">*</b> Cadeira Selecionada</h6>');
 
           $('.ok').click(function(event) {
-              if ($('.selecionado').length <= (qntReservas - qntReservados)-1) {
+              if ($(this).hasClass('selecionado'))
+              {
                   $('#lugQnt').text(qntReservas - $('.selecionado').length -1);
-                $(this).addClass('selecionado');
+                  $(this).removeClass('selecionado');
+              }
+              else
+              {
+                  if ($('.selecionado').length <= (qntReservas - qntReservados)-1) {
+                      $('#lugQnt').text(qntReservas - $('.selecionado').length -1);
+                      $(this).addClass('selecionado');
+                  }
               }
             });
-
-          $('.selecionado').click(function (event) {
-              $('#lugQnt').text(qntReservas - $('.selecionado').length -1);
-             $(this).toggleClass('selecionado');
-          });
         })
         .fail(function() {
           console.log("error");
