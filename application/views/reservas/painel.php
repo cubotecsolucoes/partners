@@ -281,6 +281,7 @@
         })
         .done(function(data) {
           lugares.html("<div class='recado'><h3>Selecione <span id=\"lugQnt\">três lugares</span></h3></div>");
+          $('#lugQnt').text(qntReservas - qntReservados);
           var adiciona = '<div class="fila">';
           var colum = data[0];
           $.each(data, function(index, el) {
