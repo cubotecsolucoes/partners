@@ -307,7 +307,7 @@
 
           $('.ok').click(function(event) {
               if ($('.selecionado').length <= (qntReservas - qntReservados)-1) {
-                  $('#lugQnt').text(qntReservas - $('.selecionado').length));
+                  $('#lugQnt').text(qntReservas - $('.selecionado').length);
                 $(this).addClass('selecionado');
               }
             });
