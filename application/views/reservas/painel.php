@@ -255,6 +255,8 @@
     });
 
     btnLoc.click(function(event) {
+      alinhamento.hide();
+      lug.hide();
       /* Act on the event */
       locVal = $(this).attr('data-valor');
       $(this).css('backgroundColor', '#b11f0e');
@@ -300,7 +302,7 @@
           adiciona += '</div>';
           
           lugares.append(adiciona);
-          lugares.append('<div class="row"><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border: 2px solid black;margin-top: 15px;margin-bottom: 15px"><h2>PALCO</h2></div>');
+          lugares.append('<div class="row"><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border: 2px solid black;margin-top: 15px;margin-bottom: 15px; text-align: center"><h2>PALCO</h2></div>');
           lugares.append('<hr>');
           lugares.append('<h6><b style="color: red">*</b> Cadeira Indisponivel</h6>');
           lugares.append('<h6><b style="color: green">*</b> Cadeira Disponivel</h6>');
