@@ -49,10 +49,10 @@ $columns = array(
 
 // PRODUCTION
  $sql_details = array(
-     'user' => 'gerenciador',
+     'user' => 'local',
      'pass' => 'evfawe17',
-     'db'   => 'partners',
-     'host' => 'mysql796.umbler.com'
+     'db'   => 'evento',
+     'host' => 'mysql873.umbler.com'
  );
  
  
