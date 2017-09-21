@@ -822,7 +822,8 @@ $(document).ready(function(){
     });
 
     btnLoc.click(function(event) {
-      /* Act on the event */
+      alinhamento.hide();
+      lug.hide();
       locVal = $(this).attr('data-valor');
       $(this).css('backgroundColor', '#b11f0e');
       alinhamento.show("slow");
@@ -1269,12 +1270,12 @@ $(document).ready(function(){
 		         DrawTableUsuarios();
 		        })
 		        .fail(function() {
-		          console.log("Erro ao tentar excluir a reserva!");
+		          console.log("Erro ao tentar excluir o Usuário!");
 		        });                
 		      });
 		  })
 		  .fail(function() {
-		    console.log('Error ao tentar carregar a lista de reservas!')
+		    console.log('Error ao tentar carregar a lista de Usuário!')
 		  });
     }
 });
