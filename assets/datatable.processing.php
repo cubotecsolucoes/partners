@@ -51,7 +51,7 @@ $columns = array(
 // PRODUCTION
  $sql_details = array(
      'user' => 'local',
-     'pass' => 'evfawe17',
+     'pass' => 'weev2017',
      'db'   => 'evento',
      'host' => 'mysql873.umbler.com'
  );
