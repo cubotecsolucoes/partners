@@ -40,20 +40,20 @@ $columns = array(
  
 // SQL server connection information
 // DEVELOPER
-// $sql_details = array(
-//     'user' => 'root',
-//     'pass' => '',
-//     'db'   => 'partners',
-//     'host' => '127.0.0.1'
-// );
+//$sql_details = array(
+//    'user' => 'root',
+//    'pass' => '',
+//    'db'   => 'partners',
+//    'host' => '127.0.0.1'
+//);
 
 // PRODUCTION
-$sql_details = array(
-    'user' => 'local',
-    'pass' => 'weev2017',
-    'db'   => 'evento',
-    'host' => 'mysql873.umbler.com'
-);
+ $sql_details = array(
+     'user' => 'gerenciador',
+     'pass' => 'evfawe17',
+     'db'   => 'partners',
+     'host' => 'mysql796.umbler.com'
+ );
  
  
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
