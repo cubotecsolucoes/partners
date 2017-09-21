@@ -31,11 +31,12 @@ $primaryKey = 'id';
 $columns = array(
     array( 'db' => 'id', 'dt' => 0 ),
     array( 'db' => 'dia',  'dt' => 1 ),
-    array( 'db' => 'nome',   'dt' => 2 ),
-    array( 'db' => 'cpf',     'dt' => 3 ),
-    array( 'db' => 'email',     'dt' => 4 ),
-    array( 'db' => 'coluna',     'dt' => 5 ),
-    array( 'db' => 'numero',     'dt' => 6, )
+    array( 'db' => 'uid',  'dt' => 2 ),
+    array( 'db' => 'nome',   'dt' => 4 ),
+    array( 'db' => 'cpf',     'dt' => 5 ),
+    array( 'db' => 'email',     'dt' => 6 ),
+    array( 'db' => 'coluna',     'dt' => 7 ),
+    array( 'db' => 'numero',     'dt' => 8, )
 );
  
 // SQL server connection information
@@ -50,7 +51,7 @@ $columns = array(
 // PRODUCTION
  $sql_details = array(
      'user' => 'local',
-     'pass' => 'weev2017',
+     'pass' => 'evfawe17',
      'db'   => 'evento',
      'host' => 'mysql873.umbler.com'
  );
