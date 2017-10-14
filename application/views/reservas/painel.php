@@ -268,8 +268,9 @@
 
 //        RETIRAR DEPOIS
 
-        var concatenar = '<h1>A marcação do assentos e impressão dos ingressos só será realizada no dia 28/10 a partir das 8:00</h1>';
+        var concatenar = '<h1 style="color: red">A marcação do assentos e impressão dos ingressos só será realizada no dia 28/10 a partir das 8:00</h1>';
         lugares.html(concatenar);
+        lug.show('slow');
 //        FIM DE RETIRAR DEPOIS
 
 //    aliVal = $(this).attr('data-valor');
