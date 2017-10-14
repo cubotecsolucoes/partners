@@ -265,21 +265,23 @@
 
     btnAli.click(function(event) {
     /* Act on the event */
-    aliVal = $(this).attr('data-valor');
-    var dataCorreta = data.split('-')
-    $.ajax({
-        url: base_url + 'index.php/controle/lugaresOcupados/'+ evento_id +'/'+ dataCorreta[2]+'-'+dataCorreta[1]+'-'+dataCorreta[0] +'/'+ user_token,
-        type: 'POST',
-        dataType: 'json',
-      })
-      .done(function(lugares_ocupados) {
-        $(this).css('backgroundColor', '#b11f0e');
-        lug.show('slow');
+
 //        RETIRAR DEPOIS
 
-          var concatenar = '<h1>A marcação do assentos e impressão dos ingressos só será realizada no dia 28/10 a partir das 8:00</h1>';
-          lugares.html(cancatenar);
+        var concatenar = '<h1>A marcação do assentos e impressão dos ingressos só será realizada no dia 28/10 a partir das 8:00</h1>';
+        lugares.html(cancatenar);
 //        FIM DE RETIRAR DEPOIS
+
+//    aliVal = $(this).attr('data-valor');
+//    var dataCorreta = data.split('-')
+//    $.ajax({
+//        url: base_url + 'index.php/controle/lugaresOcupados/'+ evento_id +'/'+ dataCorreta[2]+'-'+dataCorreta[1]+'-'+dataCorreta[0] +'/'+ user_token,
+//        type: 'POST',
+//        dataType: 'json',
+//      })
+//      .done(function(lugares_ocupados) {
+//        $(this).css('backgroundColor', '#b11f0e');
+//        lug.show('slow');
 
 //        $.ajax({
 //          url: base_url + 'index.php/controle/lugareslist/',
