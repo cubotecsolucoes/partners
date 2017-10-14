@@ -28,9 +28,11 @@ class Reserva extends CI_Controller {
 			redirect('reserva/admin','refresh');
 		} else {
 			$this->load->model('reservas_model','reservas');
+
 			$data = [
 				'imprimiu' => $this->reservas->hasImprimiu($_SESSION['user']['usuario_token'])
 			];
+
 			$this->template->load('reservas/template','reservas/painel',$data);
 		}
 	}

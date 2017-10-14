@@ -270,13 +270,17 @@ class Controle extends CI_Controller {
 	{
 		$this->load->model('reservas_model','reservas');
 		echo(json_encode($this->reservas->diasQueEleVai($id_evento,$token)));
-		exit;
 	}
 	public function lugaresDoDia($id_evento,$dia,$token)
 	{
 		$this->load->model('reservas_model','reservas');
 		echo(json_encode($this->reservas->lugaresPorDia($id_evento,$dia,$token)));
-		exit;
+	}
+
+    public function dadosImprimir($id_evento, $token)
+    {
+        $this->load->model('reservas_model', 'reservas');
+        echo(json_encode($this->reservas->dadosImprimir($id_evento,$token)));
 	}
 
 

@@ -122,7 +122,7 @@ class Reservas_model extends CI_Model {
 
     public function lugaresPorDia($id_evento,$dia,$token)
     {
-    	$this->db->select('cpf,coluna,numero,localizacao,nivel,uid');
+    	$this->db->select('cpf,nome,coluna,numero,localizacao,nivel,uid');
     	$this->db->where('dia', $dia);
     	$this->db->where('id_evento', $id_evento);
     	$this->db->where('token', $token);
@@ -172,7 +172,7 @@ class Reservas_model extends CI_Model {
 
     public function hasImprimiu($token)
     {
-    	$resultado = $this->db->query("SELECT COUNT(id) AS count FROM view_reservas WHERE uid = '". $token ."'");
+    	$resultado = $this->db->query("SELECT COUNT(id) AS count FROM reservados WHERE usuario_token = '". $token ."'");
     	$row = $resultado->row();
 
     	return ($row->count > 0)? true : false;
@@ -184,6 +184,14 @@ class Reservas_model extends CI_Model {
     	$row = $resultado->row();
 
     	return ($row->count > 0)? true : false;
+    }
+
+    public function dadosImprimir($id_evento, $token)
+    {
+        $this->db->select('cpf,nome,dia,coluna,numero,localizacao,nivel,uid');
+        $this->db->where('id_evento', $id_evento);
+        $this->db->where('token', $token);
+        return $this->db->get('view_reservas')->result_array();
     }
 
 }

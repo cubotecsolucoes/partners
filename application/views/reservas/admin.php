@@ -158,7 +158,7 @@
 								</div>
 								<div class="input-group" style="margin-bottom: 4px">
 									<span class="input-group-addon" id="nome_evento">Reservas por dia</span>
-									<input type="number" name="reservas_dia" id="reservas_dia" class="form-control" value="1" min="1" max="" step="1" required="required" title="Quantidade de reservas que cada usuario pode ter">
+									<input type="text" name="reservas_dia" id="reservas_dia" class="form-control" value="1" min="1" max="" step="1" required="required" title="Quantidade de reservas que cada usuario pode ter">
 								</div>
 							</div>
 						</div>

@@ -20,7 +20,7 @@
 	<body>
 		
 		<div class="box-login">
-			<form action="<?php echo(base_url('index.php/login/logar/')); ?>" method="POST" role="form">
+			<form class="form-group" action="<?php echo(base_url('index.php/login/logar/')); ?>" method="POST" role="form">
 				<legend>Partners - Sistema de Reservas</legend>
 			
 				<div class="form-group">

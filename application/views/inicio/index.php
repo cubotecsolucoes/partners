@@ -758,9 +758,10 @@
     </div>
   </section><!--/#team-->
   <div id="entrar"></div>
+
   <section id="twitter" class="parallax">
     
-    <div class="panel panel-login">
+    <div class="panel panel-login" style="min-width: fit-content">
       <div class="panel-heading">Sistema de Reserva</div>
       <div class="panel-body">
         <a href="<?php echo(base_url('index.php/login/index/')); ?>"><button type="button" style="border-radius: 5px;" class="btn btn-lg btn-primary">Entrar no sistema</button></a>
@@ -768,6 +769,24 @@
   </div>
 
   </section><!--/#twitter-->
+
+
+    <section id="apoio">
+        <div class="container">
+            <div class="row">
+                <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+                    <h2>Vídeo Tutorial</h2>
+                </div>
+            </div>
+                <div class="row">
+                    <div class="wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="200ms">
+                        <div class="post-thumb" style="text-align: center">
+                            <iframe width="853" height="480" src="https://www.youtube.com/embed/M69UtTDZPL0?rel=0" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
 
   <!-- <section id="apoio">
     <div class="container">

@@ -381,88 +381,123 @@
 
     function DrawIngresso() {
       $('#ingresso').html('');
-      $.getJSON( base_url + 'index.php/controle/diasQueVai/'+ evento_id +'/'+ user_token, function(dias, Status) {
-            
-              if (Status == 'success') {
-                $.each(dias, function(index, item) {
-                  var ingressounico = '';
-                  ingressounico += '<div class="row ingresso'+ index +'">' +
+      $.getJSON( base_url + 'index.php/controle/dadosImprimir/'+ evento_id + '/' + user_token, function (dados, status) {
+          if (status == 'success')
+          {
+              var ingresso = '';
+              $.each(dados, function (index, data) {
+                  console.log('foi');
+                  ingresso = '<div class="row ingresso' + index + '">' +
                       '<div style="margin-left: 40px;" class="coluna-reserva">' +
-                        '<div>' +
-                            '<div >' +
-                                '<h4 class="text-center">Partners Centro de Dança</h4>' +
-                                '<h5 id="cabecalho" class="text-center">Evento Teste<br>Data: <b class="data">'+ item +'</b></h5>' +
-                            '</div>' +
-                            '<div >' +
-                                '<div class="qrcode'+ index +'"></div>' +
-                            '</div>' +
-                        '</div>' +
-                        '<div class="row">' +
-                            '<div >' +
-                                '<div >' +
-                                    '<table id="tabela'+ index +'" class="table table-bordered">' +
-                                        '<thead>' +
-                                            '<tr>' +
-                                                '<th>CPF</th>' +
-                                                '<th>Coluna</th>' +
-                                                '<th>Número</th>' +
-                                                '<th>Piso</th>' +
-                                                '<th>Loc.</th>' +
-                                            '</tr>' +
-                                        '</thead>' +
-                                        '<tbody>' +
-                                        '</tbody>' +
-                                    '</table>' +
-                                '</div>' +
-                            '</div>' +
-                        '</div>' +
-                        '<div >' +
-                            '<div >' +
-                            '</div>' +
-                        '</div>' +
+                      '<div>' +
+                      '<div>' +
+                      '<h4 class="text-center">Partners Centro de Dança</h4>' +
+                      '</div>' +
+                      '<div>' +
+                      '<div class="qrcode' + index + '"></div>' +
+                      '</div>' +
+                      '</div>' +
+                      '<div class="row">' +
+                      '<div >' +
+                      '<div >' +
+                      '<table id="tabela' + index + '" class="table">' +
+                      '<thead>' +
+                      '<tr>' +
+                      '<th>Data</th>' +
+                      '<th>Setor</th>' +
+                      '<th>Lugar</th>' +
+                      '</tr>' +
+                      '</thead>' +
+                      '<tbody>' +
+                      '<tr>' +
+                      '<td>' + data.dia + '</td>' +
+                      '<td>' + data.nivel + ' - ' + data.localizacao + '</td>' +
+                      '<td>' + data.coluna + ' - ' + data.numero + '</td>' +
+                      '</tr>' +
+                      '</tbody>' +
+                      '</table>' +
+                      '</div>' +
+                      '</div>' +
+                      '</div>' +
+                      '<div class="row">' +
+                      '<div>' +
+                      '<h4><b>Nome:</b> ' + data.nome + '</h4>' +
+                      '<h4><b>CPF:</b> ' + data.cpf + '</h4>' +
+                      '</div>' +
+                      '</div>' +
                       '</div>' +
                       '<p>------------------------------------------------------------------------------------------------------------------------- Corte aqui</p>' +
-                  '</div>';
+                      '</div>';
 
-                  $('#ingresso').append(ingressounico);
+                  $('#ingresso').append(ingresso);
 
-                var tabelaIngresso = $('#tabela'+ index).DataTable({
-                    "language": {
-                          "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
-                      },
-                      "searching": false,
-                      "ordering": false,
-                      "info": false,
-                      "paging": false,
-                      "pageLength": 50,
-                      "lengthChange": false
-                });
-
-
-                  $.getJSON(base_url + 'index.php/controle/lugaresDoDia/'+ evento_id +'/'+ item + '/' + user_token, function(lugares, textStatus) {
-                      
-                      $.each(lugares, function(indice, val) {
-                        tabelaIngresso.row.add([
-                            val.cpf,
-                            val.coluna,
-                            val.numero,
-                            val.nivel,
-                            val.localizacao
-                          ]);
-                        tabelaIngresso.draw();
-
-                        $('.qrcode'+index).barcode(val.uid, "code128", {output:'bmp',barWidth:2});
-                      });
-                  });
-
-                });
-
-                
-                 
-              } else {
-                console.log('Error ao obter os dias que o usuário irá!');
-              }
-          });
+                  $('.qrcode' + index).barcode(data.uid, "code128", {output: 'bmp', barWidth: 2});
+              });
+          }
+      });
+//      $.getJSON( base_url + 'index.php/controle/diasQueVai/'+ evento_id +'/'+ user_token, function(dias, Status) {
+//
+//              if (Status == 'success') {
+//                  var ingresso = '';
+//                  $.each(dias, function (index, item) {
+//                      console.log(item);
+//                      $.getJSON(base_url + 'index.php/controle/lugaresDoDia/' + evento_id + '/' + item + '/' + user_token, function (lugares, textStatus) {
+//                          if (textStatus == 'success') {
+//                              $.each(lugares, function (key, value) {
+//                                  console.log('     ' + value.numero);
+//                                  ingresso += '<div class="row ingresso' + index + '">' +
+//                                      '<div style="margin-left: 40px;" class="coluna-reserva">' +
+//                                      '<div>' +
+//                                      '<div>' +
+//                                      '<h4 class="text-center">Partners Centro de Dança</h4>' +
+//                                      '<h5 id="cabecalho" class="text-center">Evento Teste<br>Data: <b class="data">' + item + '</b></h5>' +
+//                                      '</div>' +
+//                                      '<div>' +
+//                                      '<div class="qrcode' + index + '"></div>' +
+//                                      '</div>' +
+//                                      '</div>' +
+//                                      '<div class="row">' +
+//                                      '<div >' +
+//                                      '<div >' +
+//                                      '<table id="tabela' + index + '" class="table">' +
+//                                      '<thead>' +
+//                                      '<tr>' +
+//                                      '<th>Data</th>' +
+//                                      '<th>Setor</th>' +
+//                                      '<th>Lugar</th>' +
+//                                      '</tr>' +
+//                                      '</thead>' +
+//                                      '<tbody>' +
+//                                      '<tr>' +
+//                                      '<td>' + item + '</td>' +
+//                                      '<td>' + value.nivel + ' - ' + value.localizacao + '</td>' +
+//                                      '<td>' + value.coluna + ' - ' + value.numero + '</td>' +
+//                                      '</tr>' +
+//                                      '</tbody>' +
+//                                      '</table>' +
+//                                      '</div>' +
+//                                      '</div>' +
+//                                      '</div>' +
+//                                      '<div class="row">' +
+//                                      '<div>' +
+//                                      '<h4><b>Nome:</b> ' + value.nome + '</h4>' +
+//                                      '<h4><b>CPF:</b> ' + value.cpf + '</h4>' +
+//                                      '</div>' +
+//                                      '</div>' +
+//                                      '</div>' +
+//                                      '<p>------------------------------------------------------------------------------------------------------------------------- Corte aqui</p>' +
+//                                      '</div>';
+//
+//                                  $('.qrcode' + index).barcode(value.uid, "code128", {output: 'bmp', barWidth: 2});
+//                              });
+//                              $('#ingresso').append(ingresso);
+//                          } else {
+//                              console.log('Error ao obter os dias que o usuário irá!');
+//                          }
+//                      });
+//                  });
+//              }
+//          });
     }
 
     function DrawTable() {
