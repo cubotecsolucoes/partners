@@ -1260,23 +1260,24 @@ $(document).ready(function(){
 		      } else {
 		        tabelaUsuarios.clear().draw();
 		      }
-		      $('.acaotres').click(function(event) {
-		        $.ajax({
-		          url: base_url + 'index.php/controle/deleteUsuario/' + this.getAttribute('data-id'),
-		          type: 'POST',
-		        })
-		        .done(function() {
-                 alertify.log("Usuário deletado com sucesso!");
-		         DrawTableUsuarios();
-		        })
-		        .fail(function() {
-		          console.log("Erro ao tentar excluir o Usuário!");
-		        });                
-		      });
 		  })
 		  .fail(function() {
 		    console.log('Error ao tentar carregar a lista de Usuário!')
 		  });
     }
+
+    $(document).on('click','.acaotres', function () {
+        $.ajax({
+            url: base_url + 'index.php/controle/deleteUsuario/' + this.getAttribute('data-id'),
+            type: 'POST',
+        })
+        .done(function() {
+            alertify.log("Usuário deletado com sucesso!");
+            DrawTableUsuarios();
+        })
+        .fail(function() {
+            console.log("Erro ao tentar excluir o Usuário!");
+        });
+    });
 });
 </script>
