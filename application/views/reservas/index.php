@@ -20,24 +20,24 @@
 	<body>
 		
 		<div class="box-login">
-//			<form class="form-group" action="<?php echo(base_url('index.php/login/logar/')); ?>" method="POST" role="form">
-//				<legend>Partners - Sistema de Reservas</legend>
-//			
-//				<div class="form-group">
-//					<label for="">Usuário</label>
-//					<input type="text" class="form-control" name="user" placeholder="Usuário">
-//				</div>
-//
-//				<div class="form-group">
-//					<label for="password">Senha</label>
-//					<input type="password" class="form-control" name="pass" placeholder="*****">
-//				</div>
-//
-//				<hr>
-//
-//				<button type="submit" class="btn btn-primary pull-left">Entrar</button>
-//				<button type="reset" class="btn btn-warning pull-right">Limpar</button>
-//			</form>
+<!--			<form class="form-group" action="<?php echo(base_url('index.php/login/logar/')); ?>" method="POST" role="form">
+				<legend>Partners - Sistema de Reservas</legend>
+			
+				<div class="form-group">
+					<label for="">Usuário</label>
+					<input type="text" class="form-control" name="user" placeholder="Usuário">
+				</div>
+
+				<div class="form-group">
+					<label for="password">Senha</label>
+					<input type="password" class="form-control" name="pass" placeholder="*****">
+				</div>
+
+				<hr>
+
+				<button type="submit" class="btn btn-primary pull-left">Entrar</button>
+				<button type="reset" class="btn btn-warning pull-right">Limpar</button>
+			</form> --!>
 			<h1 style="color: red">Sistema bloqueado no momento</h1>
 		</div>
 
