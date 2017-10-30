@@ -20,7 +20,7 @@
 	<body>
 		
 		<div class="box-login">
-			<!--<form class="form-group" action="<?php echo(base_url('index.php/login/logar/')); ?>" method="POST" role="form">
+			<form class="form-group" action="<?php echo(base_url('index.php/login/logar/')); ?>" method="POST" role="form">
 				<legend>Partners - Sistema de Reservas</legend>
 			
 				<div class="form-group">
@@ -34,16 +34,60 @@
 				</div>
 
 				<hr>
-
+                <div id="aviso"></div>
 				<button type="submit" class="btn btn-primary pull-left">Entrar</button>
 				<button type="reset" class="btn btn-warning pull-right">Limpar</button>
-			</form> -->
-            <h3 style="color: red">Sistema bloqueado temporariamente</h3>
+			</form>
+<!--            <h3 style="color: red">Sistema bloqueado temporariamente</h3>-->
 		</div>
 
 	<!-- JS -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<!-- Latest compiled and minified JS -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
-	</body>
+	    <script>
+            // Opera 8.0+
+            var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+
+            // Firefox 1.0+
+            var isFirefox = typeof InstallTrigger !== 'undefined';
+
+            // Safari 3.0+ "[object HTMLElementConstructor]"
+            var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+
+            // Internet Explorer 6-11
+            var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+            // Edge 20+
+            var isEdge = !isIE && !!window.StyleMedia;
+
+            // Chrome 1+
+            var isChrome = !!window.chrome && !!window.chrome.webstore;
+
+            // Blink engine detection
+            var isBlink = (isChrome || isOpera) && !!window.CSS;
+
+            if (!isBlink)
+            {
+                var msg = 'Detectamos que você está usando o ';
+                if (isOpera)
+                    msg += 'Opera';
+                else if (isFirefox)
+                    msg += 'Firefox';
+                else if (isSafari)
+                    msg += 'Safari';
+                else if (isIE)
+                    msg += 'Internet Explorer';
+                else if (isEdge)
+                    msg += 'Edge';
+
+                msg += ' Este navegador não tem uma boa compatibilidade com o sistema, recomendamos o uso do Google Chrome';
+
+                $('.box-login').css('height', '460');
+                $('#aviso').html('<h2 style="color: red">Atenção</h2><p>'+ msg +'</p>');
+
+            }
+        </script>
+
+    </body>
 </html>

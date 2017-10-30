@@ -26,7 +26,7 @@
                 </div>
                 <br>
               <?php endif; ?>
-                <button type="button" id="encerrar" class="btn btn-danger btn-block btn-lg">Imprimir Reservas</button>
+                <button type="button" id="encerrar" style="display: none" class="btn btn-danger btn-block btn-lg">Imprimir Reservas</button>
             </div>
         </div>
     </div>
@@ -121,7 +121,11 @@
 <script type="text/javascript">
   $(document).ready(function(){
 
-    if (localStorage.mudasenha != 'true')
+      $('#cadastrar').dblclick(function(e){
+          e.preventDefault();
+      });
+
+      if (localStorage.mudasenha != 'true')
     {
       alertify.confirm('<h2 style="color: red;"><b>Atenção</b></h2><p style="padding: 20px;">Percebemos que essa é sua primeira vez por aqui. Deseja alterar sua senha de login?<p>', function(e) {
         if (e) {
@@ -217,10 +221,12 @@
         dataType: 'json',
       })
       .done(function(data) {
+        var items = ['btn-danger', 'btn-warning', 'btn-success', 'btn-info', 'btn-default', 'btn-primary', ''];
         var string = "";
         $('.datas').html("");
         $.each(data, function(index, val) {
-           string += "<div class=\"data\"><button type=\"button\" tabindex=\""+ index +"\" data-valor=\""+ val +"\" class=\"btn btn-danger btn-lg\">"+ val +"</button></div>";
+           var item = items[Math.floor(Math.random()*items.length)];
+           string += "<div class=\"data\"><button type=\"button\" tabindex=\""+ index +"\" data-valor=\""+ val +"\" class=\"btn "+ item +" btn-lg\">"+ val +"</button></div>";
         });
         string += "<hr>";
         $('.datas').append(string);
@@ -515,6 +521,14 @@
             dataType: 'json'
           })
           .done(function(data) {
+              if (data.length > 6)
+              {
+                  $('#encerrar').css('display', 'block');
+              }
+              else
+              {
+                  $('#encerrar').css('display', 'none');
+              }
               tabela.clear();
               if (data.length > 0) {
                 $.each(data, function(i, item) {
