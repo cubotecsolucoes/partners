@@ -19,7 +19,9 @@ class Reservas_model extends CI_Model {
                 'dia' => $value['dia'],
                 'uid' => $uniqid,
             ];
-            $this->db->insert('reservas', $objeto);
+
+            if (!$this->db->insert('reservas', $objeto))
+                return false;
         }
         return true;
 	}

@@ -265,89 +265,79 @@
 
     btnAli.click(function(event) {
     /* Act on the event */
-
-//        RETIRAR DEPOIS
-
-        var concatenar = '<h1 style="color: red">A marcação dos assentos e impressão dos ingressos só será realizada no dia 28/10 a partir das 8:00</h1>';
-        lugares.html(concatenar);
+    aliVal = $(this).attr('data-valor');
+    var dataCorreta = data.split('-')
+    $.ajax({
+        url: base_url + 'index.php/controle/lugaresOcupados/'+ evento_id +'/'+ dataCorreta[2]+'-'+dataCorreta[1]+'-'+dataCorreta[0] +'/'+ user_token,
+        type: 'POST',
+        dataType: 'json',
+      })
+      .done(function(lugares_ocupados) {
+        $(this).css('backgroundColor', '#b11f0e');
         lug.show('slow');
-//        FIM DE RETIRAR DEPOIS
 
-//    aliVal = $(this).attr('data-valor');
-//    var dataCorreta = data.split('-')
-//    $.ajax({
-//        url: base_url + 'index.php/controle/lugaresOcupados/'+ evento_id +'/'+ dataCorreta[2]+'-'+dataCorreta[1]+'-'+dataCorreta[0] +'/'+ user_token,
-//        type: 'POST',
-//        dataType: 'json',
-//      })
-//      .done(function(lugares_ocupados) {
-//        $(this).css('backgroundColor', '#b11f0e');
-//        lug.show('slow');
+        $.ajax({
+          url: base_url + 'index.php/controle/lugareslist/',
+          type: 'POST',
+          dataType: 'json',
+          data: {localizacao: aliVal,piso: locVal},
+        })
+        .done(function(data) {
+          lugares.html("<div class='recado'><h3>Selecione <span id=\"lugQnt\"></span> lugares</h3></div>");
+          $('#lugQnt').text(qntReservas - qntReservados);
+          var adiciona = '<div class="fila">';
+          var colum = data[0];
+          $.each(data, function(index, el) {
+            if (lugares_ocupados.includes(el.id)) {
+              classe = 'notok';
+            } else {
+              classe = 'ok';
+            }
+            if (el.coluna != colum.coluna) {
+              adiciona += '</div><div class="fila">';
+              colum.coluna = el.coluna;
+            }
+            adiciona +='<div class="cadeira '+ classe +'" data-id="'+ el.id +'"><img class="img-responsive" src="<?php echo(base_url("assets/images/icones/cadeira.svg")); ?>"><div class="descricao">'+ el.coluna +' - '+ el.numero +'</div></div>';
 
-//        $.ajax({
-//          url: base_url + 'index.php/controle/lugareslist/',
-//          type: 'POST',
-//          dataType: 'json',
-//          data: {localizacao: aliVal,piso: locVal},
-//        })
-//        .done(function(data) {
-//          lugares.html("<div class='recado'><h3>Selecione <span id=\"lugQnt\"></span> lugares</h3></div>");
-//          $('#lugQnt').text(qntReservas - qntReservados);
-//          var adiciona = '<div class="fila">';
-//          var colum = data[0];
-//          $.each(data, function(index, el) {
-//            if (lugares_ocupados.includes(el.id)) {
-//              classe = 'notok';
-//            } else {
-//              classe = 'ok';
-//            }
-//            if (el.coluna != colum.coluna) {
-//              adiciona += '</div><div class="fila">';
-//              colum.coluna = el.coluna;
-//            }
-//            adiciona +='<div class="cadeira '+ classe +'" data-id="'+ el.id +'"><img class="img-responsive" src="<?php //echo(base_url("assets/images/icones/cadeira.svg")); ?>//"><div class="descricao">'+ el.coluna +' - '+ el.numero +'</div></div>';
-//
-//          });
-//          adiciona += '</div>';
-//
-//          lugares.append(adiciona);
-//          lugares.append('<div class="row"><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border: 2px solid black;margin-top: 15px;margin-bottom: 15px; text-align: center"><h2>PALCO</h2></div>');
-//          lugares.append('<hr>');
-//          lugares.append('<h6><b style="color: red">*</b> Cadeira Indisponivel</h6>');
-//          lugares.append('<h6><b style="color: green">*</b> Cadeira Disponivel</h6>');
-//          lugares.append('<h6><b style="color: grey">*</b> Cadeira Selecionada</h6>');
-//
-//          $('.ok').click(function(event) {
-//              if ($(this).hasClass('selecionado'))
-//              {
-//                  $('#lugQnt').text(qntReservas - $('.selecionado').length +1);
-//                  $(this).removeClass('selecionado');
-//              }
-//              else
-//              {
-//                  if ($('.selecionado').length <= (qntReservas - qntReservados)-1) {
-//                      $('#lugQnt').text(qntReservas - $('.selecionado').length -1);
-//                      $(this).addClass('selecionado');
-//                  }
-//              }
-//            });
-//        })
-//        .fail(function() {
-//          console.log("error");
-//        });
-//      })
-//      .fail(function() {
-//        console.log("Error ao tentar obter os lugares ocupados!");
-//      });
-//
-    
-  });
+          });
+          adiciona += '</div>';
+
+          lugares.append(adiciona);
+          lugares.append('<div class="row"><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border: 2px solid black;margin-top: 15px;margin-bottom: 15px; text-align: center"><h2>PALCO</h2></div>');
+          lugares.append('<hr>');
+          lugares.append('<h6><b style="color: red">*</b> Cadeira Indisponivel</h6>');
+          lugares.append('<h6><b style="color: green">*</b> Cadeira Disponivel</h6>');
+          lugares.append('<h6><b style="color: grey">*</b> Cadeira Selecionada</h6>');
+
+          $('.ok').click(function(event) {
+              if ($(this).hasClass('selecionado'))
+              {
+                  $('#lugQnt').text(qntReservas - $('.selecionado').length +1);
+                  $(this).removeClass('selecionado');
+              }
+              else
+              {
+                  if ($('.selecionado').length <= (qntReservas - qntReservados)-1) {
+                      $('#lugQnt').text(qntReservas - $('.selecionado').length -1);
+                      $(this).addClass('selecionado');
+                  }
+              }
+            });
+        })
+        .fail(function() {
+          console.log("error");
+        });
+      })
+      .fail(function() {
+        console.log("Error ao tentar obter os lugares ocupados!");
+      });
+    });
 
     var tabela = $('#tabelaReservas').DataTable({
       "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
         },
-        "pageLength": 5,
+        "pageLength": 7,
         "lengthChange": false
     });
     
@@ -374,7 +364,16 @@
           alertify.success("Reserva feita com sucesso!");
           DrawTable();
           DrawIngresso();
-        }    
+        }
+        else
+        {
+            alertify.alert('<h2 style="color: red;"><b>Atenção</b></h2><p style="padding: 20px;">Alguns dos lugares selecionados <b>foram reservados primeiro</b>, por favor selecione outros lugares<p>', function() {
+                location.reload();
+            });
+            alertify.error("A Reserva não pode ser concluída!");
+            DrawTable();
+            DrawIngresso();
+        }
       })
       .fail(function() {
         console.log("Error em adicionar os lugares no banco de dados!");
