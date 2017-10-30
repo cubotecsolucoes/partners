@@ -332,7 +332,7 @@
         console.log("Error ao tentar obter os lugares ocupados!");
       });
     });
-  
+
     var tabela = $('#tabelaReservas').DataTable({
       "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
