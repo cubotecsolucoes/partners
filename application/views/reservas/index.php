@@ -89,7 +89,7 @@
 
             if (!isBlink)
             {
-                if (bName != "Chrome" || bName == "ChromeEdge")
+                if (bName !== "Chrome" || bName === "ChromeEdge")
                 {
                     var msg = 'Detectamos que você está usando o ' + bName;
                     if (isOpera)
