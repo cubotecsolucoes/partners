@@ -85,7 +85,7 @@
                 };
             }
 
-            if (!isBlink)
+            if (!isBlink || get_browser().name !== 'Chrome')
             {
                 var msg = 'Detectamos que você está usando o ' + get_browser().name;
                 if (isOpera)
