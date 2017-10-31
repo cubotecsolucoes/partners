@@ -202,6 +202,14 @@ class Controle extends CI_Controller {
 		$this->load->model('reservas_model','reservas');
 		$dia = $_POST['data'];
 		$dia = explode('-', $dia);
+
+
+        if ((count($this->reservas->getListaReservasUsuario($_POST['id_evento'],$_POST['user_token'])) + count($_POST['lugares'])) > 7)
+        {
+            echo(json_encode(['error' => 1, 'msg' => '<p style="padding: 20px;">Percebemos que você está com <b>lugares a mais</b>, por favor <b>revise seus ingressos e apague o lugar a mais!</b></p>']));
+            return;
+        }
+
 		$objeto = [
 			'id_evento' => $_POST['id_evento'],
 			'id_lugar' => $_POST['lugares'],
@@ -209,11 +217,27 @@ class Controle extends CI_Controller {
 			'dia' => "$dia[2]-$dia[1]-$dia[0]"
 		];
 
-		if ($this->reservas->add($objeto)) {
-			echo(json_encode(['error' => 0]));
-		} else {
-			echo(json_encode(['error' => 1]));
-		}
+		$result = $this->reservas->add($objeto);
+		switch ($result)
+        {
+            case 1:
+            {
+                echo(json_encode(['error' => 0]));
+                break;
+            }
+
+            case 2:
+            {
+                echo(json_encode(['error' => 1, 'msg' => '<p style="padding: 20px;">Percebemos que você está com <b>lugares a mais</b>, por favor <b>revise seus ingressos e apague o lugar a mais!</b></p>']));
+                break;
+            }
+
+            case 3:
+            {
+                echo(json_encode(['error' => 1, 'msg' => '<p style="padding: 20px;">Alguns dos lugares selecionados <b>foram reservados primeiro</b>, por favor selecione outros lugares<p>']));
+                break;
+            }
+        }
 	}
 
 

@@ -12,6 +12,7 @@ class Reservas_model extends CI_Model {
 	{
 	    $uniqid = $this->uniqueAlfa(10);
         foreach ($value['id_lugar'] as $lugar) {
+
             $objeto = [
                 'id_evento' => $value['id_evento'],
                 'id_lugar' => $lugar,
@@ -21,9 +22,9 @@ class Reservas_model extends CI_Model {
             ];
 
             if (!$this->db->insert('reservas', $objeto))
-                return false;
+                return 2;
         }
-        return true;
+        return 1;
 	}
 
     public function uniqueAlfa($length=16)

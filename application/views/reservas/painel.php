@@ -1,3 +1,4 @@
+<!--suppress ALL -->
 <script src="<?php echo(base_url()); ?>/assets/js/jquery-barcode.min.js"></script>
 <div class="row" style="min-height: 740px;">
     <div class="col-lg-10 col-lg-offset-1 col-md-12 panel-graficos">
@@ -198,6 +199,7 @@
     var arrayReservas;
     var qntReservas;
     var qntReservados;
+    var items = ['btn-danger', 'btn-warning', 'btn-success', 'btn-info', 'btn-primary'];
 
     $.ajax({
       url: base_url + 'index.php/controle/getQntReservas/'+ evento_id,
@@ -221,7 +223,6 @@
         dataType: 'json',
       })
       .done(function(data) {
-        var items = ['btn-danger', 'btn-warning', 'btn-success', 'btn-info', 'btn-default', 'btn-primary', ''];
         var string = "";
         $('.datas').html("");
         $.each(data, function(index, val) {
@@ -240,6 +241,14 @@
     $(document).on('click', '.data', function(event) {
       event.preventDefault();
       data = $(this).text();
+      var botao = $(this).children();
+      items.forEach(function (element, index) {
+          if (botao.hasClass(element))
+          {
+              botao.removeClass(element);
+              botao.addClass('btn-default');
+          }
+      });
       local.show('slow');
       qntReservas = arrayReservas[data];
       qntReservados = data.split('-');
@@ -262,6 +271,19 @@
 
     btnLoc.click(function(event) {
       alinhamento.hide();
+    var botao = $(this);
+    items.forEach(function (element, index) {
+        if (botao.hasClass(element))
+        {
+            botao.removeClass(element);
+            botao.addClass('btn-default');
+        }
+        console.log($(this).siblings());
+        $.each($(this).siblings(), function (index, element) {
+            element.removeClass('btn-default');
+            element.addClass('btn-danger');
+        });
+    });
       lug.hide();
       /* Act on the event */
       locVal = $(this).attr('data-valor');
@@ -272,6 +294,14 @@
     btnAli.click(function(event) {
     /* Act on the event */
     aliVal = $(this).attr('data-valor');
+    var botao = $(this);
+    items.forEach(function (element, index) {
+        if (botao.hasClass(element))
+        {
+            botao.removeClass(element);
+            botao.addClass('btn-default');
+        }
+    });
     var dataCorreta = data.split('-')
     $.ajax({
         url: base_url + 'index.php/controle/lugaresOcupados/'+ evento_id +'/'+ dataCorreta[2]+'-'+dataCorreta[1]+'-'+dataCorreta[0] +'/'+ user_token,
@@ -373,7 +403,7 @@
         }
         else
         {
-            alertify.alert('<h2 style="color: red;"><b>Atenção</b></h2><p style="padding: 20px;">Alguns dos lugares selecionados <b>foram reservados primeiro</b>, por favor selecione outros lugares<p>', function() {
+            alertify.alert('<h2 style="color: red;"><b>Atenção</b></h2>' + data.msg, function() {
                 location.reload();
             });
             alertify.error("A Reserva não pode ser concluída!");
@@ -388,6 +418,16 @@
 
     $('#modal-cadastro').on('hidden.bs.modal', function () {
         $('.datas').html("");
+        console.log(btnLoc[0].removeClass('btn-default'));
+        console.log(btnLoc.children());
+        btnLoc.children().forEach(function(elemento, indice) {
+            elemento.removeClass('btn-default');
+            elemento.addClass('btn-danger');
+        });
+        btnAli.forEach(function(elemento, indice) {
+            elemento.removeClass('btn-default');
+            elemento.addClass('btn-danger');
+        });
         local.hide('fast');
         alinhamento.hide('fast');
         $('#lugares').html("");
@@ -404,13 +444,14 @@
                   ingresso = '<div class="row ingresso' + index + '">' +
                       '<div style="margin-left: 40px;" class="coluna-reserva">' +
                       '<div>' +
+                      '<img src="<?php echo(base_url()); ?>/assets/images/64.png">' +
                       '<div>' +
                       '<h4 class="text-center">Partners Centro de Dança</h4>' +
                       '</div>' +
                       '<div>' +
                       '<div class="qrcode' + index + '"></div>' +
                       '</div>' +
-                      '</div>' +
+                      '</img>' +
                       '<div class="row">' +
                       '<div >' +
                       '<div >' +
@@ -440,7 +481,7 @@
                       '</div>' +
                       '</div>' +
                       '</div>' +
-                      '<p>------------------------------------------------------------------------------------------------------------------------- Corte aqui</p>' +
+                      '<p>-------------------------------------------------------------------------------------------------------------------- Corte aqui</p>' +
                       '</div>';
 
                   $('#ingresso').append(ingresso);
