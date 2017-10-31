@@ -89,8 +89,8 @@
 
             if (!isBlink)
             {
-//                if (bName != "Chrome")
-//                {
+                if (bName != "Chrome" || bName == "ChromeEdge")
+                {
                     var msg = 'Detectamos que você está usando o ' + bName;
                     if (isOpera)
                         msg += 'Opera';
@@ -107,7 +107,7 @@
 
                     $('.box-login').css('height', '460');
                     $('#aviso').html('<h2 style="color: red">Atenção</h2><p>'+ msg +'</p>');
-//                }
+                }
             }
         </script>
 
