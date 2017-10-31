@@ -85,25 +85,29 @@
                 };
             }
 
-            if (!isBlink && !(get_browser().name === "Chrome"))
+            var bName = get_browser().name;
+
+            if (!isBlink)
             {
-                var msg = 'Detectamos que você está usando o ' + get_browser().name;
-                if (isOpera)
-                    msg += 'Opera';
-                else if (isFirefox)
-                    msg += 'Firefox';
-                else if (isSafari)
-                    msg += 'Safari';
-                else if (isIE)
-                    msg += 'Internet Explorer';
-                else if (isEdge)
-                    msg += 'Edge';
+                if (bName != "Chrome")
+                {
+                    var msg = 'Detectamos que você está usando o ' + bName;
+                    if (isOpera)
+                        msg += 'Opera';
+                    else if (isFirefox)
+                        msg += 'Firefox';
+                    else if (isSafari)
+                        msg += 'Safari';
+                    else if (isIE)
+                        msg += 'Internet Explorer';
+                    else if (isEdge)
+                        msg += 'Edge';
 
-                msg += ' Este navegador não tem uma boa compatibilidade com o sistema, recomendamos o uso do Google Chrome';
+                    msg += ' Este navegador não tem uma boa compatibilidade com o sistema, recomendamos o uso do Google Chrome';
 
-                $('.box-login').css('height', '460');
-                $('#aviso').html('<h2 style="color: red">Atenção</h2><p>'+ msg +'</p>');
-
+                    $('.box-login').css('height', '460');
+                    $('#aviso').html('<h2 style="color: red">Atenção</h2><p>'+ msg +'</p>');
+                }
             }
         </script>
 
