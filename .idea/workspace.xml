@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed05c622-27f1-47c0-9a12-b21753b95072" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ci.iml" afterPath="$PROJECT_DIR$/.idea/ci.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/database.php" afterPath="$PROJECT_DIR$/application/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Controle.php" afterPath="$PROJECT_DIR$/application/controllers/Controle.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Reservas_model.php" afterPath="$PROJECT_DIR$/application/models/Reservas_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/reservas/painel.php" afterPath="$PROJECT_DIR$/application/views/reservas/painel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/reservas/index.php" afterPath="$PROJECT_DIR$/application/views/reservas/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,7 +35,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="painel.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="painel.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/reservas/painel.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="259">
@@ -71,6 +66,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/reservas/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="661">
+              <caret line="100" column="0" lean-forward="true" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+              <folding>
+                <marker date="1509492429614" expanded="true" signature="4610:4620" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/config/config.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -85,8 +92,11 @@
         <entry file="file://$PROJECT_DIR$/application/config/database.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1440">
-              <caret line="72" column="26" lean-forward="false" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
-              <folding />
+              <caret line="72" column="27" lean-forward="false" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="27" />
+              <folding>
+                <marker date="1509491697898" expanded="true" signature="4074:4521" ph="..." />
+                <marker date="1509491697898" expanded="true" signature="4550:4978" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -162,11 +172,11 @@
         <option value="$PROJECT_DIR$/application/controllers/Reserva.php" />
         <option value="$PROJECT_DIR$/application/views/inicio/index.php" />
         <option value="$PROJECT_DIR$/application/views/reservas/admin.php" />
-        <option value="$PROJECT_DIR$/application/views/reservas/index.php" />
         <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/application/models/Reservas_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/Controle.php" />
         <option value="$PROJECT_DIR$/application/views/reservas/painel.php" />
+        <option value="$PROJECT_DIR$/application/views/reservas/index.php" />
       </list>
     </option>
   </component>
@@ -231,6 +241,19 @@
               <item name="partners" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="models" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="partners" type="b2602c69:ProjectViewProjectNode" />
+              <item name="partners" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="partners" type="b2602c69:ProjectViewProjectNode" />
+              <item name="partners" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="reservas" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="partners" type="b2602c69:ProjectViewProjectNode" />
@@ -351,12 +374,12 @@
       <workItem from="1509324801334" duration="6097000" />
       <workItem from="1509398215086" duration="4910000" />
       <workItem from="1509483939306" duration="6419000" />
-      <workItem from="1509491286742" duration="365000" />
+      <workItem from="1509491286742" duration="1044000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35261000" />
+    <option name="totallyTimeSpent" value="35940000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -669,18 +692,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/reservas/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="47" column="16" lean-forward="true" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1440">
-          <caret line="72" column="26" lean-forward="false" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
-          <folding />
+          <caret line="72" column="27" lean-forward="false" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="27" />
+          <folding>
+            <marker date="1509491697898" expanded="true" signature="4074:4521" ph="..." />
+            <marker date="1509491697898" expanded="true" signature="4550:4978" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -708,14 +727,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/reservas/painel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
@@ -731,6 +742,24 @@
             <marker date="1509491652180" expanded="true" signature="13529:13540" ph="..." />
             <marker date="1509491652180" expanded="true" signature="15371:15382" ph="..." />
             <marker date="1509491652180" expanded="true" signature="16817:16835" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reservas/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="661">
+          <caret line="100" column="0" lean-forward="true" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+          <folding>
+            <marker date="1509492429614" expanded="true" signature="4610:4620" ph="..." />
           </folding>
         </state>
       </provider>
