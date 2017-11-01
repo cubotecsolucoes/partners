@@ -637,6 +637,7 @@
                       }
                       else
                       {
+                          $('#aviso').html('');
                           $('#encerrar').css('display', 'block');
                       }
                   }
@@ -644,9 +645,11 @@
                   {
                       $('#encerrar').css('display', 'block');
                   }
+                  $('#aviso').html('');
               }
               else
               {
+                  $('#aviso').html('<h2 style="color: red">Atenção</h2><p>Selecione todos os seus ingressos para liberar a impressão!</p>');
                   $('#encerrar').css('display', 'none');
               }
               tabela.clear();
