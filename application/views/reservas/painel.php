@@ -44,6 +44,7 @@
                     </div>
                     <br>
               <?php endif; ?>
+                <div id="aviso"></div>
                 <button type="button" id="encerrar" style="display: none" class="btn btn-danger btn-block btn-lg">Imprimir Reservas</button>
             </div>
         </div>
@@ -139,6 +140,7 @@
 </div>
 <script type="text/javascript">
   $(document).ready(function(){
+
 
       $('#cadastrar').dblclick(function(e){
           e.preventDefault();
@@ -572,7 +574,76 @@
           .done(function(data) {
               if (data.length > 6)
               {
-                  $('#encerrar').css('display', 'block');
+                  var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+
+                  // Firefox 1.0+
+                  var isFirefox = typeof InstallTrigger !== 'undefined';
+
+                  // Safari 3.0+ "[object HTMLElementConstructor]"
+                  var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+
+                  // Internet Explorer 6-11
+                  var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+                  // Edge 20+
+                  var isEdge = !isIE && !!window.StyleMedia;
+
+                  // Chrome 1+
+                  var isChrome = !!window.chrome && !!window.chrome.webstore;
+
+                  // Blink engine detection
+                  var isBlink = (isChrome || isOpera) && !!window.CSS;
+
+                  function get_browser(){
+                      var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+                      if(/trident/i.test(M[1])){
+                          tem=/\brv[ :]+(\d+)/g.exec(ua) || [];
+                          return {name:'IE',version:(tem[1]||'')};
+                      }
+                      if(M[1]==='Chrome'){
+                          tem=ua.match(/\bOPR\/(\d+)/)
+                          if(tem!=null)   {return {name:'Opera', version:tem[1]};}
+                      }
+                      M=M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+                      if((tem=ua.match(/version\/(\d+)/i))!=null) {M.splice(1,1,tem[1]);}
+                      return {
+                          name: M[0],
+                          version: M[1]
+                      };
+                  }
+
+                  var bName = get_browser().name;
+
+                  if (!isBlink)
+                  {
+                      if (bName !== "Chrome" || bName === "ChromeEdge")
+                      {
+                          var msg = 'Detectamos que você está usando o ' + bName;
+                          if (isOpera)
+                              msg += 'Opera';
+                          else if (isFirefox)
+                              msg += 'Firefox';
+                          else if (isSafari)
+                              msg += 'Safari';
+                          else if (isIE)
+                              msg += 'Internet Explorer';
+                          else if (isEdge)
+                              msg += 'Edge';
+
+                          msg += '. Este navegador não tem uma boa compatibilidade com o módulo de impressão, recomendamos o uso do Google Chrome';
+
+                          $('#encerrar').css('display', 'none');
+                          $('#aviso').html('<h2 style="color: red">Atenção</h2><p>'+ msg +'</p>');
+                      }
+                      else
+                      {
+                          $('#encerrar').css('display', 'block');
+                      }
+                  }
+                  else
+                  {
+                      $('#encerrar').css('display', 'block');
+                  }
               }
               else
               {

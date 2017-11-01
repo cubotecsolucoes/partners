@@ -7,10 +7,15 @@ class Login extends CI_Controller {
 	{
 		parent::__construct();
         $this->load->model('login_model', 'login');
+        $this->load->helper('url');
 	}
 
 	public function index()
 	{
+	    $this->load->model('login_model', 'login');
+	    if ($this->login->hasLoged())
+            redirect('/reserva/index', 'refresh');
+
 		$data = [];
 		$this->load->view('reservas/index', $data, FALSE);
 	}
