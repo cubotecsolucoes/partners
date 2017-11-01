@@ -209,6 +209,24 @@ class Controle extends CI_Controller {
             echo(json_encode(['error' => 1, 'msg' => '<p style="padding: 20px;">Percebemos que você está com <b>lugares a mais</b>, por favor <b>revise seus ingressos e apague o lugar a mais!</b></p>']));
             return;
         }
+		
+		if ("$dia[2]-$dia[1]-$dia[0]" == "2017-11-24" && $this->reservas->getQntUserReservou($_POST['id_evento'],$_POST['user_token'],"$dia[2]-$dia[1]-$dia[0]") > 3)
+		{
+			echo(json_encode(['error' => 1, 'msg' => '<p style="padding: 20px;">Percebemos que você está com <b>lugares a mais</b>, por favor <b>revise seus ingressos e apague o lugar a mais!</b></p>']));
+			return;
+		}
+		if ("$dia[2]-$dia[1]-$dia[0]" == "2017-11-25" && $this->reservas->getQntUserReservou($_POST['id_evento'],$_POST['user_token'],"$dia[2]-$dia[1]-$dia[0]") > 2)
+		{
+			echo(json_encode(['error' => 1, 'msg' => '<p style="padding: 20px;">Percebemos que você está com <b>lugares a mais</b>, por favor <b>revise seus ingressos e apague o lugar a mais!</b></p>']));
+			return;
+		}
+		
+		if ("$dia[2]-$dia[1]-$dia[0]" == "2017-11-26" && $this->reservas->getQntUserReservou($_POST['id_evento'],$_POST['user_token'],"$dia[2]-$dia[1]-$dia[0]") > 2)
+		{
+			echo(json_encode(['error' => 1, 'msg' => '<p style="padding: 20px;">Percebemos que você está com <b>lugares a mais</b>, por favor <b>revise seus ingressos e apague o lugar a mais!</b></p>']));
+			return;
+		}
+	
 
 		$objeto = [
 			'id_evento' => $_POST['id_evento'],
