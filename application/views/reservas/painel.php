@@ -418,16 +418,6 @@
 
     $('#modal-cadastro').on('hidden.bs.modal', function () {
         $('.datas').html("");
-        console.log(btnLoc[0].removeClass('btn-default'));
-        console.log(btnLoc.children());
-        btnLoc.children().forEach(function(elemento, indice) {
-            elemento.removeClass('btn-default');
-            elemento.addClass('btn-danger');
-        });
-        btnAli.forEach(function(elemento, indice) {
-            elemento.removeClass('btn-default');
-            elemento.addClass('btn-danger');
-        });
         local.hide('fast');
         alinhamento.hide('fast');
         $('#lugares').html("");
