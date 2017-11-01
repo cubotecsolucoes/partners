@@ -26,6 +26,23 @@
                     </table>
                 </div>
                 <br>
+              <?php else: ?>
+                    <div class="table-responsive">
+                        <table id="tabelaReservas" class="table table-striped table-responsive table-hover">
+                            <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Fila</th>
+                                <th>Número</th>
+                                <th>Nível</th>
+                                <th>Lugar</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
               <?php endif; ?>
                 <button type="button" id="encerrar" style="display: none" class="btn btn-danger btn-block btn-lg">Imprimir Reservas</button>
             </div>
