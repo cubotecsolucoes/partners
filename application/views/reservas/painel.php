@@ -117,6 +117,7 @@
               <input type="password" name="password" autofocus tabindex="1" placeholder="Senha Atual" class="form-control" />
             </div>
             <div class="input-group" style="margin-bottom: 10px">
+            <div class="input-group" style="margin-bottom: 10px">
               <span class="input-group-addon">Nova senha</span>
               <input type="password" name="new_password" autofocus tabindex="2" placeholder="Nova Senha" class="form-control" />
             </div>
@@ -484,7 +485,7 @@
                       '<div class="row">' +
                       '<div>' +
                       '<h4><b>Nome:</b> ' + data.nome + '</h4>' +
-                      '<h4><b>CPF:</b> ' + data.cpf + '</h4>' +
+                      '<br>' +
                       '</div>' +
                       '</div>' +
                       '</div>' +
@@ -594,7 +595,7 @@
               }
               $('.delete').click(function(event) {
                 $.ajax({
-                  url: base_url + 'index.php/controle/deleteReserva/' + this.getAttribute('data-id'),
+                  url: base_url + 'index.php/controle/deleteReserva/' + this.getAttribute('data-id') + '/' + user_token + '/',
                   type: 'POST',
                 })
                 .done(function() {

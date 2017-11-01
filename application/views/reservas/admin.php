@@ -1267,16 +1267,28 @@ $(document).ready(function(){
     }
 
     $(document).on('click','.acaotres', function () {
-        $.ajax({
-            url: base_url + 'index.php/controle/deleteUsuario/' + this.getAttribute('data-id'),
-            type: 'POST',
-        })
-        .done(function() {
-            alertify.log("Usuário deletado com sucesso!");
-            DrawTableUsuarios();
-        })
-        .fail(function() {
-            console.log("Erro ao tentar excluir o Usuário!");
+        alertify.set({ labels:
+            {
+                ok     : "Excluir",
+                cancel : "Cancelar"
+            }
+        });
+        alertify.confirm('<h2 style="color: red;"><b>Atenção</b></h2><p style="padding: 20px;"><b>Tem certeza que deseja excluir o usuário?</b><p>', function(e)
+        {
+            if (e)
+            {
+                $.ajax({
+                    url: base_url + 'index.php/controle/deleteUsuario/' + this.getAttribute('data-id'),
+                    type: 'POST'
+                })
+                    .done(function() {
+                        alertify.log("Usuário deletado com sucesso!");
+                        DrawTableUsuarios();
+                    })
+                    .fail(function() {
+                        console.log("Erro ao tentar excluir o Usuário!");
+                    });
+            }
         });
     });
 });

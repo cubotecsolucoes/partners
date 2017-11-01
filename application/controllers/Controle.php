@@ -201,27 +201,24 @@ class Controle extends CI_Controller {
 	{
 		$this->load->model('reservas_model','reservas');
 		$dia = $_POST['data'];
-		$dia = explode('-', $dia);
+        $dia = explode('-', $dia);
+        $dia = $dia[2].'-'.$dia[1].'-'.$dia[0];
 
+        $qntReservou = $this->reservas->getQntUserReservou($_POST['id_evento'],$_POST['user_token'],$dia);
 
-        if ((count($this->reservas->getListaReservasUsuario($_POST['id_evento'],$_POST['user_token'])) + count($_POST['lugares'])) > 7)
+        if (strcmp($dia, "2017-11-24") == 0 && $qntReservou + count($_POST['lugares']) > 3)
         {
             echo(json_encode(['error' => 1, 'msg' => '<p style="padding: 20px;">Percebemos que você está com <b>lugares a mais</b>, por favor <b>revise seus ingressos e apague o lugar a mais!</b></p>']));
             return;
         }
-		
-		if ("$dia[2]-$dia[1]-$dia[0]" == "2017-11-24" && $this->reservas->getQntUserReservou($_POST['id_evento'],$_POST['user_token'],"$dia[2]-$dia[1]-$dia[0]") > 3)
-		{
-			echo(json_encode(['error' => 1, 'msg' => '<p style="padding: 20px;">Percebemos que você está com <b>lugares a mais</b>, por favor <b>revise seus ingressos e apague o lugar a mais!</b></p>']));
-			return;
-		}
-		if ("$dia[2]-$dia[1]-$dia[0]" == "2017-11-25" && $this->reservas->getQntUserReservou($_POST['id_evento'],$_POST['user_token'],"$dia[2]-$dia[1]-$dia[0]") > 2)
+
+		if (strcmp($dia, "2017-11-25") == 0 && $qntReservou + count($_POST['lugares']) > 2)
 		{
 			echo(json_encode(['error' => 1, 'msg' => '<p style="padding: 20px;">Percebemos que você está com <b>lugares a mais</b>, por favor <b>revise seus ingressos e apague o lugar a mais!</b></p>']));
 			return;
 		}
 		
-		if ("$dia[2]-$dia[1]-$dia[0]" == "2017-11-26" && $this->reservas->getQntUserReservou($_POST['id_evento'],$_POST['user_token'],"$dia[2]-$dia[1]-$dia[0]") > 2)
+		if (strcmp($dia, "2017-11-26") == 0 && $qntReservou + count($_POST['lugares']) > 2)
 		{
 			echo(json_encode(['error' => 1, 'msg' => '<p style="padding: 20px;">Percebemos que você está com <b>lugares a mais</b>, por favor <b>revise seus ingressos e apague o lugar a mais!</b></p>']));
 			return;
@@ -232,10 +229,12 @@ class Controle extends CI_Controller {
 			'id_evento' => $_POST['id_evento'],
 			'id_lugar' => $_POST['lugares'],
 			'usuario_token' => $_POST['user_token'],
-			'dia' => "$dia[2]-$dia[1]-$dia[0]"
+			'dia' => $dia
 		];
 
-		$result = $this->reservas->add($objeto);
+		 $result = $this->reservas->add($objeto);
+
+
 		switch ($result)
         {
             case 1:
@@ -278,10 +277,17 @@ class Controle extends CI_Controller {
 		$this->reservas->edit($id, $objeto);
 	}
 
-	public function deleteReserva($id)
+	public function deleteReserva($id, $token)
 	{
 		$this->load->model('reservas_model','reservas');
-		$this->reservas->delete($id);
+	    if ($this->reservas->hasImprimiu($token))
+        {
+            return;
+        }
+        else
+        {
+            $this->reservas->delete($id);
+        }
 	}
 
 	public function getReservaList($id_evento)
