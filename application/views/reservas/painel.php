@@ -593,53 +593,20 @@
 
                   // Blink engine detection
                   var isBlink = (isChrome || isOpera) && !!window.CSS;
-
-                  function get_browser(){
-                      var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
-                      if(/trident/i.test(M[1])){
-                          tem=/\brv[ :]+(\d+)/g.exec(ua) || [];
-                          return {name:'IE',version:(tem[1]||'')};
-                      }
-                      if(M[1]==='Chrome'){
-                          tem=ua.match(/\bOPR\/(\d+)/)
-                          if(tem!=null)   {return {name:'Opera', version:tem[1]};}
-                      }
-                      M=M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
-                      if((tem=ua.match(/version\/(\d+)/i))!=null) {M.splice(1,1,tem[1]);}
-                      return {
-                          name: M[0],
-                          version: M[1]
-                      };
-                  }
-
-                  var bName = get_browser().name;
-
+		      
                   if (!isBlink)
                   {
-                          var msg = 'Detectamos que você está usando o ' + bName;
-                          if (isOpera)
-                              msg += 'Opera';
-                          else if (isFirefox)
-                              msg += 'Firefox';
-                          else if (isSafari)
-                              msg += 'Safari';
-                          else if (isIE)
-                              msg += 'Internet Explorer';
-                          else if (isEdge)
-                              msg += 'Edge';
-
-                          msg += '. Este navegador não tem uma boa compatibilidade com o módulo de impressão, recomendamos o uso do Google Chrome';
-
+                          var msg = 'Seus ingressos já estão reservados, acesse o site de um computador para realizar a impressão.';
+                          
                           $('#encerrar').css('display', 'none');
                           $('#aviso').html('<h2 style="color: red">Atenção</h2><p>'+ msg +'</p>');
                       
                   }
                   else
                   {
-					  $('#aviso').html('');
-                      $('#encerrar').css('display', 'block');
+			$('#aviso').html('');
+                      	$('#encerrar').css('display', 'block');
                   }
-                  $('#aviso').html('');
               }
               else
               {
