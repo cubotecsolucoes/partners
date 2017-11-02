@@ -204,25 +204,25 @@ class Controle extends CI_Controller {
         $dia = explode('-', $dia);
         $dia = $dia[2].'-'.$dia[1].'-'.$dia[0];
 
-        $qntReservou = $this->reservas->getQntUserReservou($_POST['id_evento'],$_POST['user_token'],$dia);
+        //$qntReservou = $this->reservas->getQntUserReservou($_POST['id_evento'],$_POST['user_token'],$dia);
 
-        if (strcmp($dia, "2017-11-24") == 0 && $qntReservou + count($_POST['lugares']) > 3)
-        {
-            echo(json_encode(['error' => 1, 'msg' => '<p style="padding: 20px;">Percebemos que você está com <b>lugares a mais</b>, por favor <b>revise seus ingressos e apague o lugar a mais!</b></p>']));
-            return;
-        }
+//        if (strcmp($dia, "2017-11-24") == 0 && $qntReservou + count($_POST['lugares']) > 3)
+//        {
+//            echo(json_encode(['error' => 1, 'msg' => '<p style="padding: 20px;">Percebemos que você está com <b>lugares a mais</b>, por favor <b>revise seus ingressos e apague o lugar a mais!</b></p>']));
+//            return;
+//        }
 
-		if (strcmp($dia, "2017-11-25") == 0 && $qntReservou + count($_POST['lugares']) > 2)
-		{
-			echo(json_encode(['error' => 1, 'msg' => '<p style="padding: 20px;">Percebemos que você está com <b>lugares a mais</b>, por favor <b>revise seus ingressos e apague o lugar a mais!</b></p>']));
-			return;
-		}
+//		if (strcmp($dia, "2017-11-25") == 0 && $qntReservou + count($_POST['lugares']) > 2)
+//		{
+//			echo(json_encode(['error' => 1, 'msg' => '<p style="padding: 20px;">Percebemos que você está com <b>lugares a mais</b>, por favor <b>revise seus ingressos e apague o lugar a mais!</b></p>']));
+//			return;
+//		}
 		
-		if (strcmp($dia, "2017-11-26") == 0 && $qntReservou + count($_POST['lugares']) > 2)
-		{
-			echo(json_encode(['error' => 1, 'msg' => '<p style="padding: 20px;">Percebemos que você está com <b>lugares a mais</b>, por favor <b>revise seus ingressos e apague o lugar a mais!</b></p>']));
-			return;
-		}
+//		if (strcmp($dia, "2017-11-26") == 0 && $qntReservou + count($_POST['lugares']) > 2)
+//		{
+//			echo(json_encode(['error' => 1, 'msg' => '<p style="padding: 20px;">Percebemos que você está com <b>lugares a mais</b>, por favor <b>revise seus ingressos e apague o lugar a mais!</b></p>']));
+//			return;
+//		}
 	
 
 		$objeto = [
