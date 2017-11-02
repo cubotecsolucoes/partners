@@ -20,7 +20,7 @@
 	<body>
 		
 		<div class="box-login">
-			<form class="form-group" action="<?php echo(base_url('index.php/login/logar/')); ?>" method="POST" role="form">
+			<!--<form class="form-group" action="<?php echo(base_url('index.php/login/logar/')); ?>" method="POST" role="form">
 				<legend>Partners - Sistema de Reservas</legend>
 
 				<div class="form-group">
@@ -37,8 +37,8 @@
                 <div id="aviso"></div>
 				<button type="submit" class="btn btn-primary pull-left">Entrar</button>
 				<button type="reset" class="btn btn-warning pull-right">Limpar</button>
-			</form>
-<!--            <h3 style="color: red">Sistema bloqueado temporariamente</h3>-->
+			</form>-->
+            <h3 style="color: red">Sistema bloqueado temporariamente</h3>
 		</div>
 
 	<!-- JS -->
