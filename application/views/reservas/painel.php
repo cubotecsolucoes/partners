@@ -616,8 +616,6 @@
 
                   if (!isBlink)
                   {
-                      if (bName !== "Chrome" || bName === "ChromeEdge")
-                      {
                           var msg = 'Detectamos que você está usando o ' + bName;
                           if (isOpera)
                               msg += 'Opera';
@@ -634,15 +632,11 @@
 
                           $('#encerrar').css('display', 'none');
                           $('#aviso').html('<h2 style="color: red">Atenção</h2><p>'+ msg +'</p>');
-                      }
-                      else
-                      {
-                          $('#aviso').html('');
-                          $('#encerrar').css('display', 'block');
-                      }
+                      
                   }
                   else
                   {
+					  $('#aviso').html('');
                       $('#encerrar').css('display', 'block');
                   }
                   $('#aviso').html('');
