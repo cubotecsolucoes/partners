@@ -76,6 +76,7 @@ class Controle extends CI_Controller {
 
         $this->db->where('usuario_token', $codigo);
         $this->db->where('dia', date ("Y-m-d"));
+        $this->db->limit(1);
         $this->db->delete('reservas');
     }
 

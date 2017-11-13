@@ -143,14 +143,17 @@ class Reservas_model extends CI_Model {
             return false;
         }
 
-        if ($this->hasImprimiu($token))
+        $this->db->select('usuario_token');
+        $this->db->where('uid', $token);
+        $user_token = $this->db->get('reservas')->result_array()[0]['usuario_token'];
+
+        if ($this->hasImprimiu($user_token))
         {
             date_default_timezone_set('America/Sao_Paulo');
             $this->db->select('id');
             $this->db->where('uid', $token);
             $this->db->where('dia', date ("Y-m-d"));
             $this->db->from('view_reservas');
-
             $qnt = $this->db->count_all_results();
 
             return $qnt;
@@ -175,9 +178,8 @@ class Reservas_model extends CI_Model {
 
     public function hasImprimiu($token)
     {
-    	$resultado = $this->db->query("SELECT COUNT(id) AS count FROM reservados WHERE usuario_token = '". $token ."'");
+    	$resultado = $this->db->query("SELECT COUNT(id) as count FROM reservados WHERE usuario_token = '". $token ."'");
     	$row = $resultado->row();
-
     	return ($row->count > 0)? true : false;
     }
 
